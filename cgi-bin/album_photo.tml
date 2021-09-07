@@ -1,0 +1,30 @@
+<!-- Insert header template (album_header.tml). -->
+####FILE=album_header.tml####
+
+	<!-- Insert the "update titles and descriptions form, if function=enter_desc. -->
+	<div class="enterdesc">
+		####ENTERDESC####
+	</div>
+
+	<!-- The actual photo. -->
+	<div class="objects">
+		####OBJECT####
+	</div>
+
+	<!-- Insert the photo's "long description," if present. -->
+	<div class="description">
+		####DESCRIPTION####
+	</div>
+
+	<!-- Insert the viewing preferences (Small/Med/Large/Fullsize/Fullscreen). -->
+	<div class="viewing">
+		####STRING=287#### ####SIZES#### ####FULLSCREEN####
+	</div>
+
+	<!-- Insert the photo's ratings, as well as the "Rate It" link. -->
+	<div class="ratings">
+		####RATINGS####
+	</div>
+
+<!-- Insert footer template (album_footer.tml). -->
+####FILE=album_footer.tml####

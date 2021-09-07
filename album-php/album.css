@@ -1,0 +1,78 @@
+/*******************************
+	album.php Style Sheet
+	http://dev.Bobbitt.ca/album
+ $Id: album.css,v 1.4 2005/03/18 20:56:21 bobbitt Exp $
+*******************************/
+
+body
+{
+	font-family: Verdana, sans-serif;
+	background-color: #D4D4D4;
+	margin: 0;
+}
+
+body, td
+{
+	font-size: 10pt;
+}
+
+P	{ font-size: 10pt; text-align: left; }
+
+div.error_message
+{
+	border: 2px dashed red;
+	background-color: #E1E1E1;
+	margin: 1ex 4ex;
+	padding: 1.5ex;
+}
+
+div#content
+{
+	padding: 20px 30px;
+}
+
+div.main
+{
+	border: 1px solid gray;
+	background-color: #F0F0F0;
+	margin: 1ex 0;
+	padding: 1.2ex;
+}
+div.main h1
+{
+	margin: 0px;
+	margin-bottom: 0.5ex;
+	padding-bottom: 3px;
+	border-bottom: 1px dashed black;
+	font-size: 14pt;
+	font-weight: normal;
+}
+div.main h2
+{
+	margin: 0px;
+	margin-bottom: 0.5ex;
+	font-size: 10pt;
+	font-weight: bold;
+	font-variant: small-caps;
+	text-decoration: underline;
+}
+div.main h3
+{
+	margin: 0px;
+	margin-bottom: 0.5ex;
+	font-size: 10pt;
+	font-weight: bold;
+}
+div.block
+{
+	border:3px inset;
+	padding: 10px;
+	margin-left: 30px;
+	background-color: #E4E4E4;
+	font-size: 8pt;
+	width: 80%;
+}
+
+a:link,a:visited	{ text-decoration: none; color: #4e2900; font-weight: normal; }
+
+a:hover,a:active	{ text-decoration: none; color: #00294e; font-weight: normal; }

@@ -1,0 +1,10 @@
+<!-- Insert header template (album_header.tml). -->
+####FILE=album_header.tml####
+
+	<!-- Insert the login form. -->
+	<div class="loginform">
+		####LOGINFORM####
+	</div>
+
+<!-- Insert footer template (album_footer.tml). -->
+####FILE=album_footer.tml####

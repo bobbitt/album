@@ -1,0 +1,347 @@
+Bezig statische HTML bestanden te genereren
+Foto Album - Bezig statische HTML bestanden te genereren
+Deze instelling is bedoeld om te worden toegepast om foto albums zonder internet verbinding te lezen. Bijvoorbeeld, als een webserver niet practisch is of niet beschikbaar, of als je een album op CD-ROM wilt branden.
+Dit zal een HTML bestand maken in iedere folder (album), en een one voor iedere foto. Dat zal het mogelijk maken om de foto's te bekijken via deze statische HTML. (Normaal wordt die HTML gegenereert door de webserver op moment van benaderen van het album). De keerzijde van deze manier is dat je dit proces moet herhalen als er foto's wijzigen (toegevoegd, gewijzigd of verwijderd).
+Bezig statische HTML bestanden te genereren voor...
+HTML gegenereerd voor
+foto(s)
+en
+film(s)
+in
+album(s).
+foto
+film
+album
+miniweergaves zijn gevonden.
+Spring naar:
+Ga
+FOUT!
+FOUT: Regel
+Probleem met openen bestand:
+Probleem met schrijven naar tijdelijk bestand:
+Waarschijnlijk moet je de folder rechten wijzigen voor de wereld (chmod 777 in unix).
+Probleem met schrijven naar bestand:
+Geweigerd door basis veiligheids test:
+Fout bij upload van foto:
+Kan authenticatie database niet openen:
+Kan niet toevoegen aan bestand:
+Kan geen album aanmaken in folder:
+Fout in configuratie bestand:
+Registratie fout. Probeer a.u.b. opnieuw.
+Foutief configuratie bestand gespecificeerd
+Wijzig a.u.b.
+en pas de regel met "$configfile=..." aan, zodat die naar uw configuratie bestand verwijst.
+Onbekende foutcode:
+Rapporteer deze informatie aan <a href="mailto:Mike@Bobbitt.ca">Mike@Bobbitt.ca</a>
+Het Upload Foto Album
+Upload Niet Toegestaan
+De site beheerder heeft de Upload functie uitgeschakeld. Keer a.u.b. terug naar
+Je moet je gebruikers ID opgeven!
+Je moet je wachtwoord opgeven!
+Je moet een bestand selecteren om op te laden!
+Upload geweigerd! Geen geldig gebruikers ID:
+Edit
+Delete
+Move
+Foto
+Album
+Beheer Menu
+Maak Album
+Wijzig Titels en Omschrijvingen
+Fullscreen Slideshow
+Configuratie Beheer
+Her-Index Dit Album
+Small
+Gebruikersnaam:
+Naam:
+Wachtwoord:
+Bestand #
+Categorie:
+Titel:
+Omschrijving:
+Ik accepteer deze regels
+Foei, foei! Probeer je bij mij in te breken?
+Bestand
+is een niet ondersteund bestandformaat. Zie a.u.b. de Upload regels voor meer informatie.
+bestaat al, zal niet overschrijven!
+Fout bij openen
+bestand voor schrijven
+Kan geen bestanden laden groter dan
+kilobytes
+Quota overschreden! (U heeft een limiet van
+totaal.)
+Kon bestand niet Uploaden:
+was groot
+(
+)
+ter grootte van
+bytes is succesvol opgeladen!
+Opgeladen door
+Gebouwt op
+Configuratie bestand heeft versie
+maar je draait versie
+van dit programma. <a href="?upgradecfg=true">Aanpassen a.u.b.</a>!
+Sorry, je mag geen relatief pad opgeven in
+Sorry, je mag geen speciale tekens gebruiken in
+naam
+Foto Albums
+Vorige
+<<
+Terug naar Album
+Volgende
+>>
+Nooit
+Bekeken
+album.pl
+(eerste bezoek).
+Laaste bezoek op
+||
+Stop Diashow
+Stop Debuggen
+Legenda:
+Icon
+Als je een bericht wilt ontvangen als plaatjes worden toegevoegd aan
+Film
+, geef a.u.b. uw e-mail adres hieronder.
+Hou mij op de hoogte
+Uw e-mail adres
+is toegevoegd aan de lijst. Zodra plaatjes worden toegevoegd aan het album, ontvangt u bericht.
+5: Erg Goed
+4: Goed
+3: Gemiddeld
+2: Slecht
+1: Erg Slecht
+Naam (optioneel):
+Commentaar (optioneel):
+Voeg Waardering Toe
+Huidig plaatje is
+Hier klikken toont
+Dit is de laaste foto.
+*
+Uw configuratie bestand mist kritische gegevens. Sinds album versie 5, zijn veel configuratie gegevens veranderd. U moet waarschijnlijk met het bestand album.cfg uit deze release opnieuw starten en opnieuw alles instellen.
+#FF0000
+#FF9900
+ALLEEN LEZEN
+STOP:
+Uw configuratie bestand (
+) is niet beschrijfbaar. U moet het beschrijfbaar maken voor de webserver voordat u configuratie wijzigingen kunt opslaan op deze manier.
+Documentatie
+<b>NB</b>: U bent in het configuratie scherm omdat u voor de
+eerste keer draait. Configureer uw album a.u.b. en druk op "Toepassen" om uw instellingen te bewaren. Als dat is gebeurt, zult u niet langer naar dit Configuratie Beheer scherm worden gestuurd.<p>Instellingen gemarkeert met een * zijn automatisch gevuld met "gebruikelijke waardes." Hoewel een poging is gedaan om hier correcte gegevens te verkrijgen, kan het zijn dat u moet wijzigen voor een foutloze werking.
+Deze folder bestaat momenteel niet of is niet leesbaar voor de webserver. U moet deze folder aanmaken of deze instelling aanpassen voor correcte werking van uw album.
+Deze folder bestaat momenteel niet of is niet beschrijfbaar voor de webserver. U moet deze foler aanmaken, rechten aanpassen of deze instelling aanpassen om Uploaden van bestanden mogelijk te maken op uw album.
+Dit sjabloon bestaat niet of is niet leesbaar voor de webserver. Maak dit sjabloon aan of pas deze instelling aan voor correcte werking van het album. Dit kan worden veroorzaakt door een niet goede instelling voor template_dir, hierboven.
+Het notificatie bestand is niet gevonden of is niet beschrijfbaar door de webserver. Er kunnen geen e-mail adressen worden opgeslagen zolang dit niet wordt opgelost.
+Het logboek bestand is niet gevonden of is niet beschrijfbaar door de webserver. Tenzij de folder met daarin het logboek bestand beschrijfbaar is door de webserver, kunnen Upload notities niet plaatsvinden.
+De instelling voor het logboek bestand is blanco. Er wordt geen Upload logboek bijgehouden.
+Uw "members" folder is niet gevonden of is niet leesbaar voor de webserver. Uploaden kan niet authenticeren voor UBB of YaBB gebruikers tenzij dit wordt gecorrigeerd.
+Jhead is niet gevonden op de aangegeven plaats. U ontvangt jhead fouten totdat dit is gecorrigeerd. (Deze fout komt soms zelf voor terwijl pad naar jhead wel correct is - dan gewoon OK geven...)
+Medium
+De authenticatie database is niet gevonden, of is niet leesbaar voor de web server. Als u platte tekst bestand authenticatie heeft ingesteld (authentication_type=1) dan moet u dit aanpassen.
+You have no image extensions defined. No images will be displayed in your album. (If you are strictly uploading binary files, this is OK.)
+You have no movie extensions defined. No movies will be displayed in your album. (If you aren't uploading movies, this is OK.)
+You are using the default code. Your album may be hacked unless you change this.
+You are using the default code. Your album and photo descriptions may be changed unless you change this.
+You are using the default code. Your photo ratings may be changed unless you change this.
+You are using the default code. Your album and photo descriptions may be changed unless you change this.
+The path to your photo icon is not set correctly. Links to this image will probably be broken or missing all together until this is fixed.
+The path to your movie icon is not set correctly. Links to this image will probably be broken or missing all together until this is fixed.
+The path to your album icon is not set correctly. Links to this image will probably be broken or missing all together until this is fixed.
+WAARSCHUWING:
+is niet beschrijfbaar! Wijzigingen niet mogelijk.
+Voeg nieuwe instelling toe
+Deze sectie wordt gebruikt om nieuwe instellingen toe te voegen aan uw album.cfg bestand. Dit is uitsluitend nodig bij opwaardering naar hogere release, om een noodzakelijke instelling toe te voegen. NB: instellingen toegevoegd via deze methode worden niet gesorteerd in de juiste instellingen groep. Waarschijnlijk kunt u beter album.cfg rechtsreeks wijzigen in een tekst editor.
+Formaat
+Commentaar
+Naam
+Waarde
+Voorbeeld
+Code voor instellen debug niveau - dit niet wijzigen geeft bijna zekerheid dat uw foto gallerij wordt gehacked! Hackers maken gebruik hiervan om informatie over uw website te verkrijgen, die ze beter niet mogen weten, dus pas dit aan!.
+debug_code
+debug
+Nieuwe instelling
+Registratie
+Het opgeven van een e-mail adres in het "E-Mail Adres" blok houdt u op de hoogte van nieuwe versies, veiligheids correcties en toekomstige uitbreidingen. Uw adres zal <b>niet</b> worden doorgegeven aan derden of voor andere doeleinden worden gebruikt. Ik heb dit registratie middel toegevoegd om de album.pl gemeenschap op de hoogte te houden van ontwikkelingen, niet om rijk te worden of om SPAM mail te sturen. :)
+Als u liever geen adres wilt opgeven, ook goed, het is optioneel.
+E-Mail Adres
+Toepassen
+Reload
+Uw configuratie is aangepast. Vanaf hier, heeft u de volgende mogelijkheden:
+Bekijk uw album
+Ga naar Beheer
+Bekijk upload formulier
+Configureer meer instellingen
+Geen Waardering
+Waardering
+, huidige waardering is
+Large
+Welkom
+Full Size
+Login Nodig
+Authenticatie Fout. Probeer opnieuw a.u.b.
+Dit album is beveiligd met wachtwoord. Geef uw wachtwoord om door te gaan.
+Bevestig Verwijderen
+Weet u zeker dat u wilt verwijderen
+is niet verwijderd!
+kon niet worden verwijderd!
+Nieuwe folder wordt gemaakt in
+Folder (bestandssysteem) naam:
+bestaat al.
+Voer uw nieuwe titel in
+Voer uw nieuwe omschrijving in
+Stop met omschrijvingen
+Sla Omschrijving Op
+Recente Uploads Niet Beschikbaar.
+Meest Recente Uploads
+Uploaded In
+Waardering:
+Dit is geen juiste folder. Image Magick integratie (en daardoor automatische miniweergave generatie) zal niet werken totdat dit wordt gecorrigeerd.
+zal ook worden verwijderd.
+maal
+Fotos uploaded door
+keer
+Commentaar van
+Anoniem
+Omschrijvingen zijn gevonden.
+Kan niet afvorken (fork):
+Pagina:
+Volgende
+Vorige
+URL van plaatje: [
+]
+Omdat dit een folder is, zullen de volgende bestanden ook worden verwijderd:
+Rate It
+Image Magick Fout:
+Verplaats
+Verplaats Photo
+Bevestig Verplaatsing
+Waarheen wilt u verplaatsen
+is niet verplaats!
+kon niet worden verplaatst!
+:
+zal eveneens worden verplaatst.
+Verplaats naar:
+Ja
+Nee
+.
+U heeft een "null" (lege) functie code ingevoerd. Dit kan hele vreemde effecten geven op uw album, dus geef a.u.b. iedere functie code een unieke en niet lege waarde.
+Breek af
+Voeg Waardering Toe:
+Support Forums
+Sla Omschrijving Op en Ga Naar Volgende Foto >>
+&nbsp;&nbsp;
+...
+Recent Uploads
+Fotos:
+Ik denk dat u dit wel interessant vindt:
+Log In
+Algemeen
+Dit formulier kan worden gebruikt voor upload van fotos in  ####TITLE####. Alleen gebruikers die staan geregistreerd bij deze website kunnen fotos uploaden (Registeer <A href="mailto:webmaster@localhost.com?subject=upload registratie">hier</A> als u nog geen account heeft.)
+Regels
+<ol><li>Bestanden moeten in ####FORMAT#### formaat zijn.<li>Alle uploads worden gelogd om veiligheids redenen.<li>Geen porno, obsceniteiten of aanstootgevend materiaal mag worden gepost.<li>Uploads kunnen worden gewijzigd vanwege grootte of inhoud.<li>Alle bestanden moeten ofwel origineel zijn, of met toestemming van fotograaf, maker of eigenaar voor posten.<li>Fotos worden publiek bezit zodra ze hier gepost zijn.<li>Uploads magene niet groter zijn dan ####SIZE#### kilobytes.</li></ol>Niet houden aan deze regels leidt tot uitsluiting van houder van account.
+Om de huidige plaatjes te bekijken <A href="####ALBUMPROG####">####TITLE####, volg deze link</A>.
+Foto Upload
+Om een upload te doen van een foto, de gevraagde informatie in de velden hieronder invoeren. (Merk op dat voor drukke sites, het weergeven van het formulier enige tijd kan duren.)
+of
+Create Album
+Werk Titels & Beschrijvingen bij
+Upload
+Configuratie Management
+Check voor Updates
+Zet Album Thumbnail
+Diagnostics
+Uw versie van album.pl is gelijk aan laatste versie.
+Uw versie loopt achter:
+Uw Versie is
+gewijzigd op
+De nieuwste beschikbare versie is
+U kan de laatste versie downloaden van
+Albums
+Fotos
+Films
+Populair
+Volledig scherm Diashow
+Kon geen verbinding krijgen met update server.
+Statische HTML gemaakt in
+seconden.
+minuten en
+uren
+Er is een gemiddelde van
+fotos per album.
+Meest Populaire
+--
+>
+Populariteit
+<b>Selecteer de miniweergave die je wilt gebruiken om dit album weer te geven:</b>
+»
+Sluit Deze Window
+is een
+en daarom geweigerd voor upload.
+Zoek
+Geef term waarnaar je wilt zoeken:<br>
+Zoek in:
+Bestandnamen
+Titels en Omschrijvingen
+Waarderingen en Commentaar
+<hr />
+Weergave Opties:
+match gevonden.
+Eigenaar
+U heeft geen miniweergave bestand prefix opgegeven. Dat betekent dat alles wordt opgevat als miniweergave (en niet als foto) en dus zal uw album niet werken.
+Toon Meer
+Two or more of your function codes are the same. Your album will act unpredictably until you change this.
+Database Error
+<p>Object niet gevonden.<br>Try browsing to it manually from the photo album's root: <a href="####ALBUMPROG####">####ALBUMPROG####</a>.<p>
+!
+U moet administrator zijn om deze functie te kunnen uitvoeren.
+Your style sheet is not working!<br />Please see <a href="http://dev.bobbitt.ca/forums/index.php?topic=21.0" target="_blank">this page</a> for more information.
+Bezoekers kunnen niet uploaden.
+Eigenaar
+Edit User List
+Update User List
+This section allows you to edit your userlist, for flatfile authentication. Users are one per line, in "username|password" format. See <a href="http://dev.bobbitt.ca/forums/index.php?topic=26.0">this link</a> for more information.
+All
+Configuration Section:
+Logout
+Configuration error: Incomplete configuration information was detected - album.cfg not updated.
+Error uploading movie:
+Link
+Confirm Link
+Where would you like to create the link to
+was not linked!
+could not be linked!
+Create link in:
+Home
+Random
+E-Mail This Page
+*** Select an album ***
+Please select an album to upload into.
+Configuration Upgrade
+<b>NOTE:</b>
+All files must be located in
+This process merges your existing settings (album.cfg) with the config file from a new version (album.cfg.clean). This is useful for upgrading from a previous release, where new config items have been added, changed, etc.
+Existing configuration filename:
+Updated configuration filename:
+The upgraded configuration file is now saved as
+album.pl Admin Code: *
+* Required to ensure you are the album admin.
+Not authorized - ensure you enter the correct admin code.
+Config Item
+Default Value
+Existing Value
+If you are happy with the changes, simply click the button below to start using the new configuration.
+A summary of updated configuration items is below. All your existing settings have been maintained. To start using these settings, simply click the "Apply" button at the bottom of the page.
+Your configuration has been successfully upgraded.
+Success!
+Click here to
+Object not found
+<p>Object not found.<br>Try again after login.<p></center>
+Auto Size
+Who can view this photo?
+Anyone
+Friend
+Family
+noaccess
+Member
+Junior Member
+Rename (filesystem) to:

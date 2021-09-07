@@ -1,0 +1,235 @@
+/*******************************
+	album.pl Style Sheet
+	http://perl.Bobbitt.ca/album
+ $Id: Photo_Album.css,v 1.10 2004/09/13 15:25:39 bobbitt Exp $
+*******************************/
+
+body	{ background-color: #C0C0C0; font-size: 8pt; letter-spacing: 1px;
+	color: black; text-align: left;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif';
+	scrollbar-face-color: #808080; scrollbar-highlight-color: white;
+	scrollbar-shadow-color: #808080; scrollbar-3dlight-color: black;
+	scrollbar-arrow-color: silver; scrollbar-track-color: #c0c0c0;
+	scrollbar-darkshadow-color: black; }
+
+P	{ font-size: 8pt; color: black; text-align: left; letter-spacing: 1px;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif';}
+
+
+/*******************************
+	div definitions
+	(These define the styles of the main "sections" of the album.)
+*******************************/
+
+/* The entire album "table" */
+#album	{ width: 93%; border: 2px solid #333333; color: #000000; background-color: #E4E4E4; }
+
+/* The title of the current object */
+.title	{ font-size: 20pt; font-variant: small-caps; background-color: #202020;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif';
+	text-align: left; line-height: 200%; word-spacing: 3px;
+	letter-spacing: 8px; font-weight: bold; text-indent: 5px; color: white; }
+
+/* The object's description */
+.description	{ line-height: 200%; text-align: left; background-color: #E4E4E4; font-weight: normal; }
+
+/* Album's title as displayed under it's thumbnail */
+.albumsubtitle	{ text-align: center; font-size: 8pt; color: #000000; display: inline; }
+
+/* Photo's title as displayed under it's thumbnail */
+.photosubtitle	{ text-align: center; font-size: 8pt; color: #000000; display: inline; }
+
+/* 2nd level titles, such as those used on the upload screen */
+.subtitle	{ text-align: left; font-size: 10pt; font-weight: bold; }
+
+/* Horizontal banner (NOT USED) - Light Gray */
+.lightbanner	{ height: 25px; border: 1px solid #333333; background-color: #999999; }
+
+/* Horizontal banner used to hold "E-Mail This Page" and views information - Medium Gray */
+.medbanner	{ height: 25px; border: 1px solid #333333; background-color: #666666; }
+
+/* Horizontal banner used to hold login, home, search, etc - Dark Gray */
+.darkbanner	{ height: 25px; border: 1px solid #333333; background-color: #333333; }
+
+/* Welcome/Login link/Username */
+.login	{ line-height: 200%; text-align: left; width: 49.99%; font-size: 8pt; display: inline; }
+
+/* The login form itself */
+.loginform	{ line-height: 200%; text-align: left; background-color: #E4E4E4; width: 65%; font-size: 8pt; }
+
+/* Home, Search, Random, Upload, Recent Uploads */
+.options	{ line-height: 200%; width: 50%; text-align: right; font-size: 8pt; display: inline; }
+
+/* Admin menu */
+.admin	{ background-color: #aa6600; text-align: center; color: #000000; font-size: 6pt; }
+
+/* Used for displaying objects on the Recent Uploads screen */
+.recentuploads	{ line-height: 200%; width: 40%; text-align: left; font-size: 6pt; display: inline; }
+
+/* Used for displaying objects on the  Most Popular screen */
+.popular	{ line-height: 200%; width: 28%; text-align: left; color: #000000;
+	font-size: 6pt; display: inline; }
+
+/* Used for displaying objects on the Recent Uploads screen */
+/* Objects will be displayed horizontally. To display vertically, remove "display: inline;" from the class below */
+/* Height is the distance between thumbnails when spaced vertically. Width is the distance when spaced horizontally. */
+.ssirecentuploads	{ height: 110px; width: 110px; display: inline; }
+
+/* Breadcrumbs */
+.bread	{ line-height: 200%; border: 1px solid #333333; background-color: #999999; text-align: left; font-size: 6pt; }
+
+/* Pages, when there's more than 1 */
+.pages	{ line-height: 200%; background-color: #E4E4E4; text-align: right; font-size: 6pt; }
+
+/* The form to enter descriptions */
+.enterdesc	{ text-align: center; background-color: #E4E4E4; }
+
+/* The rules for uploading files */
+.uploadrules	{ text-align: left; }
+
+/* The object itself (I.E. the photo, or an album full of photos) */
+.objects	{ text-align: center; background-color: #E4E4E4; }
+
+/* The text under each photo's thumbnail */
+.photo	{ text-align: center; font-size: 6pt; }
+
+/* The Small/Med/Large and Fullscreen Slideshow links for photos */
+.viewing	{ line-height: 200%; background-color: #E4E4E4; text-align: center; font-size: 6pt; }
+
+/* The "E-mail this page" link */
+.mailto	{ line-height: 200%; text-align: center; vertical-align: middle; width: 49.99%; font-size: 6pt; display: inline; }
+
+/* The text saying how many times this photo has been viewed */
+.views	{ line-height: 200%; width: 50%; text-align: center; font-size: 6pt; display: inline; }
+
+/* Ratings */
+.ratings	{ line-height: 200%; text-align: center; font-size: 6pt; }
+
+/* The e-mail notify form */
+.notify	{ text-align: center; font-size: 6pt; }
+
+/* The icon legend at the bottom */
+.legend	{ text-align: center; font-size: 6pt; background-color: #666666; }
+
+/* The navigation footer at the bottom. */
+.nav	{ border: 1px solid #333333; text-align: center; background-color: #999999; }
+
+/* The navigation footer at the bottom, covers spacing of individual prev/up/next buttons. */
+.navwidth	{ width: 32%; display: inline; }
+
+/* Group titles (albums or photos/movies) */
+.group	{ text-align: left; font-size: 8pt; }
+
+/* Subtext, used for things like the "fine print" on the search form */
+.subtext { font-size: 6pt; display: inline; }
+
+/* Used to display warnings */
+.warning	{ padding: 10px; border: 3px solid #ffea23; text-align: center; line-height: 140%; background-color: #FF0000; color: #ffffff; font-size: 10pt; font-weight: bold; }
+
+/* Used to display "Missing Style Sheet" warning. Actually, it's used to hide the warning. :) */
+.hidden	{ display: none; }
+
+/* Used for hover popups (jhead info, etc...) */
+.popup {
+	font-size: 12px;
+	color: #000000;
+	background-color: #eaeaea;
+	text-decoration: none;
+	position: absolute;
+	z-index: 20;
+	visibility: hidden;
+	top: 0px;
+	left: 0px;
+	border: 1px solid #222222;
+	padding: 3px;
+}
+
+/*******************************
+	table definitions
+	(Used to display the thumbnails of sub albums, movies and photos inside an album.)
+*******************************/
+
+table	{ border-collapse: collapse; empty-cells: hide;
+	border-color: #000033; width: 80%; color: #000000; }
+
+td	{ font-size: 8pt; border-color: #330000; }
+
+
+/*******************************
+	image definitions
+	(Used to display the thumbnails of each object type differently.)
+*******************************/
+
+img.album	{ border:3px inset; border-color: #666666 #999999 #cccccc #333333; }
+img.thumb	{ border:3px outset; border-color: #999999 #666666 #333333 #cccccc; }
+img.photo	{ border:0px; }
+img.movie	{ border:2px outset; border-color: #999999; border-style: dashed; }
+img.button	{ border:0px; vertical-align: middle; }
+
+
+/*******************************
+	link definitions
+	(Used to display links.)
+*******************************/
+
+/* Standard links */
+a:link	{ text-decoration: none; color: black; font-weight: normal;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif';}
+
+/* Links already visited */
+a:visited	{ text-decoration: none; color: black; font-weight: normal;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif';
+	font-style: italic }
+
+/* Links while being clicked */
+a:active	{ text-decoration: none; color: #52869F; font-weight: normal;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif'; }
+
+/* Links when hovered over */
+a:hover	{ text-decoration: none; color: #00294e; font-weight: normal;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif';}
+
+/* Admin menu links */
+a.adminlink	{ }
+
+/* User option links */
+a.optionslink	{ }
+
+/* Navigation footer links */
+a.navlink	{ }
+
+/* Breadcrumbs links */
+a.breadlink	{ }
+
+/* Full size photo links */
+a.photolink	{ }
+
+/* Pages links */
+a.pageslink	{ }
+
+/* Image thimbnail links */
+a.imagethumb	{ }
+
+/* Movie thimbnail links */
+a.moviethumb	{ }
+
+/* Album thimbnail links */
+a.albumthumb	{ }
+
+
+/*******************************
+	input definitions
+	(Used to display text boxes, input fields, checkboxes, radio buttons, etc...)
+*******************************/
+
+input	{ border:3px outset; background-color: #E4E4E4; font-size: 8pt;
+	color: #808080;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif'; }
+
+input.button	{ font-size: 8pt; font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif'; font-weight: normal;
+      color: #ffffff; border: 1px solid #52869F; background-color: #00294e; }
+
+textarea, select	{ border:3px inset; background-color: #E4E4E4; font-size: 8pt; color: #808080;
+	font-family: Tahoma, verdana, arial, helvetica, 'Sans Serif'; }
+
+input.checkbox	{ border:3px; }

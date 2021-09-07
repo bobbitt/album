@@ -1,0 +1,31 @@
+INSTALLATION INSTRUCTIONS
+
+For the latest installation instructions, please see the online documentation at: http://dev.bobbitt.ca/forums/index.php?topic=24.0
+
+If you are upgrading, please see http://dev.bobbitt.ca/forums/index.php?topic=23.0.
+
+Otherwise, here are the steps to follow:
+
+* Unzip the albumxx.zip file you downloaded into the root of your web space. (I.E. in your "www" or "public_html" directory.) This will automatically place all the files in their default location.
+
+* The "album" directory has been created by default to hold your photos. Directory trees are supported, so you can create a heirarchy if you wish. Make sure all of these directories are writable to the web server (usually world writable) if you want to update descriptions via the web or upload photos using the built-in interface. Any sub directories or images your put in this directory will be automatically viewed as albums and photos by the script.
+
+* Make sure the permissions are set as per the online documentation: http://dev.bobbitt.ca/forums/index.php?topic=25.0
+
+* Go to http://www.yourserver.com/cgi-bin/album.pl (obviously, insert your servername and path to album.pl as required), which will take you to the "first time config" screen.
+
+* If your album appears not to be working, run http://www.yourserver.com/cgi-bin/album_test.pl from the web. This small script runs diagnostics on album.pl, and is generally very useful in helping you troubleshoot any problems you're having.
+
+* Set all the configuration items to match your system and preferences. You can also edit album.cfg directly to achieve the same result. Configure just the file paths for now - make sure you get the album up and running as a "baseline" before you try any fancy config tricks.
+
+* Put your photos into your "album" directory.
+
+* OPTIONAL: Make thumbnails of your photos. I use Thotor: http://www.dominativ.com/thotor/. The settings that work for me are Max Height 75, quality 25. You can also integrate album.pl with ImageMagick or GD (if installed) so that thumbnails are automatically generated.
+
+* Go to album.pl through the web, and troubleshoot as required. Error messages will be displayed if anything is not working correctly. (See the FAQ section (http://dev.bobbitt.ca/forums) for the most common problems.)
+
+* If you allow uploads to your album, you will want to check that out by going to http://www.yourserver.com/album.pl?function=upload. If you are using a forum such as YaBB or UBB with album.pl, then you will want to set authentication_type accordingly in your config file. No hacking of the forum code is required, just set your configure the album variables properly.
+
+* If you get stuck, post a description of your problem to the support forum (http://dev.bobbitt.ca/forums), and I will do my best to respond quickly.
+
+* Last but not least, please let me know you're using the software! The more people that I know are using this script, the more time I'll devote to it. So speak up!

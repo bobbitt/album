@@ -1,0 +1,347 @@
+Generating Static HTML Files
+Photo Album - Generating Static HTML Files
+This mode is meant to be used to prepare the photo album to be read offline. For example, when a web server is not practical or available, or if you want to burn your album onto a CD-ROM.
+This will create an HTML file in each directory (album), and one for each photo. This will allow you to view the photos through this static HTML. (Normally this HTML is built on the fly by the web server). The down side to doing this is that you will have to re-run this process if new photos are added.
+Generating Static HTML for...
+Created HTML for
+photo(s)
+and
+movie(s)
+in
+album(s).
+photo
+movie
+album
+thumbnails were found.
+Jump to:
+Go
+ERROR!
+ERROR: Line
+Cannot open file:
+Cannot open temp file for writing:
+You probably need to make the directory world writable (chmod 777 for unix).
+Cannot write to file:
+Failed basic sanity test:
+Error uploading photo:
+Cannot open authentication database:
+Cannot append to file:
+Cannot create album directory:
+Error in configuration file:
+Registration error. Please try again.
+Invalid configuration file specified
+Please edit
+and modify the "$configfile=..." line to point to your configuration file.
+Unknown error code:
+Please report this information to <a href="mailto:Mike@Bobbitt.ca">Mike@Bobbitt.ca</a>
+The Uploadable Photo Album
+Uploads Not Allowed
+The site administrator has disabled the upload photo function. Please return to
+You must specify your Userid!
+You must specify your Password!
+You must select a file to upload!
+Will not upload! Could not validate Userid:
+Edit
+Delete
+Move
+Photo
+Album
+Administration Menu
+Create Album
+Update Titles and Descriptions
+Fullscreen Slideshow
+Configuration Management
+Re-Index This Album
+Small
+Username:
+Name:
+Password:
+File #
+Album:
+Title:
+Description:
+I agree with the rules
+Naughty naughty! Are you trying to hack me?
+File
+is not a supported file type. Please see the upload rules for more information.
+exists, will not overwrite!
+Error opening
+file for writing
+Cannot load files larger than
+kilobytes
+Quota exceeded! (You have a limit of
+total.)
+Could not upload file:
+was size
+(
+)
+of size
+bytes is uploaded successfully!
+Uploaded by
+Built on
+Config file is version
+but you are running version
+. Please <a href="?upgradecfg=true">upgrade your configuration</a>!
+Sorry, you can't use a relative path for the
+Sorry, you can't use special characters in the
+name
+Photo Album
+Previous
+<<
+Back To Album
+Next
+>>
+Never
+Viewed
+album.pl
+(first viewing).
+Last viewed on
+||
+Stop Slideshow
+Stop Debugging
+Legend:
+Icon
+If you want to be notified when pictures are added to
+Movie
+, please enter your e-mail address below.
+Notify Me
+Your e-mail address
+has been added to the list. You will be notified any time pictures are added to the album.
+5: Very Good
+4: Good
+3: Average
+2: Poor
+1: Very Poor
+Name (optional):
+Comments (optional):
+Add Rating
+Current image is
+Clicking here will display
+This is the last photo.
+*
+Your config file is missing critical information.
+#FF0000
+#FF9900
+READ ONLY
+STOP:
+Your configuration file (
+) is read only. You must make sure if is writable to the web server before you can make any configuration changes.
+Documentation
+<b>NOTE</b>: You are at the configuration screen because your are running
+for the first time. Please configure your album and hit "Apply" to save your settings. Once this is done, you will no longer be taken to the Configuration Management screen automatically.<p>Items marked with a * are pre-filled automatically, with "best guesses." Though an attempt was made to use the correct values here, these items may also need to be modified to work correctly.
+This directory does not currently exist or is not readable to the web server. You must either create it or modify this config item before your album will work.
+This directory does not currently exist or is not writable to the web server. You must either change the permissions or modify this config item before your album will accept uploads.
+This template does not currently exist or is not readable to the web server. You must either create it or modify this config item before your album will work. This may be caused by an incorrect template_dir, above.
+The notify file is not found or is not writable to the web server. No e-mail addresses can be stored until this is fixed.
+The log file is not found or is not writable to the web server. Unless the directory the log file is in is writable to the web server, no upload logging will occur until this is fixed.
+The log file config item is blank. No upload logging will be done.
+Your "members" directory is not found or is not readable to the web server. Uploads cannot be properly authenticated for UBB or YaBB users until this is fixed.
+Jhead was not found at the specified location. You will receive jhead errors until this is fixed. (This error sometimes shows up even when the path to jhead is correct - just confirm it...)
+Medium
+The authentication database is not found, or is not readable to the web server. If you are using flatfile authentication (authentication_type=1) then you must fix this.
+You have no image extensions defined. No images will be displayed in your album. (If you are strictly uploading binary files, this is OK.)
+You have no movie extensions defined. No movies will be displayed in your album. (If you aren't uploading movies, this is OK.)
+You are using the default code. Your album may be hacked unless you change this.
+You are using the default code. Your album and photo descriptions may be changed unless you change this.
+You are using the default code. Your photo ratings may be changed unless you change this.
+You are using the default code. Your album and photo descriptions may be changed unless you change this.
+The path to your photo icon is not set correctly. Links to this image will probably be broken or missing all together until this is fixed.
+The path to your movie icon is not set correctly. Links to this image will probably be broken or missing all together until this is fixed.
+The path to your album icon is not set correctly. Links to this image will probably be broken or missing all together until this is fixed.
+WARNING:
+is not writable! No changes can be made.
+Add a new config item
+This section is used to add a new config item to your album.cfg file. This should only be done when upgrading, in order to add a required configuration item. Note that items added through these means will not be sorted into the proper group. You may wish to edit album.cfg directly to add new config items.
+Format
+Comments
+Name
+Value
+Example
+Code to use for setting debug levels - not changing this will pretty much ensure your gallery is hacked! Hackers can make use of this to obtain information about your site that they shouldn't have, so make sure you change this.
+debug_code
+debug
+New config item
+Registration
+Providing an e-mail address in the "E-Mail Address" block below will allow you to be notified of new releases, security fixes and upcoming features. Your address will <b>not</b> be given to any third parties or used to any other purposes. I've added a registration feature to help the album.pl community stay up to date with development efforts, not to make a buck or spam you. :)
+If you still don't want to provide an address, that's OK, it's optional.
+E-Mail Address
+Apply
+Reload
+Your configuration has been updated. From here, you have the following options:
+View your album
+Perform administrative tasks
+View upload form
+Configure more settings
+Not Rated
+Rated
+, current rating is
+Large
+Welcome
+Full Size
+Login Required
+Authentication Failure. Please try again.
+This album is password protected. Please enter your password to continue.
+Confirm Delete
+Are you sure you want to delete
+was not deleted!
+could not be deleted!
+New directory will be created in
+Directory (filesystem) name:
+already exists.
+Enter your new title
+Enter your new description
+Stop entering descriptions
+Update Description
+Recent Uploads Not Available.
+Most Recent Uploads
+Uploaded into
+Rating:
+This is not a valid directory. Image Magick integration (and therefore automatic thumbnail generation) won't work until this is fixed.
+will also be deleted.
+time
+Photos uploaded by
+times
+Comment from
+Anonymous
+descriptions were found.
+Can't fork:
+Page:
+Next
+Previous
+URL to picture: [
+]
+Since this is a directory, the following files will also be deleted:
+Rate It
+Image Magick Error:
+Move
+Move Photo
+Confirm Move
+Where would you like to move
+was not moved!
+could not be moved!
+:
+will also be moved.
+Move to:
+Yes
+No
+.
+You have entered a "null" (empty) function code. This can cause some very weird things to happen to your album, so please give each function code a unique and non-null value.
+Cancel
+Add a Rating:
+Support Forums
+Update Description And Go To Next Photo >>
+&nbsp;&nbsp;
+...
+Recent Uploads
+Photos:
+I thought you might be interested in this:
+Log In
+General
+This form can be used to upload photos into ####TITLE####. Only users who are registered with this site can upload photos.
+Rules
+<ol><li>Files must be in ####FORMAT#### format.<li>All uploads are logged for security purposes.<li>No nudity, obscenity or objectionable materials may be posted.<li>Uploads may be edited for size or content.<li>All files must either be original, or have the permission of the photographer prior to posting.<li>Photos become public property once posted here.<li>Uploads may not be larger than ####SIZE#### kilobytes for photos, or ####MOVIESIZE#### kilobytes for movies.</li></ol>Anyone breaching these rules will have their account disabled.
+To view the current pictures in <A href="####ALBUMPROG####">####TITLE####, click here</A>.
+Photo Upload
+To upload a photo, enter the information in the fields below. (Please note that for large sites, the form may take some time to display.)
+or
+Create Album
+Update Titles & Descriptions
+Upload
+Configuration Management
+Check for Updates
+Set Album Thumbnail
+Diagnostics
+Your version of album.pl is up to date.
+You are out of date:
+Your Version is
+modified on
+The newest available version is
+You can download the latest version from
+Albums
+Photos
+Movies
+Popular
+Fullscreen Slideshow
+Could not connect to update server.
+Built static HTML in
+seconds.
+minutes and
+hours
+There are an average of
+photos per album.
+Most Popular
+--
+>
+Popularity
+<b>Select the thumbnail you wish to use to represent this album:</b>
+»
+Close This Window
+is a
+and therefore not allowed to upload.
+Search
+Please enter the term you want to search for:<br>
+Search in:
+Filenames
+Titles and Descriptions
+Ratings and Comments
+<hr />
+Viewing Options:
+matches found.
+Owners
+You have not defined a thumbnail filename prefix. This will mean that everything will be considered a thumbnail (and not a photo) and your album will not work.
+Show More
+Two or more of your function codes are the same. Your album will act unpredictably until you change this.
+Database Error, check settings.
+<p>Object not found.<br>Try browsing to it manually from the photo album's root: <a href="####ALBUMPROG####">####ALBUMPROG####</a>.<p>
+!
+You must be an administrator to perform this function.
+Your style sheet is not working!<br />Please see <a href="http://dev.bobbitt.ca/forums/index.php?topic=21.0" target="_blank">this page</a> for more information.
+Guests cannot upload.
+Owner
+Edit User List
+Update User List
+This section allows you to edit your userlist, for flatfile authentication. Users are one per line, in "username|password" format. See <a href="http://dev.bobbitt.ca/forums/index.php?topic=26.0">this link</a> for more information.
+All
+Configuration Section:
+Logout
+Configuration error: Incomplete configuration information was detected - album.cfg not updated.
+Error uploading movie:
+Link
+Confirm Link
+Where would you like to create the link to
+was not linked!
+could not be linked!
+Create link in:
+Home
+Random
+E-Mail This Page
+*** Select an album ***
+Please select an album to upload into.
+Configuration Upgrade
+<b>NOTE:</b>
+All files must be located in
+This process merges your existing settings (album.cfg) with the config file from a new version (album.cfg.clean). This is useful for upgrading from a previous release, where new config items have been added, changed, etc.
+Existing configuration filename:
+Updated configuration filename:
+The upgraded configuration file is now saved as
+album.pl Admin Code: *
+* Required to ensure you are the album admin.
+Not authorized - ensure you enter the correct admin code.
+Config Item
+Default Value
+Existing Value
+If you are happy with the changes, simply click the button below to start using the new configuration.
+A summary of updated configuration items is below. All your existing settings have been maintained. To start using these settings, simply click the "Apply" button at the bottom of the page.
+Your configuration has been successfully upgraded.
+Success!
+Click here to
+Object not found
+<p>Object not found.<br>Try again after login.<p>
+Auto Size
+Who can view this photo?
+Anyone
+Friend
+Family
+noaccess
+Member
+Junior Member
+Rename (filesystem) to:

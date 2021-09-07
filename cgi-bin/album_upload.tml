@@ -1,0 +1,48 @@
+<!-- Insert header template (album_header.tml). -->
+####FILE=album_header.tml####
+
+<!-- This defines the section where the upload "rules" and form are displayed. -->
+<div class="uploadrules">
+	<br />
+
+	<!-- This is the "General" section. -->
+	<div class="subtitle">
+		####STRING=238####
+	</div>
+	<br />
+	####STRING=239####
+	<br /><br /><br />
+
+	<!-- This is the "Rules" section. -->
+	<div class="subtitle">
+		####STRING=240####
+	</div>
+	<br />
+	####STRING=241####
+	<br /><br /><br />
+
+	<!-- This is the section with a link back to the main album. -->
+	<div class="subtitle">
+		####TITLE####
+	</div>
+	<br />
+	####STRING=242####
+	<br /><br /><br />
+
+	<!-- This is the "Photo Upload" section. -->
+	<div class="subtitle">
+		####STRING=243####
+	</div>
+	<br />
+	####STRING=244####
+	<br /><br />
+
+	<!-- This is the actual photo upload form. -->
+	<form method="post" enctype="multipart/form-data">
+	####UPLOAD####
+	</form>
+	<br /><br />
+</div>
+
+<!-- Insert footer template (album_footer.tml). -->
+####FILE=album_footer.tml####

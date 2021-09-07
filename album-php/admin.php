@@ -1,0 +1,26 @@
+<?php
+
+
+/*
+	$Id: admin.php,v 1.6 2005/07/04 21:03:46 bobbitt Exp $
+
+	album.php
+	Written by Mike Bobbitt and DJ Houghton
+	http://dev.bobbitt.ca/forums
+
+	admin.php
+	Administrative Functions
+*/
+
+// Bail if this is not being called via album.php
+if (!defined('album-php'))
+	die('This file cannot be run directly.');
+
+// Pick out CVS version and date for this file
+$admin_cvsver = '$Revision: 1.6 $';
+$admin_cvsdate = '$Date: 2005/07/04 21:03:46 $';
+$admin_cvsver = preg_replace("/.*Revision:\W(\d+\.\d+).*\$/", "$1", $admin_cvsver);
+$admin_cvsdate = preg_replace("/.*Date:\s(.*)\s+\S/", "$1", $admin_cvsdate);
+
+
+?>

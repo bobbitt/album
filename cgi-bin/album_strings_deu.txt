@@ -1,0 +1,347 @@
+Statische HTML-Dateien werden erstellt
+Photo Album - erstelle statische HTML-Dateien
+Dieser Modus kann dazu benutzt  werden, um ein Fotoalbum für die Offlinenutzung vorzubereiten. Zum Beispiel wenn der Webserver nicht läuft oder nicht erreichbar ist oder um ein Album auf CD-ROM zu brennen.
+Das wird eine HTML-Datei in jedem Verzeichnis (Album) und eine für jedes Foto erstellen. Dadurch kannst Du die Fotos mit der statischen HTML-Datei ansehen (die normalweise während des Betrachtens vom Webserver erstellt wird). Der Nachteil ist, daß Du diesen Prozess erneut starten musst, wenn neues Fotos hinzugefügt werden.
+Erstelle statisches HTML für...
+HTML erstellt für
+Foto(s)
+und
+Film(e)
+in
+Album(Alben).
+Foto
+Film
+Album
+Miniaturen wurden gefunden.
+Springe zu:
+OK
+FEHLER!
+FEHLER: ZEILE
+Kann Datei nicht öffnen:
+Kann temporäre Datei nicht zum schreiben öffnen:
+Wahrscheinlich musst Du das Verzeichnis "World Writeable" machen (chmod 777 bei Unix).
+Kann nicht auf Datei schreiben:
+Grundlegender Verständnistest fehlgeschlagen:
+Fehler beim hochladen des Fotos:
+Kann die Rechtedatenbank nicht öffnen:
+Kann nicht an Datei anhängen:
+Kann Albumverzeichnis nicht erstellen:
+Fehler in der Konfigurationsdatei:
+Registrierungsfehler. Bitte wiederholen.
+Ungültige Konfigurationsdatei angegeben
+Bitte editiere
+und modifiziere die Zeile "$configfile=...", so daß diese auf Deine Konfigurationsdatei verweist.
+Unbekannter Fehlercode:
+Bitte gib diese Information an <a href="mailto:Mike@Bobbitt.ca">Mike@Bobbitt.ca</a> weiter.
+Das hochladbare Fotoalbum
+Hochladen nicht erlaubt
+Der Verwalter dieser Seite hat die Fotohochladefunktion abgestellt. Bitte kehre zurück nach
+Du mußt Deine Benutzerkennung angeben!
+Du mußt Dein Passwort angeben!
+Du mußt eine Datei zum hochladen auswählen!
+Werde nicht hochladen! Konnte die Benutzerkennung nicht verifizieren:
+Editieren
+Löschen
+Verschieben
+Foto
+Album
+Verwaltungsmenü
+Erstelle Album
+Titel und Beschreibungen aktualisieren
+Vollbild-Slideshow
+Konfigurationsverwaltung
+Neuindizierung dieses Albums
+Klein
+Benutzerkennung:
+Name:
+Passwort:
+Datei #
+Kategorie:
+Titel:
+Beschreibung:
+Ich stimme den Vereinbarungen zu
+Böse böse! Versuchst Du etwa, mich zu hacken?
+Datei
+ist kein unterstützter Dateityp. Bitte schau in den Hochladebestimmungen nach weiteren Informationen.
+existiert, werde nicht überschreiben!
+Fehler beim öffnen
+Datei zum schreiben
+Kann Dateien nicht hochladen, darf nicht größer sein als
+Kilobytes
+Platz überschritten! (Du hast eine Begrenzung von total
+.)
+Konnte Datei nicht hochladen:
+hatte die Größe
+(
+)
+mit der Größe von
+Bytes ist erfolgreich hochgeladen!
+Hochgeladen von
+Erstellt von
+Konfigurationsdatei ist Version
+Aber Du hast die Version
+dieses Programmes. Bitte <a href="?upgradecfg=true">korrigieren</a>!
+Entschuldige, aber Du kannst hier keinen relativen Pfad benutzen:
+Entschuldige, aber Du kannst hier keine Sondercharaktere benutzen:
+Name
+Photo Album
+Zurück
+<<
+Zurück zum Album
+Weiter
+>>
+Noch nie
+Angesehen
+album.pl
+(zum ersten Mal angesehen).
+Zuletzt angesehen am
+||
+Stoppe Diashow
+Stoppe Debugging
+Legende:
+Ikon
+Falls Du benachrichtigt werden möchtest, wenn neue Bilder hinzugefügt werden zu
+Film
+, trage bitte Deine Emailadresse unten ein.
+Benachrichtige mich
+Deine Emailadresse
+wurde auf die Liste eingetragen. Du wirst jedes Mal benachrichtigt werden, wenn dem Album neue Bilder hinzugefügt wurden.
+5: Sehr gut
+4: Gut
+3: Durchschnitt
+2: Schlecht
+1: Sehr schlecht
+Name (optional):
+Kommentar (optional):
+Trage Bewertung ein
+Momentanes Bild ist
+Hier klicken wird folgendes anzeigen:
+Dies ist das letzte Foto.
+*
+In Deiner Konfigurationsdatei fehlen essentielle Informationen. Beginnend mit Version 5 wurden viele der Einstellungen geändert. Du solltest wohl von Null anfangen und mit Hilfe der album.cfg dieses Paketes alles neu einstellen.
+#FF0000
+#FF9900
+NUR LESEN
+STOP:
+Deine Konfigurationsdatei (
+) ist "read only". Du musst sicherstellen, daß diese auf den Webserver geschrieben werden kann, bevor Du irgendwelche Einstellungen ändern kannst.
+Dokumentation
+<b>NOTE</b>: Du bist auf dem Konfigurationsschirm weil
+zum ersten Mal ausgeführt wird. Bitte konfiguriere das Album und klicke auf sichern, um die Einstellungen zu speichern. Sobald dies getan ist, wirst Du nicht mehr automatisch auf diesen Schirm gebracht werden.<p>Einstellungen, die mit einem * gekennzeichnet sind, wurden automatisch mit Vorschlägen ausgefüllt. Obwohl der Versuch gemacht wurde, diese korrekt einzutragen, müssen diese wohl auch geändert werden, damit das Programm richtig läuft.
+Dieses Verzeichnis existiert nicht oder ist vom Webserver nicht lesbar. Du musst es entweder erstellen oder diese Einstellung ändern, damit das Album läuft.
+Dieses Verzeichnis existiert nicht oder ist vom Webserver nicht schreibbar. Du musst entweder die Rechte auf dem Webserver oder diese Einstellung ändern, damit das hochladen funktioniert.
+Diese Vorlage existiert nicht oder ist vom Webserver nicht lesbar. Du musst es entweder erstellen oder diese Einstellung ändern bevor Dein Album laufen wird. Dies mag von einer falschen Einstellung von template_dir kommen.
+Die Benachrichtigungsdatei wurde nicht gefunden oder ist vom Webserver nicht schreibbar. Es koennen keine Emailadressen gespeichert werden, bis dieser Fehler behoben worden ist.
+Die Logdatei wurde nicht gefunden oder ist vom Webserver nicht schreibbar. Bis das Verzeichnis, in dem die Logdatei liegt, vom Webserver beschreibbar ist, wird keine Aufzeichnung der hochgeladenen Dateien erfolgen.
+Die Einstellung der Logdatei ist leer. Es wird keine Aufzeichnung der hochgeladenen Dateien erfolgen.
+Dein Mitgliederverzeichnis wurde nicht gefunden oder ist vom Webserver nicht lesbar. Das Hochladen wird fuer UBB oder YaBB-Nutzer nicht überprüft werden können, bis dieser Fehler behoben wurde.
+Jhead wurde an der angegebenen Stelle nicht gefunden. Du wirst, bis dieser Fehler behoben ist, jheadfehler erhalten. (Dieser Fehler taucht manchmal auch dann auf, wenn der Pfad richtig ist. Einfach erneut bestätigen.)
+Medium
+Die Überprüfungsdatenbank konnte nicht gefunden werden oder ist vom Webserver nicht lesbar. Falls Du "Flat File"-Überprüfung benutzt (authentication_type=1), muß Du den Fehler beheben.
+Du hast keine Bildendungen definiert. Es werden in Deinem Album keine Bilder angezeigt. (Falls Du nur binäre Dateien hochlädst, ist das in Ordnung).
+Du hast keine Filmendungen definiert. Es werden in Deinem Album keine Filme angezeigt. (Falls Du keine Filme hochlädst, ist das in Ordnung).
+Du benutzt den Standardcode. Dein Album kann gehackt werden, bis Du dies änderst.
+Du benutzt den Standardcode. Deine Alben- und Fotobeschreibungen können geändert werden, bis Du dies änderst.
+Du benutzt den Standardcode. Deine Fotobewertungen können geändert werden, bis Du dies änderst.
+Du benutzt den Standardcode. Deine Alben- und Fotobeschreibungen können geändert werden, bis Du dies änderst.
+Der Pfad zu Deinem Fotoikon ist nicht richtig. Verknüpfungen zu diesem Bild werden nicht funktionieren, bis dies berichtigt ist.
+Der Pfad zu Deinem Filmikon ist nicht richtig. Verknüpfungen zu diesem Bild werden nicht funktionieren, bis dies berichtigt ist.
+Der Pfad zu Deinem Albumikon ist nicht richtig. Verknüpfungen zu diesem Bild werden nicht funktionieren, bis dies berichtigt ist.
+WARNUNG:
+ist nicht beschreibbar! Es können keine Änderungen durchgeführt werden.
+Füge einen neuen Konfigurationspunkt hinzu
+Diese Sektion wird benutzt, um neue Konfigurationspunkte zur album.cfg hinzuzufügen. Dies sollte nur bei einer Aktualisierung getan werden, um einen benötigten Konfigurationspunkt zu erstellen. Beachte, dass dies so addierten Punkte nicht in die richtigen Gruppen einsortiert werden. Du solltest die album.cfg direkt editieren, um neue Punkte zu erstellen.
+Format
+Kommentare
+Name
+Wert
+Beispiel
+Code um die Debugstufen zu setzen - dies nicht zu ändern wird mit ziemlicher Sicherheit dazu führen, daß Deine Galerie gehackt wird! Hacker können dieses benutzen, um Information über Deinen Webserver zu bekommen, die sie nicht haben sollten - also stelle sicher, daß Du dies änderst.
+debug_code
+debug
+Neuer Konfigurationspunkt
+Registration
+Eine Emailadresse in der Sektion "Emailadresse" wird dafür sorgen, daß Du über neue Veröffentlichungen, Schließungen von Sicherheitslücken und noch kommenden Merkmalen informiert wirst. Deine Adresse wird <b>nicht</b> an Dritte weitergegeben werden oder für andere Zwecke benutzt werden. Ich habe die Möglichkeit zur Registration gegeben, um die alnum.pl-Gemeinschaft auf dem neuesten Stand der Entwicklungen zu halten, nicht um Geld rauszuschlagen oder Dich mit Emails zu überfluten.
+Falls Du trozdem nicht Deine Emailadresse preisgeben willst, ist das in Ordnung - es ist optional.
+Emailadresse
+Sichern
+Neu laden
+Deine Konfiguration wurde aktualisiert. Hier hast Du folgende Möglichkeiten:
+das Album ansehen
+Administrative Arbeiten ausführen
+Hochladeformular ansehen
+weitere Einstellungen ansehen
+Nicht bewertet
+Bewertet
+, momentane Bewertung ist
+Groß
+Willkommen
+Volle Größe
+Einloggen erforderlich
+Fehler bei der Überprüfung. Bitte wiederholen.
+Dieses Album ist Paßwortgeschützt. Bitte trage das Paßwort ein.
+Bestätige das Löschen
+Bist Du sicher, dass Du folgendes löschen willst:
+wurde nicht gelöscht!
+konnte nicht gelöscht werden!
+Neues Verzeichnis wird erstellt werden in
+Verzeichnisname (Dateisystem):
+existiert bereits.
+Trage den neuen Titel ein
+Trage die neue Beschreibung ein
+Keine weiteren Beschreibungen eintragen
+Beschreibung aktualisieren
+Neueste hochgeladene Dateien nicht verfügbar.
+Neueste hochgeladene Dateien
+Dateien In
+Bewertung:
+Dies ist kein gültiges Verzeichnis. Image Magick-Einbindung (und dadurch das automatische Erstellen der Miniaturbilder) wird nicht funktionieren, bis dies behoben ist.
+wird ebenfalls gelöscht.
+mal
+Fotos hochgeladen durch
+mal
+Kommentar von
+Anonym
+Beschreibungen wurden gefunden.
+Nicht teilbar:
+Seite:
+Weiter
+Zurück
+URL zum Bild: [
+]
+Weil dies ein Verzeichnis ist, werden folgende Dateien ebenfalls gelöscht:
+Bewerte es
+Image Magick Fehler:
+Verschieben
+Verschiebe Foto
+Bestätige das verschieben
+Wohin möchtest Du dies verschieben:
+wurde nicht verschoben!
+konnte nicht verschoben werden!
+:
+wird ebenfalls verschoben.
+Verschiebe nach:
+Ja
+Nein
+.
+Du hast einen "Null" (leeren) Funktionscode eingegeben. Dies kann dazu führen, dass mit dem Album einige komische Dinge passieren, also gebe bitte jeder Funktion einen eigenen oder einen nicht "Null" Code.
+Abbrechen
+Füge eine Beschreibung hinzu:
+Unterstützungsforen
+Aktualisiere Beschreibung und weiter zum nächsten Foto >>
+&nbsp;&nbsp;
+...
+kürzlich hochgeladen
+Fotos:
+Ich denke, daß Dich dies interessieren wird::
+Einloggen
+Allgemein
+Dieses Formular kann benutzt werden, um Fotos in ####TITLE#### hochzuladen. Nur Benutzer, die auch auf dieser Seite registriert sind, koennen Fotos hochladen. (Registriere Dich <A href="/cgi-bin/ultimatebb.cgi">hier</A>, falls Du nicht schon ein Konto hast.)
+Vereinbarungen
+<ol><li>Dateien müssen im ####FORMAT#### Format sein.<li>Jedes hochladen wird aus Sicherheitsgründen protokolliert.<li>Es dürfen keine Nacktfotos/-filme, obszönen oder anderweitig anstößigen Materialien hochgeladen werden.<li>Hochgeladene Dateien dürfen in Größe und Inhalt geändert werden.<li>Alle hochgeladenen Dateien müssen entweder eigene Originale sein oder es muß die Erlaubnis des Urhebers vorhanden sein.<li>Hochgeladene Dateien werden zu Allgemeinbesitz, sobald diese hier eingestellt werden.<li>Hochgeladene Dateien dürfen nicht größer als ####SIZE#### Kilobytes sein.</li></ol>Jedem, der gegen diese Vereinbarungen verstößt, wird das Konto geschlossen.
+Um die aktuellen Bilder in <A href="####ALBUMPROG####">####TITLE#### anzusehen, klicke auf die Verknüpfung</A>.
+Foto hochladen
+Um ein Foto hochzuladen, trage bitte die Informationen in die untenstehenden Felder ein. (Bitte beachte, dass bei grossen Webseiten das Formular ein wenig Zeit zum anzeigen in Anspruch nehmen kann.
+oder
+Album erstellen
+Aktualisiere Titel & Beschreibungen
+Hochladen
+Konfigurationsverwaltung
+Auf Aktualisierungen überprüfen
+Album-Thumbnail festlegen
+Untersuchungen
+Deine Version von album.pl ist die neueste.
+Deine Version ist veraltet:
+Deine Version ist
+modifiziert am
+Die neueste verfügbare Version ist
+Du kannst die neueste Version hier herunterladen:
+Alben
+Fotos
+Filme
+Beliebt
+Vollbild Diashow
+Konnte nicht mit dem Aktualisierungsserver verbinden.
+Erstellte statisches HTML in
+Sekunden.
+Minuten und
+Stunden
+Es sind durchschnittlich
+Fotos pro Album.
+Am beliebtesten
+--
+>
+Beliebtheit
+<b>Wähle die Miniaturansicht aus, die dieses Album darstellen soll:</b>
+»
+Schließe dieses Fenster
+ist ein
+und darum ist das hochladen nicht gestattet.
+Suchen
+Bitte den Suchbegriff eingeben:<br>
+Suche in:
+Dateinamen
+Titeln und Beschreibungen
+Bewertungen und Kommentaren
+<hr />
+Darstellungsoptionen:
+Übereinstimmungen gefunden.
+Besitzer
+Du hast für die Miniaturansichten kein Dateipräfix festgelegt. Das bedeutet, daß alles als Miniatur angenommen wird, aber nichts als Foto und Dein Album wird nicht korrekt laufen.
+Zeige mehr
+Zwei oder mehr Deiner Funktionscodes sind gleich. Dein Album wird unvorhersehbar reagieren, solltest Du das nicht ändern.
+Datenbankfehler, Einstellungen überprüfen
+<p>Objekt nicht gefunden.<br>Versuche es manuell über das Stammverzeichnis des Foto Albums aufzurufen: <a href="####ALBUMPROG####">####ALBUMPROG####</a>.<p>
+!
+Du mußt Administrator sein, um diese Funktion auszuführen.
+Dein Style Sheet funktioniert nicht!<br />Bitte besuche <a href="http://dev.bobbitt.ca/forums/index.php?topic=21.0" target="_blank">diese Seite</a> für weitere Informationen.
+Gästen dürfen nicht hochladen.
+Besitzer
+Editiere die Benutzerliste
+Aktualisiere die Benutzerliste
+Diesr Abschnitt erlaubt Dir die Benutzerliste für die "Flat File" Authorisierung zu editieren. Ein Benutzer pro Zeile, im Format "Benutzername|Passwort". Benutze <a href="http://dev.bobbitt.ca/forums/index.php?topic=26.0">diesen Link</a> für weitere Informationen.
+Alle
+Konfigurationsabschnitt:
+Ausloggen
+Konfigurationsfehler: unvollständige Informationen der Konfiguration wurden entdeckt - album.cfg wurde nicht nicht geändert.
+Fehler beim hochladen des Films:
+Verknüpfung
+Bestätige Verknüpfung
+Wo möchtest Du folgende Verknüpfung erstellt haben:
+wurde nicht verknüpft!
+konnte nicht verknüpft werden!
+Erstelle Verknüpfung in:
+Zum Anfang
+Zufall
+Diese Seite per Email verschicken
+*** Wähle ein Album aus ***
+Bitte wähle ein Album aus, in das hochgeladen werden soll.
+Konfigurationsaktualisierung
+<b>BEACHTE:</b>
+Alle Dateien müssen in diesem Verzeichnis sein:
+Dieser Prozess verbindet Deine vorhandenen Einstellungen (album.cfg) mit der Konfigurationsdatei der neuen Version (album.cfg.clean). Dies ist nützlich, um von ältere Version zu aktualisieren und alle Einstellungen, die hinzugefügt, ergänzt und so weiter wurden.
+Name der vorhandenen Konfigurationsdatei:
+Name der aktualisierten Konfigurationsdatei:
+Die aktualisierte Konfigurationsdatei ist nun gespeichert als:
+album.pl Verwaltungskode: *
+* Benötigt, um sicherzustellen, daß Du der Verwalter des Albums bist.
+Nicht autorisiert - stelle sicher, daß Du den richtigen Verwaltungskode eingegeben hast.
+Konfigurationspunkt
+Wert der Grundeinstellung
+Aktueller Wert
+Wenn Du mit den Einstellungen zufrieden bist, klicke einfach auf den Knopf unten um die neuen Einstellungen zu benutzen.
+Eine Zusammenfassung der aktualisierten Konfiguration steht unten. Alle Deinen vorhandenen Einstellungen wurden beibehalten. Um mit diesen Einstellungen zu beginnen, klicke einfach den "Apply"-Knopf unten auf dieser Seite.
+Deine Konfiguration wurde erfoglreich aktualisiert.
+Erfolg!
+Hier klicken um die Einstellungen zu übernehmen:
+Objekt nicht gefunden
+<p>Objekt nicht gefunden<br>Versuche es nach dem einloggen erneut.<p></center>
+Automatische Größeneinstellung
+Wer darf dieses Foto ansehen?
+Jeder
+Freunde
+Familie
+kein Zugriff
+Mitglied
+Juniormitglied
+Rename (filesystem) to:

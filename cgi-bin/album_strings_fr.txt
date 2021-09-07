@@ -1,0 +1,347 @@
+Les fichiers static HTML sont genérés
+Album Photo - Les fichiers static HTML sont genérés
+Ce mode est prévu pour permettre l'utilisation Off-line de votre album. Par exemple si le server est hors service ou si vous voulez graver votre album sur CD-ROM.
+Ceci va créer un fichier HTML dans chaque répertoire (album), et un pour chaque photo. Ceci vous permettra la visualisation des photos via static HTML. (Normalement cet HTML est créer à la volée par le server web). L'inconvenient est que vous devez repeter cette operation à chaque fois que des photos sont ajoutées.
+Static HTML genéré pour...
+HTML crèe pour
+photo(s)
+et
+film(s)
+dans
+album(s).
+photo
+film
+album
+les icons ont été trouvés.
+saute vers:
+Go
+ERREUR!
+ERREUR: Ligne
+Ne peut ouvrir le fichier:
+Ne peut ouvrir le fichier temporaire pour mofification:
+Il faut probablement autoriser l'ecriture du repertoire (chmod 777 pour unix).
+Ne peut pas ecrire dans le fichier :
+Erreur de base :
+Erreur lors du chargement de photo:
+Ne peut ouvrir la base de donnee d'identification:
+Ne peut acceder au fichier:
+Ne peut creer le repertoire d'album:
+Erreur dans le ficher de configuration:
+Erreur lors de l'enregistrement. Veuillez essayer encore une fois.
+Non validite du ficher de configuration
+Editer
+et modifier la "$configfile=..." ligne qu' indique le fichier de configuration.
+Code erreur inconu:
+Merci d'indiquer cette erreur a: <a href="mailto:Mike@Bobbitt.ca">Mike@Bobbitt.ca</a>
+L'Album photo chargeable
+Chargement non autorise
+L'administrateur a desactive le chargement de photo. Veuillez retourner a
+Vous devez specifer votre nom d'utilisateur!
+Vous devez specifer votre mot de passe!
+Vous devez selectionner un fichier a charger!
+Ne veut pas charger! Ne peut verifier le nom d'utilisateur:
+Edit
+Efface
+Deplace
+Photo
+Album
+Menu Administration
+Creer Album
+Mise a jour titres et descriptions
+Diaporama plein ecran
+Gestion de la configuration
+Re-Index cet album
+Petit
+Nom d'utilisateur:
+Nom:
+Mot de passe:
+Fichier #
+Categorie:
+Titre:
+Description:
+J'accepte les conditions d'utilisation
+Vilain! essais-tu de me cracker ?
+Fichier
+Ce type de fichier n'est pas autorise. Merci de voir les conditions de chargements.
+existant, ne sera pas ecrase!
+Erreur a l'ouverture
+Fichier pour ecriture
+Ne peut charger un fichier de plus que
+kilobytes
+Quota depasse! (Vous avez une limite
+totale.)
+N'a pas pu charger le fichier:
+Taille d'origine
+(
+)
+Taille finale
+bytes est charge avec succes!
+Charge par
+Creer le
+Fichier de configuration version
+mais vous utilisez la version
+de ce programme. Veuillez <a href="?upgradecfg=true">corriger</a>!
+Desole, vous ne pouvez pas utiliser de chemin relatif pour
+Desole, vous ne pouvez pas utiliser de caractere special pour
+nom
+Album Photo
+Precedent
+<<
+Retour vers Album
+Suivant
+>>
+Jamais
+Visualisé
+album.pl
+(premiere visualisation).
+derniere visualisation le
+||
+Stop le diaporama
+Stop le debugage
+Legende:
+Icon
+Si vous voulez être informe quand une photo est ajoutee a
+Film
+, merci d'indiquer votre adresse email ci-dessous.
+Informe moi
+Votre addresse e-mail
+a ete ajoute a la liste. Vous serez informe a chaque ajout d'une photo.
+5: Tres bien
+4: Bien
+3: Moyen
+2: Nul
+1: Tres nul
+Nom (option):
+Commentaires (option):
+Ajoute notation
+L'image courante est
+En cliquant ici, vous allez afficher
+Ceci est la derniere photo.
+*
+Il manque des informations essentielles dans le fichier de configuration. Commençant par 5, beaucoup de modification de la configuration ont ete effectuee. Vous devriez commencer par effacer album.cfg et le reconfigurer.
+#FF0000
+#FF9900
+ECRITURE SEULEMENT
+STOP:
+Votre fichier de configuration (
+) est "read only". Vous devez donner l'autorisation d'ecriture au server WEB avant de pouvoir un changement de configuration .
+Documentation
+<b>NOTE</b>: Vous êtes dans la zone de configuration car il s'agit du
+premier fonctionnement. Veuillez configurer votre album et cliquer "Apply" pour sauvegarder vos réglages. Lorsque cette operation sera validée, vous ne serez plus automatiquement redirigé vers la page de configuration.<p>Les cases marquée avec * sont remplie automatiquement avec "de la chance !". Bien que un essai soit fait pour choisir les bonnes données, il se peut que certaines doivent être modifiée pour un fonctionnement correcte.
+Ce repertoire n'existe pas ou n'est pas autorisé en ecriture par le server web. Vous devez le créer ou modifier cette configuartion pour un fonctionnement correct.
+Ce repertoire n'existe pas ou n'est pas autorisé en ecriture par le server web. Vous devez changer les permissions ou modifier cette configuration pour que votre album accepte les chargements.
+Cette template n'existe pas ou n'est pas lisible par le server web. Vous devez la créer ou modifier la configuration pour que votre album fonctionne. Il est possible que le template_dir ci-dessus soit faux.
+Le fichier notifié est introuvable ou n'est pas autorisé en ecriture par le server web. Aucune adresse e-mail ne peut être stocker.
+Le log file est introuvable ou n'est pas autorisé en ecriture par le server web. A moins que le répertoire ne soit pas autorisé en ecriture par le server web , il n'y aura aucun login lors du chargement.
+La zone de configuration du log file est vide. Il n'y aura pas de login pour le chargement.
+Votre répertoire "members" est introuvable ou n'est pas autorisé en ecriture par le server web. Les chargements ne peuvent pas être correctement identifiés pour les utilisateur UBB ou Yabb.
+Jhead n'a pas été trouvé à l'endroit indiqué. vous allez recevoir des erreurs jhead . (Cette erreur apparait de temps en temps même si le chemin est juste...confirmez simplement...)
+Moyen
+La base de données d'identification est introuvable ou n'est pas lisible par le server web. Si vous utilisez l'identification "flatfile"  (authentication_type=1) vous devez regler ce problême .
+Vous n'avez pas d'extension d'image definie. Aucune image ne sera affichée dans votre album. (C'est ok si vous ne chargez que des fichiers binaire.)
+Vous n'avez pas d'extension video definie. Aucune video ne sera affiché dans votre album. (C'est ok si vous ne chargez pas de video.)
+Vous utilisez le code par defaut. Votre album risque d'être cracké .
+Vous utilisez le code par defaut. Vos descriptions d'album et de photos peuvent être changées.
+Vous utilisez le code par defaut. Vos notations de photos peuvent être modifiée.
+Vous utilisez le code par defaut. Vos descriptions d'album et de photos peuvent être changées.
+Le chemin vers vos icons de photos n'est pas correct. Les liens vers cette image seront coupés ou manqueront tous.
+Le chemin vers vos icons de videos n'est pas correct. Les liens vers cette image seront coupés ou manqueront tous.
+Le chemin vers vos icons d'album n'est pas correct. Les liens vers cette image seront coupés ou manqueront tous.
+ATTENTION:
+n'est autorisé en ecriture! aucun changement ne peut être fait.
+Ajoute un nouvel element de configuration
+Cette section est utilisée pour ajouter un element de configuration au fichier album.cfg. Ceci ne devarit être fait que lors d'une mise à jour pour changer un élément . Notez que les elements ajoutés par cet intermediaire ne seront pas classés dans le groupe correct. Il est peut être preferable d'editer album.cfg directement pour faire une modification.
+Format
+Commentaires
+Nom
+Valeur
+Exemple
+Code à utiliser pour activer le niveau de debugage - ne pas changer ceci risque de permettre le crackage de votre album ! Hackers peuvent utiliser des informations contenu dans votre site. Pensez donc à les changer.
+debug_code
+debug
+Nouvelle configuration
+ENREGISTREMENT
+Indiquer une adresse  dans la zone "E-Mail Address" ci-dessous vous permettra d'être informé des nouveautés. Votre adresse ne sera <b>pas</b> transmise à un tiers et utilisée pour une autre application. J'ai créer cette option pour permettre à la communauté Album.pl de rester informé des efforts de devellopement, par pour faire une blague ou vous spamer :)
+Si vous ne voulez toujours pas donner d'adresse, OK, c'est un option.
+Addresse E-Mail
+Execute
+Recharge
+Votre configuration a été mise à jour. Depuis ici, vous avez les possibilites suivantes:
+Voir votre album
+Executer des tâches administratives
+Voir la page de chargement
+Configurer d'autres options
+Non notée
+Notée
+, la note actuelle est
+Grand
+Bienvenue
+Vue plein ecran
+Login demande
+Erreur d'identification. Merci d'essayer à nouveau.
+Cette album est protégé. Veuillez entrer votre mot de passe.
+Confirmer l'effacement
+Voulez vous vraiment effacer
+n'a pas été efface!
+impossible d'effacer!
+Le nouveau fichier sera crée dans
+Nom du fichier (fichier system):
+existe deja.
+Entrer le nouveau titre
+Entrer la nouvelle description
+Stop l'entree des descriptions
+Mise à jour description
+Chargements recents non accessibles.
+Chargements les plus recents
+Dans
+Notation:
+Ceci n'est pas un repertoire valide. L'integration de Image Magick  (et donc la creation des icons) ne fonctionnera pas tant que ceci ne sera pas resolu.
+sera aussi efface.
+fois
+Photos chargees par
+fois
+Commentaire de
+Anonyme
+descriptions trouvees.
+Can't fork:
+Page:
+Suivante
+Precedente
+URL vers photo: [
+]
+Since this is a directory, the following files will also be deleted:
+Note la
+Erreur Image Magick :
+Deplace
+Deplace Photo
+Confirme deplacement
+Vers ou voulez vous deplacer
+n'a pas été deplace!
+ne peut pas être deplacé!
+:
+sera aussi deplace.
+Deplace vers:
+Oui
+Non
+.
+Vous avez entré une fonction "nul" (vide) . Ceci peut entrainer un disfonctionnement de votre album, donc veuillez donner une valeur unique est differente de zero.
+Annulation
+Ajoute une anotation:
+Forum Support
+Mise a jour des description et affiche la prochaine photo >>
+&nbsp;&nbsp;
+...
+chargements récents
+Photos:
+J'ai pensé que vous seriez interressé par ceci:
+Log In
+General
+Cette page peut être utilisée pour charger des photos dans ####TITLE####. Seul les personnes enregistrées peuvent charger des photos. (Enregistrement <A href="/cgi-bin/ultimatebb.cgi">ici</A> si vous ne l'êtes pas encore.)
+Règles
+<ol><li>Le fichier doit être au format ####FORMAT#### .<li>Tous les chargements sont repertoriés pour des raisons de sécurité.<li>Pas de pornographie, obscenité ou autre forme abjecte.<li>Les chargements peuvent être edités par format et contenu.<li>Tous les fichiers doivent être originaux ou avoir la permission prealable du photographe.<li>Les photos deviennet propriétée public dés leur chargement ici.<li>Les fichiers ne doivent pas exceder ####SIZE#### kilobytes.</li></ol>Toute personne ne respectant pas ces regles verra sont acces suprimé .
+Pour voir les photos actuelles dans <A href="####ALBUMPROG####">####TITLE####, cliquer ici</A>.
+Chargement photo
+Entrer les informations dans la zone si dessous pour charger une photo. (Le temps d'affichage de cette page peut varier en fonction du site.)
+ou
+Creer Album
+Mise a jour des titres et descriptions
+Chargement
+Gestion de la configuration
+Verifie si une mise à jour est disponible
+Active les icons d'album
+Diagnostique
+Votre version de album.pl est a jour.
+Vous n'êtes pas a jour:
+Votre version est
+modifié le
+La version la plus recente est
+Vous pouvez telecharger la derniere version depuis
+Albums
+Photos
+Films
+Populaire
+Diaporama plein ecran
+Impossible de se connecter au serveur actuel.
+Creation static HTML dans
+secondes.
+minutes et
+heures
+Il y a une moyenne de
+photos par album.
+Random
+--
+>
+Popularité
+<b>Selectionner la photo que vous voulez utiliser comme icon pour representer cet album:</b>
+»
+Fermer cette fenêtre
+c'est un
+et pour cette raison, n'est pas autorisè a charger.
+Cherche
+Que cherchez vous ?:<br>
+Cherche dans:
+Nom de fichier
+Titre et descritption
+Anotation et commentaires
+<hr />
+Visualiser en :
+resultats trouvés
+Proprietaires
+Le prefix des noms de fichiers des icons n'est pas defini. Cela implique que chaque objet sera considere comme un icon (et pas une photo) et l'album ne fonctionnera pas.
+Voir plus
+Deux ou plus des codes de fonction sont les mêmes. L'album va reagir de façon impresisible jusqu'à ce soit modifie.
+Erreur de base de donnees, verifier la configuration.
+<p>Objet non trouve.</br> Essayer d'y acceder manuellement depuis la source de l'album photo: <a href="####ALBUMPROG####">####ALBUMPROG####</a>.<p>
+!
+Il faut être administrateur pour utiliser cette fonction.
+La "Style Sheet" ne fonctionne pas!<br />Voir <a href="http://dev.bobbitt.ca/forums/index.php?topic=21.0" target="_blank">cette page </a>pour plus d'infos.
+Les invites ne peuvent pas charger.
+Proprietaires
+Edit User List
+Update User List
+This section allows you to edit your userlist, for flatfile authentication. Users are one per line, in "username|password" format. See <a href="http://dev.bobbitt.ca/forums/index.php?topic=26.0">this link</a> for more information.
+All
+Configuration Section:
+Logout
+Configuration error: Incomplete configuration information was detected - album.cfg not updated.
+Error uploading movie:
+Link
+Confirm Link
+Where would you like to create the link to
+was not linked!
+could not be linked!
+Create link in:
+Home
+Random
+E-Mail This Page
+*** Select an album ***
+Please select an album to upload into.
+Configuration Upgrade
+<b>NOTE:</b>
+All files must be located in
+This process merges your existing settings (album.cfg) with the config file from a new version (album.cfg.clean). This is useful for upgrading from a previous release, where new config items have been added, changed, etc.
+Existing configuration filename:
+Updated configuration filename:
+The upgraded configuration file is now saved as
+album.pl Admin Code: *
+* Required to ensure you are the album admin.
+Not authorized - ensure you enter the correct admin code.
+Config Item
+Default Value
+Existing Value
+If you are happy with the changes, simply click the button below to start using the new configuration.
+A summary of updated configuration items is below. All your existing settings have been maintained. To start using these settings, simply click the "Apply" button at the bottom of the page.
+Your configuration has been successfully upgraded.
+Success!
+Click here to
+Object not found
+<p>Object not found.<br>Try again after login.<p></center>
+Auto Size
+Who can view this photo?
+Anyone
+Friend
+Family
+noaccess
+Member
+Junior Member
+Rename (filesystem) to:

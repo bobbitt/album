@@ -1,0 +1,36 @@
+<!-- START OBJECT TEMPLATE -->
+<!-- Table cell for each object. -->
+<td class="objects">
+
+	<!-- Thumbnail for the object. -->
+	####OBJECTTHUMB####
+	<br />
+
+	<!-- Title -->
+	<div class="albumsubtitle">
+		####OBJTITLE####
+
+		<!-- Marker to denote a long description (a * by default) -->
+		<sup>
+			####OBJDESCMARKER####
+		</sup>
+
+		<!-- Counters (Photos, Albums, Movies) -->
+		<sup>
+			####SHOWCOUNT####
+		</sup>
+
+		<!-- Long Description -->
+		<!-- Commented out
+		<br />
+		####OBJLONGDESC####
+		-->
+	</div>
+
+	<!-- Rating and "Rate It" button (if used) -->
+	####OBJRATING####
+
+	<!-- Admin menu (shown only for admins) -->
+	####OBJADMIN####
+</td>
+<!-- END OBJECT TEMPLATE -->

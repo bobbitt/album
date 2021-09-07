@@ -1,0 +1,56 @@
+	<br clear="all">
+	<!-- Crearte a "medium" banner to put the "E-Mail This Page" and "views" info into. -->
+	<div class="medbanner">
+
+		<!-- Insert the "E-Mail This Page" link. -->
+		<div class="mailto">
+			<a href="mailto:?subject=####STRING=235#### ####URLONLY####&amp;body=####STRING=236#### ####URLONLY####" class="optionslink">
+			####CODE=
+			if ($::textmenu)
+			{
+				return($::S{316});
+			}
+			else
+			{
+				return("<img class=\"button\" src=\"#\###CONFIG=email_button#\###\" alt=\"\" />");
+			}
+			####
+			</a>
+		</div>
+
+		<!-- Insert the information about how many times this photo has been viewed, last viewed date, etc. -->
+		<div class="views">
+			####VIEWS####
+		</div>
+	</div>
+
+	<!-- Insert the navigation footer, to the previous, next and parent objects. -->
+	<div class="nav">
+		<table align="center">
+			<tr><td align="center">
+			####NAVPREV####
+			</td><td align="center">
+			####NAVUP####
+			</td><td align="center">
+			####NAVNEXT####
+			</td></tr>
+		</table>
+		<br clear="all">
+		####NAVJUMP####
+	</div>
+
+	<!-- Insert the icon legend (present on the root album only). -->
+	<div class="legend">
+		####LEGEND####
+	</div>
+
+	<!-- Insert the "Notify me by e-mail" form. -->
+	<div class="notify">
+		####NOTIFY####
+	</div>
+</div>
+</center>
+
+<!-- Add the album.pl footer, showing version, etc. -->
+####FOOTER####
+</body></html>

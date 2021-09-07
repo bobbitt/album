@@ -1,0 +1,752 @@
+REVISION HISTORY
+
+
+V6.6 - 06/10/31
+----------------
+
+New Features
+------------
+* Added js to album_header.tml and new popup class to Photo_Album.css to allow better popups for jhead info.
+* Now supports E-Blah, SMF 1.1+ and YaBB 2.x authentication.
+* Now supports UBB.Threads authentication.
+
+New Config Items
+----------------
+* shadow_borders: Adds a "drop shadow" to thumbnails or images.
+* shadow_background: Sets the background colour for shadow borders
+* db_passwordSaltfield: Sets the passwordSalt database field. Used for SMF 1.1+ and it's new authentication scheme.
+
+Bug Fixes
+---------
+* Photos/albums with ' in the name are now handled properly.
+
+
+V6.5 - 04/09/13
+----------------
+
+New Features
+------------
+* Multiple "viewing" levels. Based on authentication type, but generally can specify "Anyone," "Member," or "Owner" at upload time. Only the specified users will be able to see the image.
+* Moving/Deleting links only moves/deletes the link, not the actual photo.
+* Views are now moved with the object
+* The following slideshow changes:
+	* Will go into slideshow mode even if popups are blocked via Mozilla, Firefox or ZoneAlarm settings -- if popups are blocked, the browser window is still the regular one, rather than the borderless one.
+	* Returns you to the regular view of last photo seen in the slide show when you close the slideshow.
+	* Degrades nicely if Java is disabled - same result as when popups are blocked.
+	* Fits vertical photos into the screen height if you have ImageMagick installed
+	* Uses the Photo_album.css settings for back-ground of the slideshow
+	* Behaves the same way wether you start from album.pl?photo=... or from album.pl?slideshow=5;photo=...
+	* Fullscreen slideshows no longer have a body margin.
+	* Slideshow runs faster
+* Added image=random and image=randthumb to display random photos/thumbnails directly (no HTML, just the image itself)
+* Added the ability to rename the (system) file or directory when moving.
+* Base script has been chopped into multiple modules.
+* Added module path configuration variable.
+* Can now handle JPEG 2000 (jp2) files.
+	* If you view from a Windows platform, the site will ask you to install the Lurawave jp2 plugins.
+	* If you view from a Linux platform, conversion back to jpg occurs on the fly, via ImageMajick.
+	* jp2 files give me small storage requirements while maintaining image quality
+* All thumbnails are png files
+* Auto-size photo display for the current browser window.
+* Option: Only some members can upload photos and add ratings
+* Provide the option of storing login cookies permanently or only for the current session.
+* Better phpbb cookie checking.
+* Updated ratings/comments section to use the "ratings" style class.
+* Put nav footer into a table
+* Updated style color definitions
+* Ratings cleaned up in css
+* Made SMF cookie name a var
+* Strip spaces from arrays in config
+* Better updateComment checking
+* Now Uses "title" instead of "alt"
+* New german translation
+* Added default error info when string table is not loaded
+* Won't display the auto-size link/button unless ImageMagick is found.
+* if photo_height or photo_width=auto are passed, default to small size if there's no ImageMagick
+* Returns small size from getPhotoDimensions if there's no ImageMagick
+* More phpBB defaults in album.cfg
+* Made footers a table
+* Messed with static stuff
+* Frister's fixes for png thumbnails and SSI stuff
+* Changed default_size to 0 (no resize) in album.cfg
+* Added ####PATH####
+* Added jp2 to imgexts in album.cfg
+* Moved "allow edit/move/link" etc into the authentication section.
+
+New Config Items
+----------------
+* module_path: Location of album.pl module files.
+* @jp2exts: Valid extension(s) for JPEG 2000 files.
+* temp_loc : Filesystem path for storing JPEG 2000 files temporarily.
+* temp_web: Web location of temp_loc.
+* auto_button: Filename for new "auto" button.
+
+Bug Fixes
+---------
+* Fixed problem where page was not always set right when viewing photos
+* Fixed double entry in notify file.
+* Fixed problem reading binary descriptions.txt.
+* Fixed nav footer to work in all browsers.
+* Fixed owner problem.
+* Fixed a bug related to view level when moving phots or albums.
+* Fixed jhead comments
+* Fixed breadcrumb function passing
+* Fixed link/move menu so it only displays when config'd to
+* Fixed tooptip when using jhead
+* Several JavaScript fixes.
+
+
+V6.4 - 04/03/25
+----------------
+
+New Features
+------------
+* Upgrading is now possible through the album.pl configuration menu. (All existing settings are merged with the new album.cfg.clean file.)
+* The album.pl breakup begins! The main album.pl file has been split into album_admin.pm.
+* Added thumbnail fading. (Thanks MessageDJ!)
+* Added compatibility with Simple Machines Forum.
+* Setting "default_guests" to "all" prohibits all non-admins from uploading. (I.E. all regular authenticated users are treated as guests.)
+* Uses first thumbnail in an album as the album thumb, if there isn't already one.
+* New ####CODE=[command]#### tag allows you to insert Perl code into your templates. Useful for changing the way album.pl runs, based on local or global template files.
+* You can now use URLs like .../album.pl?random=1;ssi=2;photo_height=150 to specify a height or width for SSI images.
+* album.pl no longer fails to run when "optional" Perl packages are missing such as MD5 or CGI::Cookie.
+* Enhanced album_test.pl to provide "usage notes" for any Perl packages that are missing (to help assess the impact of missing modules).
+* Updated templates, which now include code to honour "textmenu" settings.
+* Admins can now upload files larger than the posted limit.
+* Converted all included images to PNG format and created new album/photo/movie icons.
+* You can now specify a file size for pic_resize upload resizing.
+* Thumbnail borders are now "smarter."
+* Added "All" in pages section to show all images on a single page.
+* Added "showall=x" option for recent uploads to show "x" most recent uploads (default is 20).
+* Users are now forced to select an album on upload, as there is no album selected by default (per_member_upload excluded).
+* Moved the <form> tags outside of the ####UPLOAD#### tag, to allow admins to insert custom variables by editing the templates. Be sure to update album_upload.tml accordingly.
+* Debug info now shows module name.
+
+New Config Items
+----------------
+* perl_gd: Allows the use of the Perl GD package to generate thumbnails. (Thanks to Daniel Hofverberg for the code!)
+* skipalbums: Allows you to define the name of directories to "hide." (I.E. directories matching this regular expression will not be displayed as albums.)
+* thumb_fading, fade_load, fade_to, fade_over, fade_out: Thumbnail fading settings.
+* representative_thumbnails: Uses the first thumbnail in an album as it's "representative" thumbnail.
+* allow_move: Allow/disallow users to move photos they upload.
+* allow_link: Allow/disallow users to link photos they upload.
+
+Bug Fixes
+---------
+* Fixed bug with shrouded images not doing proper referer checks.
+* Fixed a bug with text menus and albums showing a || inappropriately.
+* Fixed a bug where the user edit screen on the config screen would wreck auth_db.txt.
+* Fixed the way the "edit" menu works. The "stop" checkbox is now always shown, and uses on/off as the default depending on the context.
+* Quotes are now handled properly on the config screen.
+* Metacharaters in filenames no longer break ratings.
+
+V6.3 - 03/10/10
+----------------
+
+New Features
+------------
+* You can now create links to photos in other albums. The new "Link" item on the admin menu allows you to create links to existing photos. Only the original photo exists, with links simply pointing to it. Useful for a "favourites" album, without keeping multiple copies of your photos.
+* Local templates now supported. Any template files found in an album directory will automatically be used for that album.
+* New buttons!
+* Added ssi=2 mode, which shows actual photos, not just thumbnails. (Good for use with random/slideshow features.)
+* Added support for YaBB SE 1.5.1+ password protection. Digest::HMAC_MD5 Perl module required.
+* Added ####NAVPREV####, ####NAVUP####, ####NAVNEXT#### and ####NAVJUMP#### tags, for extra granularity with the navigation footer. Updated album_footer.tml to use these tags.
+* Added ####MOVIESIZE#### tag for the upload form, to show the max allowed movie upload size.
+* Added "logout" button for flatfile authentication (type 1). Includes logout_button config item and thmb_album_logout.gif image.
+* The postupload command can now use all regular ####TAGS####. (Such as ####CONFIG=loggedin#### to show the logged in user's name.)
+* Improved cookie deletion (thanks Scouter!)
+* Additional check to prevent bogus config update added.
+* Tuned up album_test.pl.
+* Added new default_linkdir to allow fast linking.
+* Added new "delcookie" function to forcibly delete any album related cookies.
+
+New Config Items
+----------------
+* link_button: Filename of the "Link" button graphic.
+* default_linkdir: When added, clicking on the "link" button will auto create the link in this directory, instead of prompting the user for a destination (not present by default).
+* logout_button: Filename of the "Logout" button graphic
+* db_displaynamefield: Used to define the database field containing a user's display name. Optional.
+* movie_upload_size_limit: Allows admins to specify the max size for uploaded movies, separate from photos.
+
+Bug Fixes
+---------
+* User edit no longer adds a blank line to the end of the list.
+* Nav "up" link now takes you up to the right page.
+* Album URLs are now properly escaped, allowing characters such as + in the album filenames.
+* Fixed flatfile password carryover problem.
+* Fixed ssi / authentication problem.
+* Fixed a bug where search results weren't displayed properly.
+* Fixed up static HTML to honour local configs.
+* Fixed broken movie links.
+
+
+V6.2 - 03/04/26
+----------------
+
+New Features
+------------
+* Added a new "Popular" option. This shows the 10 (by default) most popular photos or albums. Popularity is based on rating, number of times rated and number of times viewed. New for this feature: popular_button and most_popular config items, thmb_album_popular.gif graphic, popular style sheet class and updated album_header.tml.
+* SSI setting for popular modes defines number of images to display. (I.E. ssi=10 shows 10 most popular)
+* Added self-administration: users can now create sub-albums and set album thumbnails for albums they own.
+* Added new user class: guest. Guests are defined through the "default_guests" config item, and are like regular users but cannot upload.
+* Added ability to set photo and album owners through the "Update Titles & Descriptions" form.
+* New language: French, through album_strings_fr.txt. (Thanks to Disabo)
+* Admins are now excluded from quota checking.
+* A "thmb_Root.jpg" image added to the root album will now be used as the album thumbnail for the root album.
+* Re-organized Configuration Management screen into sections.
+* Added "Edit User List" capability for flatfile authentication (authentication_type=1). This form shows up on the Configuration Management screen.
+* Added jhead_comments config item, which uses jhead to automatically insert a photo's title/description (if present) as a comment in the EXIF header.
+* Added a check to ensure the style sheet is working, through the use of a "hidden" class that hides the error when things are working properly.
+* Added "postupload" config item, which allows an ImageMagick command to be run on a pic after upload.
+* Added 2 new sort options: newest first and oldest first, by file creation date.
+* Added public_albums option to protect only photos (thumbnail view is pulic).
+* Login errors now display as a popup window.
+* Improved "fatal error" troubleshooting.
+* Jump Station will now go to target album on click (submit not required).
+* Automatic ImageMagick sensing for new configs has been added.
+* Allowed entered passwords to override cookies.
+* Made DB code more robust.
+
+Bug Fixes
+---------
+* Major security hole fixed where any program can be remotely executed has been closed -- thanks to AresU for finding this and for responsible disclosure!
+* Fixed broken SSI code - it now won't display all the "extra stuff" in SSI mode. The ssirecentuploads style class has also been updated.
+* Fixed security hole around creating albums.
+* Fixed bug where first level sub albums showed their own thumbnail for the "root" album's nav button.
+* Fixed problem where ()'s in album filenames broke the nav footer.
+* Photos without a thumbnail are no longer displayed on the "Set Album Thumbnail" screen.
+* Fixed "Update Titles & Descriptions" bug for "empty" albums.
+* Movies can now be viewed when browsing through a batch of photos and movies.
+* Fixed a bug where setting thumbnails for sub-sub albums threw an error.
+* Fixed a bug where the "Full Size" viewing button didn't work if you had defined a default size.
+* Removed double /'s from thumbnail links.
+* Fixed a bug where rating_location wasn't being honoured.
+* Fixed broken movie links on search results page.
+
+
+V6.1 - 03/02/24
+----------------
+
+New Features
+------------
+* Database support! Forums such as UBB.Threads, Ikonboard, phpbb2 and YaBB SE can now be used for authentication.
+* A new template, album_object.tml has been added. This new template defines how each object is displayed (I.E. trhumbnail, title, etc), allowing for much better customization. There are many new tags in this template.
+* Got rid of 2 useless templates: album_recent.tml and album_rating.tml didn't have much in them, so I killed them. They're no longer required.
+* Added new installation troubleshooting tool: album_test.pl will display useful diagnostic information when viewed from the web.
+* Photo album now renders properly in Mozilla based browsers. Updated several tags in the style sheet.
+* Links to invalid objects will no longer attempt to show an object that isn't there.
+* Added new ####RANDTHUMB#### tag, which inserts a randomly selected thumbnail from the album. Includes photo title and is a link to the actual photo.
+* Added ability to have random SSI thumbnail slideshows: http://perl.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=1;slideshow=5 will show a new random thumbnail every 5 seconds.
+* Added check to see if any 2 function codes are the same.
+* Updated buttons.
+* Last photo in a slideshow now includes "Close This Window" button.
+* Added textmenu config item, which allows the use of text based menus, as opposed to the default images. (Note: templates must be manually updated if text memus are used.)
+* Comments are now hidden from the album view, displayed as the "alt" text of the "Rate It" button and on the photo view screen. Cleans up messy albums with long comments.
+* All errors will now result in a popup window, making them easier to identify.
+* Warnings can now be "stacked."
+* View files (views.txt) that aren't writable no longer stop execution, they just throw a warning.
+* Added style classes for links (admin, options, breadcrumbs, etc), and added corresponding definitions to the style sheet.
+* Broke out thumbnail links to display individually for the thumbnail and for the title. (Helps with browser formatting.)
+* Added new "ssirecentuploads" class to style sheet. This class can be used to have "ssi" recent upload thumbnails display horizontally or vertically, and controls the space between thumbs.
+* Added a link to album_test.pl to the configuration management screen (if present).
+* Display name is automatically pre-filled on the rating form when a user is logged in.
+
+Bug Fixes
+---------
+* Fixed a bug where legend would not usually display.
+* Fixed a bug where going "up" from an album on a page > 1 would cause it to try to go to that page # in the parent album, and throw things off.
+* Fixed a bug that would cause member directories to never get a title/description when using member_subdir
+* Fixed a bug where "Set Album Thumbnail" wouldn't work if thumb file extensions were a different case than the images themselves.
+* Fixed a bug with ####CONFIG=var#### and ####FILE=file#### tags killing other tags on the same line
+* Fixed a bug with album_password not working.
+* Fixed a bug where img_dir always showed as "wrong" in the config screen.
+* Fixed a bug with flatfile authentication and uploads.
+* Fixed a bug where all images after a movie won't include username/password vars in the URL.
+* Fixed a bug where using member_subdir would cause user albums to have no description.
+
+
+V6.0 - 02/12/01
+----------------
+
+IMPORTANT: The templates and style sheet in this package have changed significantly. If you have a previous version of album.pl running, your best bet is to replace your templates and style sheets with the ones provided here. Sorry, but I think you'll find it's worth the trouble!
+
+New Features
+------------
+* Completely re-designed the templates and style sheet, to use more "modern" standards.
+* Added search screen, with the capability to search filenames, descriptions/tites, owners and ratings/comments.
+* When an album contains both sub-albums and photos or movies, their icons/thumbnails are grouped together. (Added "groups" class to style sheet for this.)
+* Added button graphics (thmb_album_*.gif) and a whack of new config items (*_button). Also added a new img_dir config item to indicate the directory for all images.
+* Added "Random" link to album_header.tml, which will bring the user to a randomly selected image. Thanks to End_User for providing code that was used as a basis for this feature!
+* Added the ability to "shroud" images (I.E. they don't have to live under the web root, album.pl will read them directly). To enable this feature, set album_dir to the location of your photos, and leave album_web blank. Thanks again to End_User for providing sample code!
+* Added "Set Album Thumbnail" to album admin menu. When selected, the admin can pick one of the thumbnails to "represent" that album.
+* Adding an empty file called "no_upload.txt" into any album prevents users from uploading into that album (not for per_member_uploads).
+* Added thumbnails for peer and parent albums in the navigation bar.
+* Added "Fullscreen Slideshow" link to photo views, which allows users to view photos in a new (fullscreen) browser, using a 5 second per picture slideshow. Changes in album_strings.txt, album_footer.tml and Photo_Album.css.
+* Added "Start Slideshow" option to photo admin menu. (Default of 5 seconds per photo.)
+* When viewing photos, the link to the "parent" album (in the nav footer) will take you to the page that photo is on (not always page 1).
+* Added ####CONFIG=var#### tag, which displays the value of "var". For example, inserting ####CONFIG=quota#### will display the current upload quota, and ####CONFIG=loggedin#### will show the currently logged in user's name.
+* Added ####DATE#### tag which will display the current date and time.
+* Updated album_header.tml and album_footer.tml to move the image sizes links below the photo.
+* Added capability to deal with MD5 hashed passwords in UBB 6.4.
+* Changed all web vars to be separated by ; instead of &: http://server.com/cgi-bin/album.pl?album=:recent&ssi=5 becomes http://server.com/cgi-bin/album.pl?album=:recent;ssi=5
+* Directories no longer need to be world writable in many cases. When updating descriptions, ratings, view tracking info or even the album config, as long as the file is writable it will succeed. (In previous releases, the directory had to be writable in order to create a temp file).
+* Added "block_ubb_junior_members_from_uploading" config item. Made the name long, but it should be self explanatory. :) When set to 1, Junior Members will be unable to upload.
+* Added "bread_style" config item, which allows you to switch between a folder heirarchy and a single line format for bredcrumbs.
+* Added "fullscreen" mode for slideshows. A "Fullscreen Mode" button is now shown when viewing slideshows, and it'll display just the photo, with a width of 1024. Still not fully polished, but it works.
+* Added "member_subdir" config item. When set in per_member_upload mode, all user upload directories will be created under this directory. (I.E. users/member1, users/member2...)
+* Added "rows" config item, which replaces "photos_per_page". The rows config item determines how many rows of photos and movies to display on a page.
+* Added "default_size" config item, which allows you define the default size that photos will be displayed (small, medium or large, as defined).
+* Admins are exempted from the "no_upload.txt" per album upload blocking.
+* Changed hard coded borders for albums, photos, movies and newly generated thumbnails to use style sheet classes (img.album, img.photo, img.movie and img.thumb in Photo_Album.css).
+* When logging in to a password protected album, you are now taken to that album, not to the root album. (Code from J.P. Stewart)
+* Changed upload log to use display names (not user names) where possible, which shows up in the recent uploads screen.
+* Users are now logged in when they successfully upload a photo (for flatfile authentication).
+* Moved revision history out of album.pl and into this file (CHANGES.txt).
+* Added "Show More" link to recent uploads, which allows users to view all logged uploads.
+* Added new mode: descloc=2 hides all titles/ratings/info under a thumbnail, showing just the thumbnail itself in album view.
+* Mismatched version numbers or inaccessible views files no longer cause album.pl to halt, instead a warning is displayed at the bottom of the page.
+* Clicking on "Upload" from a specific album will now set that album as the default upload directory. (Thanks to Systematic for the code!)
+* Added randomizer "SSI" code: http://server.com/cgi-bin/album.pl?random=1;ssi=1 will display the thumbnail for a random photo, linked to the actual photo in the album.
+* The value of the "SSI" variable now indicates how many recent uploads to display: http://server.com/cgi-bin/album.pl?album=:recent;ssi=5 will show just the most recent 5.
+* You can now run "SSI" slideshows: http://server.com/cgi-bin/album.pl?photo=photoname;slideshow=5;ssi=1 will show just the photos (with no styles or formatting) in a slideshow. Great for SSI includes...
+* Removed "login," "upload," and "rating_form" function codes from album.cfg. They're now hard coded in album.pl, as there was no real benefit to being able to change them.
+* HTML tags are now stripped from the object's title, when it appears as the page title title.
+* Added comments to the templates, to make them easier to understand.
+* Fixed up static HTML statistics.
+* Improved code all over the place! album.pl is now much easier to extend, as several core functions have been moved into subroutines that can be called without context.
+
+Bug Fixes
+---------
+* Fixed bug with ImageMagick creating the same thumbnail for multiple images. (Was a bug in album.pl, not IM)
+* Fixed album delete problem, where files and albums where not deleted.
+* Fixed pagination problems.
+* Fixed a bug where "unsetting" values in a local config (I.E. sortby=0) would not work.
+* Cleaned up some of the upload errors, to be popup windows, instead of just text at the bottom of the upload screen.
+* Converted all paths to UNIX style (using /'s not \'s) for internal use. This fixes some minor issues with the config.
+* Fixed a problem where the "Rate it" link was being displayed differently based on if there were comments or not.
+* Fixed problem where updating the description for the last photo in an album threw an error.
+* Fixed a bug where albums with certain characters, like ( or ) would have a broken title and nav footer.
+* Fixed a bug where albums with & in the filename would have broken pagination.
+
+
+V5.7 - 02/08/04
+---------------
+* The delete confirmation, move confirmation and create album screens now use the album template (album.tml).
+* Added new ####STRING=xxx#### tag. When using this tag, the string from line xxx of album_strings.txt will be substituted. This allows for more thorough customization/translation through the string table. Accordingly, all existing strings have been moved out of album_header.tml, album_footer.tml, and album_upload.tml, and into album_strings.txt.
+* Added [ Small ] [ Medium ] [ Large ] and [ Full Size ] links when viewing photos, to constrain the photo to a pre-defined size. Also added ####SIZES#### tag to album_header.tml, updated the style sheets, and added small_width, small_height, medium_width, medium_height, large_width and large_height config items, allowing users to define what small, medium and large actually mean.
+* Finally... New icons! thmb_album.gif, thmb_photo.gif and thmb_movie.gif have been updated, and there are now alternates as well (thmb_album2.gif, etc). Special thanks to GlassRattler (http://www.glassrattler.com), CTM and Bookie for making these!
+* Added an "E-Mail This Page" link to photo pages. This requires you to update your style sheet with the new "mailto" class, and to use the updated album_footer.tml.
+* Admins can now upload to any directory when using per_member_uploads.
+* Added "breadcrumbs" trail for backtracking when in sub-albums. Modidied album_header.tml & album.tml changed the style sheets (*.css), added "album_folder_icon" config item, included thmb_album_folder.gif in the zip, and added a couple of things to the string table to make this work.
+* Added "Check For Updates" option to the album administration menu.
+* Added "Edit" to the photo administration menu.
+* When entering titles and descriptions, there are now 2 "submit" buttons available, one that stays at the current object, and one that moves to the next photo, if available.
+* Changed YaBB per_member upload mode... It now uses the user's username, instead of their display name when creating upload directories. This stops users from changing their name and creating multiple directories, but it also means that all the "existing" directories should be changed... Sorry about that!
+* Script now waits up to 2 seconds for new thumbnails, allowing them to be displayed the first time around.
+* New translation added: Swedish! Thanks to shr for that one!
+* Fixed a bug where deleting a photo was impossible for non-admins when per_member_uploads ne 1.
+* Add a rating screen now uses photo descriptions instead of filename.
+* Disabled caching of the configuration management screen -- this was causing some problems.
+* Updated HTML to conform to XHTML 1.0 Transitional standard. (Well almost, anyway... :)
+* Added a link to the support forums to the configuration management screen.
+* Added code to truncate long titles with a "..." when displayed as navigation buttons.
+* Added SSI support for recent uploads. Add "ssi=1" to URL to invoke SSI mode: http://perl.bobbitt.ca/cgi-bin/album.pl?album=:recent&ssi=1
+* "Add a Rating:" has been added to the string tables (missed that one).
+* Fixed time/times in views text to be handled correctly in the string table. (Helps for translations)
+* Added ####URLONLY#### tag, which does not have the <a href=...> HTML tag, and is just the URL to the album's view of the current object.
+* Fixed a bug when deleting a photo where the title and description for the deleted photo were displayed in it's album.
+* Thumbnails are no longer shown in the recent uploads screen.
+* Fixed a bug where protected albums still showed recent uploads.
+* Fixed a bug where the configuration management screen would keep re-appearing during some new installations.
+* The textarea for entering long descriptions is bigger. (You can edit album.pl to modify $enterdesc_rows and $enterdesc_cols if you want to customize the size.)
+* Fixed bug removing descriptions when moving photos from the root album.
+* Fixed bug where editing movie descriptions would throw an error.
+* Fixed a minor issue where "Never" was hard-coded only when "views.txt" didn't exist when a photo was displayed.
+
+
+V5.6 - 02/07/01 -- CANADA DAY RELEASE
+-------------------------------------
+* Added "localized configuration" which means that if you place album.cfg in any album, the settings in that file will override the global settings. This is a very powerful feature, which allows:
+	* Each album to have a custom "look & feel" including style sheets, templates, icons, photos per page, colums, thumbnail properties and sort options
+	* Permitted file types (one album can be used to view only photos, another for documents, etc)
+	* Features such as ratings, slideshows, jhead or ImageMagic integration can be turned on or off on a per album basis
+	* Each album can point to it's own album_strings.txt file, allowing customization of all text
+	* Local administrators can now administer the photos in their specific album(s), regardless of who uploaded them
+	* Albums can be individually password protected, or use a different authentication mechanism (UBB for one, YaBB for another; or use multiple flat file databases, one for each album)
+	* And I'm sure there's more that I'm just not thinking of!
+
+* Added concurrent_uploads config item, which allows you to set the number of files a user can upload at once.
+* Added "Move" option to the admin menu. Photos and albums can now be moved around using the album.pl UI.
+* Photos can now be uploaded directly into the "root" album.
+* Improved code for finding album_strings.txt, which will reduce the "album_strings.txt not found" error.
+* Moved much of the documentation out of album.pl itself, and into the FAQ section of the support forums.
+* Descriptions are now removed when photos or albums are deleted.
+* Movies now open up in a new browser window.
+* Added "Yes" and "No" to album_strings.txt.
+* Added checking for null function codes in the config screen.
+* Fixed a bug with admin username determination.
+* "Create Album" link on admin menu is now inactive when viewing most recent uploads.
+* Fixed up a problem where owners were wiped out when descriptions were edited.
+* Fixed a bug with always_pic_resize sometimes enlarging pics when it shouldn't, and vice versa.
+* Fixed a bug where editing titles and descriptions in the root album threw an error.
+* Improved debugging info by adding more debug statements and indenting output from some subroutines.
+
+
+V5.5 - 02/05/25
+---------------
+* The delete album function finally works! (Though you can't delete and album that has sub albums - you have to do that recursively...)
+* Added "pic_resize" config item, which can be used to set the size of the actual photos as they are uploaded. See album.cfg for details.
+* Added "always_pic_resize" config item. When set to 1, pictures are always resized to pic_resize dimensions. When zero, only pictures that are bigger than pic_resize are "shrunk" down to that size. (Smaller pictures are not made larger...)
+* Added "sortby" config item, which allows sorting by filename or by modified date, either ascending or descending. Many thanks to Sukeband (sukeband@vzavenue.net) for he date sorting code.
+* Added ####URL#### tag for photos. This tag adds the direct URL to the actual photo, which can be linked to for avatars, signatures, etc.
+* When entering titles and descriptions, the focus automatically starts in the "title" textbox. (Had to remove 2nd ####ENTERDESC#### tag from the footer template for this to work right...)
+* Slideshows are now disabled when entering titles and descriptions.
+* Fixed "no cookie login" problems.
+* Clicking on "Update Titles and Descriptions" in the admin menu no longer boots you out to the root album. (It keeps you where you were).
+* Added "Page" to stringtable, and made next/prev page strings different from next/prev picture strings. (So you can have unique strings for both areas.)
+* Fixed "user becomes admin" problem for per member uploads.
+* Fixed problem where users can see thumbnails, titles and descriptions without having to log in.
+* Fixed bug where description updates are added to the existing description (instead of replacing it).
+* Fixed a bug where you couldn't update the title/description on photos with funny characters (brackets, for example) in the name.
+* Added "sample" UNIX permissions to the file list, to help with installation.
+* Optimized general album execution a bit by taking out unneccessary subroutine calls.
+* Added ImageMagick error message output.
+* Fixed so many other little bugs I can't list them all!
+
+
+V5.4 - 02/04/03
+---------------
+* Fixed white text in style sheet.
+* Added "Comment from" and "Anonymous" to string table. (Thanks Robert Zernisch)
+* Updated German string table. (Thanks again, Robert Zernisch)
+* Added rateit class to style sheet, and made the "[Rate it]" link conform to this class. (Was previously not "in style")
+* Made link to http://perl.bobbitt.ca/about open a new browser window.
+* Fixed endless loop problem with recent uploads. Doh!
+
+
+V5.3 - 02/04/03
+---------------
+* Passwords are no longer displayed in URLs when using UBB or YaBB authentication.
+* Added a couple more strings to the stringtable. (Thanks Robert Zernisch)
+* Changed "album_description" to "albumdescription" in album.tml and Photo_Album.css, to conform to W3C CSS guidelines. Did a bit of other CSS cleanup too.
+* Added check to see if the thumbnail exists after trying to create it. If not, then a generic thumbnail is used instead.
+* Added check to see if a picture actually exists from the recent uploads screen. If not, then it is skipped.
+* Fixed the "time(s)" string to be multilingual. Uses "time" and "times" as seperate strings now. (I.E. Viewed 1 time, Viewed 9 times)
+
+
+V5.2 - 02/03/20
+---------------
+* Fixed login problem, where knowing the admin's username allowed arbitrary users to elevate their privilege levels.
+* Fixed bug where album_recent.tml had to be in cgi-bin.
+* Fixed bug with "uploads not allowed" message. (Thanks Angelia)
+* Improved photo deletion code - thumbnails are now also listed on the confirm page.
+
+
+V5.1 - 02/03/12
+---------------
+* Added support for the Image Magick (www.imagemagick.org) suite of graphics tools. "imagemagick" config item points to imagemagick binary installation, and thumb_quality config item determines JPEG quality level. When integrated, thumbnails are generated automatically for images that don't have them. (This happens the first time the thumbnail is requested, and not found.) New thumbnails are currently emphasized with a 1 width border.
+* Admin menu now shows up by default when you are logged in as an admin.
+* Updated install package to have more intuitive directory structure.
+* Upload error and success messages are now popup windows. (Thanks to Will (webmaster@cygnusprime.com) for the code for this feature!)
+* Fixed a bug: rating_location was broken.
+* The picture being rated is now displayed on the rating form. (Another feature from Will!)
+* Fixed anonymous upload bug.
+* Made filename conversion for uploaded files more strict.
+
+
+V5.0 - 02/02/15
+--------------------
+* IMPORTANT: Critical configuration items have been updated. Things like rootdir, webroot and relalbum no longer exist! If you are upgrading from 4.6 or earlier, I *strongly* recommend you install the included album.cfg file and re-configure. (Keeping a backup of your old album.cfg, of course.) The configuration improvements listed below should make this task much easier.
+* Added recent_template config item and album_recent.tml template in order to allow the recent uploads screen to be properly templated.
+* Visual styles, including all templates and style sheet have been totally re-done.
+* Common header is now used for the upload form.
+* Javascript removed from upload form.
+* Common look and feel used for all pages.
+* photo.tml is gone! I've merged it with album.tml, which is now used for both photos and albums. You can still define seperate templates if you wish.
+* Fixed a bug where a views.txt entry was created for some actions that shouldn't.
+* German translations now included in album_strings_deu.txt. Many thanks to Wander (wander@habing.de) for providing the translation!
+* Fixed a bug with YaBB authentication.
+* Updated the movie icon.
+* Added rating_location config item, allowing you to show the rating form either on the photo viewing page, or under it's thumbnail, in the album.
+* Setting thumb_width or thumb_height to zero will not constrain that dimension for thumbnails. Some browsers (mostly newer ones) will keep the aspect ratio of an image when only 1 dimension is specified.
+* Added stringtable config item, which points to album_strings.txt. This file contains most of the text that was previously hard coded into album.pl, allowing for translations and customizations.
+* Fixed a few minor bugs.
+* Added recent_uploads config item to allow users to view the most recently uploaded files. Also updated album.tml and the style sheets.
+* Fixed several bugs relating to authorization, admin, etc.
+* Updated the album.tml and CSS to have a (slightly) better look and feel.
+* Fixed bug with flatfile authentication and uploads.
+* Fixed "Upload Photos" and "Return to Album" link problems. (Bug with ####ALBUMPROG#### tag)
+* Configuration Management screen now comes up automatically when album.pl is run for the first time on a new installation. (newconfig config item added - not visible through the Configuration Management UI.)
+* Configuration Management screen now attempts to fill in several settings with "best guesses" based on your environment. (For first time setup only.)
+* Configuration Management screen now has warnings and notes for many config items, if the file/directory pointed to is not found, readable, writable, etc.
+* Configuration update bug where links after firt config point to "default" album fixed.
+* Updated warning when config file is read-only.
+* Users can (optionally) provide an e-mail address during configuration to register, allowing updates on album.pl development to be sent out.
+* UBB and YaBB cookies are now read and used for automatic login (if present).
+* Uploaded files are now "owned" by the user who uploaded them.
+* Users can now edit the title/description or delete files and albums that they own. This is controlled by the new allow_edit and allow_delete config items, which can enable/disable this functionality.
+* Added default_admins config item, which lists users who will have total control over all photos and albums. (Edit and delete.)
+* Added upload, update descriptions and configuration management options to admin menu.
+* Added "Upload Photos" link to album.tml.
+* Added album_login.tml as login form template.
+* Added ####LOGIN#### tag, which shows the login status (login link or logged in username). Updated album.tml to include this new tag, and added a new "login" class to the style sheets.
+* Added ####LOGINFORM#### tag, which displays the actual login prompt. Used in the new album_login.tml template.
+* Added tooltips to all images and thumbnails.
+* Added jhead support. This includes new jhead and jhead_details config items, a ####JHEAD#### tag, and updated style sheets. If used, jhead information will be added to the tooltip for photos, and can also be added to photo.tml using the new ####JHEAD#### tag. See http://www.sentex.net/~mwandel/jhead/ for jhead information.
+* Added template_dir config item. This sets the directory for all templates, and individual template config items are now used to set the template filename.
+* Updated album template to have page navigation at top and bottom.
+* Updated photo template to have enter_desc form at top and bottom.
+* Updated style sheets (minor cosmetic changes).
+* Added object_alignment config item to allow you to align objects when viewed through an album.
+* Updated movie and album icons.
+* Fixed a bug where creating an album took you out of admin mode, and put you into enter_desc mode.
+* Renamed album.html to !readme.html to make it easier to find. :)
+* Added a link to !readme.html (if found) in the Configuration Management screen.
+* Removed HTML tags for static mode output, when run from the command line.
+* So many other little things, I've lost track.
+
+
+V4.6 - 01/11/02
+---------------
+* Line numbers are now displayed for errors. Helps track down where the error is being generated.
+* Added "Create Album" to the album administration menu.
+* Added "quota" config item, to enforce total upload size limits. Only available when using "per user" uploads.
+* Config items can now be added via the web configuration interface.
+* Pictures viewed for the first time show better "view" description.
+* Fixed several minor bugs.
+
+
+V4.5 - 01/10/23
+---------------
+* Fixed multiple description problem for per user uploads.
+* Added admin config item, to turn on administrative options.
+* Added the ####ADMIN#### tag, which displays the Administration menu, and updated album.tml, photo.tml and the style sheets.
+* YaBB uploads will now show user's display name (if present) instead of their username.
+
+
+V4.4 - 01/10/11
+---------------
+* Changed upload_authentication_type config item to authentication_type.
+* Added protect_album config item to turn on album viewing security. (Users must authenticate according to authentication_type requirements before they can view the album.)
+* Now works with the YaBB security mod, for encrypted passwords. (No configuration required, will check both plaintext and "security mod" passwords silently.)
+* Expanded static album metrics.
+
+
+V4.3 - 01/09/30
+---------------
+* Fixed problem where changing the upload code broke uploads.
+* Changed ubb_member_upload config item to per_member_upload, and allowed it to work for any authentication type, not just UBB.
+* Fixed permission problem for new upload directories created with per_member_upload.
+
+
+V4.2 - 01/09/18
+---------------
+* Added debug_code config item, which allows the debug function code to be modified. This closes a potential security hole where a knowledgeable user can set your album into debug mode to obtain information they shouldn't have.
+
+
+V4.1 - 01/09/13
+---------------
+* Added photos_per_page config item. Limits the number of photos displayed for a given album to the value set here. Uses a multi-page link set to allow the user to view other pages.
+* Added ####PAGES#### tag, updated style sheets and album.tml.
+
+
+V4.0 - 01/08/31
+---------------------
+* Updated default style sheet. (It's now gray, not blue.)
+* Descriptions for albums are now shown for the upload form. Sub-albums are indented.
+* Added showsubalbumcount config item. Can be used to show the number of "sub albums" in a given album.
+* Added webifyLinks subroutine. Right now it allows & in filenames to be handled correctly.
+* Started adding style classes to the style sheet and to the templates. Makes better use of style sheets, and allows all items of a particular type to be changed in a single place. Updated templates to make use of these new classes.
+* Added the ####STOPSLIDESHOW#### tag for the "Stop Slideshow" button (which was also added in this release). Updated photo.tml to use this new tag.
+* Added the ####STOPDEBUG#### tag for the "Stop Debugging" button (which was also added in this release). Updated photo.tml and album.tml to use this new tag.
+* Fixed slideshows - they weren't working!
+* Minor bug fixes.
+* Added upload_template config item, and album_upload.tml template, which can be used to customize the upload form.
+* Added ####FILE=filename.html#### tag to templates. Automatically inserts the contents of filename.html into the template. (Note that it doesn't have to be a HTML file.) Used for SSI like behaviour, common headers/footers, or even nesting templates.
+* Added album_header.tml and album_footer.tml sub-templates. Modified album.tml and photo.tml to include them, using FILE tag above.
+* Added several new tags to the templates, mostly for the upload form template.
+* Added ratingfile, rating_form and update_rating config items, which allow the use of user ratings of photos. Please, I know this feature is crap right now, so bear with me!
+* Added rating_template config item and album_rating.tml template, to allow the rating form to be customized as a template.
+* Fixed the upper case/lower case thumbnail extension problem.
+* Added YABB authentication for uploads. (Set authentication_type=3)
+* Updated photo and album templates.
+* Improved code performance for tracking views.
+* Some random bug fixes, that I forget about now.
+* Configuration is now modifyable through the web. Call http://www.webserver.com/cgi-bin/album.pl?function=config to configure your settings in a web interface. You can change the config code from the default to stop others from re-configuring your board for you. (See notes in the album.cfg file.)
+* Added updateconfig and config function codes to the config file, as noted above.
+* Added nextprevthumb config item, which allows you to control the display of next and previous photo thumbnails.
+* Added constrain_thumbs, thumb_height and thumb_width config items. If constrain_thumbs is set to 1, uses height and width tags to reduce display size of actual photo, and uses that for the thumbnail. The thumb_height and thumb_width config items are used to control the size of the constrained thumbnail shown.  When you use this option, you no longer have to provide seperate thumbnail images to get custom thumbnails, they are generated automatically. However, since the thumbnails are actually the original image constrained, you will in effect be loading the entire image.
+* Added "last viewed date" to the views file.
+* Added ####VIEWS#### tag and updated the photo.tml template.
+* Album and photo icons can now be any valid photo extension, as defined by the imgexts config item.
+* Added parseLinks to make generated links more Netscape friendly. Currently, it replaces spaces with %20 in any links.
+* Removed ubb_auth config item, and replaced it with upload_authentication_type config item. The new item allows you to set anonymous (0), flatfile (1) or UBB (2) authentication types, and also allows future types to be added.
+* Added "Stop Entering Descriptions" checkbox
+* Added thmb_movie.gif image and movie_icon and file_movie_icon config items. Movies now have their own generic icon.
+* When photos or albums do not have a description defined, the entire path is no longer used as a default. (Just the photo file name or album directory name.) Makes things a little cleaner.
+* Added album.tml and photo.tml files, which correspond to album_template and photo_template config items. These files are used as the templates for viewing albums and photos respectively, and can be modified by the user.
+* Major re-write of the old header/footer functions to use template files.
+* Long descriptions are no longer a link to the next picture.
+* Fixed bug where body tag was not displayed if a style sheet was used.
+* Updated the info in the album.cfg file to be a bit more user friendly.
+
+
+V3.7 - 01/07/07
+---------------
+* Fixed bug with jumpstation when using debug, a function or a password.
+* Added "album_border" config item. Used to define the width of the border shown for album icons.
+* Jump station no longer shows up when there are no peer albums now.
+* Now uploads also use the updateDesc function - fixes the upload overwrite problem where the description was not updated.
+* Photo and album icons are only used if they exist. No more broken image links!
+* Before throwing an error, the script will look in a couple likely places for album.pl.
+* Fixed another security hole with the album= var.
+
+
+V3.6 - 01/07/05
+---------------
+* Added "movie_upload" config item. When set to a non-zero value, movie uploads are permitted as well. (See movieexts config item.) Note that the upload_size_limit is still enforced, so you'll probably want to raise this value if you allow movie uploads. You can use this feature to allow your gallery to handle (and upload) binary or custom files (zip, exe, etc).
+* Added "jump_to" config item. Allows you to have a drop box displayed for albums to jump between peer albums.
+* Added "viewfile" config item. Allows you to keep track of (and display) the number of times each picture has been viewed.
+* Albums now have a border, so you can tell them from regular photos when you're using album icons.
+* Fixed up some style sheet stuff. (If a style sheet is used, the <body> tag doesn't contain formatting and colour info.)
+* When entering descriptions, you automatically advance to the next photo.
+* Fixed up this section of the documentation.
+
+
+V3.5 - 01/07/03
+---------------
+* Added line numbers to every debug statement.
+* Fixed (the last?) of the 500 errors.
+* Added a couple more (very basic) style sheets.
+* Added ability for albums to have their own thumbnails. File must be named thmb_albumname.gif, where thmb_ is the thumbprefix and albumname is the exact name of the directory/folder that is your album. The thumbnail must be put at the same level as the album directory (not in it). Also must be a .gif, at least for now...
+
+
+V3.4 - 01/07/01
+---------------
+* Updated documentation (slightly).
+* Debug flag is now passed through all operations.
+* Added album_password option, which lets you password protect your album.
+* Fixed the problem that many people were having with ther config file (hopefully).
+
+
+V3.3 - 01/06/26
+---------------
+* Better use of CGI package.
+* The rest of the subtitles have been turned into buttons (if you have usebuttons enabled).
+* Added next and previous buttons for album view.
+* Sub albums now [finally] work correctly in both online and static modes.
+* You can now specify an alternate config file, through the web: album.pl?configfile=/home/user/www/album.cfg.
+* Added a security check into the sanity tests.
+* And, as usual, random bug fixes.
+
+
+V3.2 - 01/06/23
+---------------
+* Renamed photo.gif and album.gif to have thmb_ prefix, as some people wanted to put them in their albums. Makes sense.
+* Added a very basic sanity test to run at startup (will make it more complete later).
+* Started to use CGI package a bit more.
+* Added prevnextbutt option, which allows you to use form buttons instead of text links for next/prev photo and album.
+* Updated the .css file.
+
+
+V3.1 - 01/06/14
+---------------
+* "allow_uploads" flag is now honoured.
+* Added ubb_auth flag to define the type of authentication for photo uploads (either UBB or flatfile DB).
+* Added per_member_upload flag to allow users to upload into their own directory.
+* Various bug fixes.
+
+
+V3.0 - 01/06/12
+---------------
+* Merged old gallery.pl functionality into album.pl.
+* This means you can now allow users to upload directly into your photo album: "http://../album.pl?function=upload".
+* Also moved configuration information out to album.cfg, to make it easier to install/set up.
+
+
+V2.6 - 01/05/24
+---------------
+* Added ability to show the number of pictures and/or movies by each album name
+
+
+V2.5 - 01/05/08
+---------------
+* Can now pass in a slide show timer via the web: "http://../album.pl?slideshow=x" where x is the number of seconds to show a photo.
+
+
+V2.4 - 01/04/16
+---------------
+* Can now set "static" mode from the command line: ./album.pl static
+
+
+V2.3 - 01/01/03
+---------------
+* Some minor fixes. Can now view movies and run slide shows.
+
+
+V2.2 - 00/12/23
+---------------
+* Can now use thumbnails. (I use Thotor to generate the thumbnails: http://www.dominativ.com/thotor/. The settings that worked for me are Max Height 75, quality 25)
+* Pictures with a long description are marked with a * in the album.
+* Other minor fixes.
+
+
+V2.1 - 00/12/20
+---------------
+* Creating static HTML will now create an HTML page for each photo, like the online version.
+* Updated debugger to allow multiple levels. I was getting way too confused when debugging stuff. (See notes by $debug for more info.)
+
+
+V2.0 - 00/09/16
+---------------
+* Creating static HTML is now a single operation - it recursively scans all albums and creates an HTML file in each directory.
+
+
+V1.9 - 00/07/08
+---------------
+* Can use style sheets.
+
+
+V1.8 - 00/06/11
+---------------
+* Can click on a photo to move to the next one (as per my 2 year old daughter's request).
+
+
+V1.7 - 00/04/27
+---------------
+* Added the ability to write out static HTML files for the currently viewed album (unfinished).
+
+
+V1.6 - 00/01/16
+---------------
+* Added "next" and "previous" buttons when viewing photos, now using short descriptions for most "back" buttons.
+
+
+V1.5 - 00/01/13
+---------------
+* Re-built for IIS and Apache, made some fixes for allowing it to run on Win32 (see comments throughout, some changes required).
+
+
+V1.4 - 00/01/09
+---------------
+* Added capability to add/edit photo and album descriptions online via "http://../album.pl?function=enter_desc" command.
+
+
+V1.3
+----
+* Added "notify" section to track interested parties' e-mail addresses.
+
+
+V1.2
+----
+* Added icons for photo and album.
+
+
+V1.1
+----
+* I forget what I added for this release.
+
+
+V1.0
+----
+* Initial release.

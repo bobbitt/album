@@ -1,0 +1,619 @@
+# $Id: album.cfg.clean,v 1.31 2004/10/07 12:14:13 bobbitt Exp $
+#########
+# NOTES #
+#########
+
+# You should go through every setting below and make sure that each of these variables are set to suit your site. Some of the "default" examples are from UNIX, some from Windows. If you're not sure what the setting does after reading the description, try leaving it alone.
+
+#! Don't change this line, used to see if you have already been configured or not.
+newconfig=true
+
+
+###################
+# PATHS AND FILES #
+###################
+
+# This section sets the paths for various files and directories needed to run the album. This is probably the most critical section, as neglecting to make changes here will prevent your album from running properly. See the album.pl support forums for more information on the files, correct permissions, and their uses.
+
+# The full file system path to your cgi-bin directory. (Where album.pl is located.) This must be an absolute path (I.E. start with / for UNIX, or a drive letter for Windows.) If you don't know the path to your home directory, turn on debug level 3 or higher, and it will display your home directory near the beginning.
+cgi_dir=C:/inetpub/wwwroot/cgi-bin
+
+# The full file system path to your photo album directory. This is where you will put your images and sub-directories. These will automatically be viewed as photos and albums by the script.
+album_dir=C:/inetpub/wwwroot/album
+
+# This is the URL to your cgi-bin directory (the same directory as defined above in cgi_dir, but in URL format).
+cgi_web=http://yourserver.com/cgi-bin
+
+# This is the URL to your album directory (the same directory as defined above in album_dir, but in URL format). This is not the URL that will be used be users to invoke the script.
+# ** IMPORTANT: If you wish you use image "shrouding" (I.E. your images are not located under your web root) then leave album_web blank. In this case, album_dir can be any directory, and does not have to be under your web site root. Images will be read directly, by the script, not by the web server itself. This is used when web admins don't want their images to be stolen, though it it important to note that it makes album.pl run *much* slower. Also note that this mode checks the referer, and requests for images must come from album.pl located in "cgi_web" or they will be rejected.
+album_web=http://yourserver.com/album
+
+# The full file system path to the module files used by album.pl. That is where album_admin.pm and others are located.
+module_path=C:/inetpub/wwwroot/cgi-bin/Modules
+
+# Path to notify file. Used to store the e-mail addresses of anyone who has chosen to be notified when new photos are added. Only used if you set notify=1 later, otherwise ignore. This file has to be writable to the web server.
+notify_file=C:/inetpub/wwwroot/cgi-bin/notify_addresses.txt
+
+# Link to style sheet, as you want it to appear in all HTML pages. Should be an absolute web path (I.E. from your web root), since each page must call it and they may exist in different locations.
+style_sheet=/Photo_Album.css
+
+# Location to log photo uploads. Must be writable to the web server if used. No logging is kept if this is left blank.
+upload_logfile=/home/user/www/logs/album.log
+
+# Location of UBB or YABB "Members" directory. Used for UBB or YABB authentication (authentication_type=2 or authentication_type=3). Should be the absolute filesystem path.
+# Also used by authentication type 5 (AMLite), as location of amlite directory.
+membersdir=/home/user/www/cgi-bin/Members
+
+# Path to the authentication database. Only needed if authentication_type=0. This file is a simple text flatfile, see the album.pl support forums for the format.
+auth_db=C:/auth_db.txt
+
+# If using per_member_upload, you can have all member directories created in a sub album
+# E.G. The root album could contain album1, album2, album3 and users. The "users" album would contain all user uploads, each in their own directory.
+# If you leave this option blank, users will get their own upload directory created at the root of the album.
+member_subdir=
+
+# Valid Image extensions. Only files ending in these extensions will be considered a photo. Anything not in this list will not be displayed as a photo. Only files with this extension will be allowed to be uploaded (assuming you allow uploads).
+@imgexts=gif,jpg,png
+
+# Valid Image extensions. Only files ending in these extensions will be considered a movie. Anything not in this list will not be displayed as a movie. Only files with this extension will be allowed to be uploaded (assuming you allow movie uploads).
+@movieexts=avi,mpg,mpeg,wmv
+
+# Valid JPEG 2000 Image applet extensions. Only files ending in these extensions will be considered for using jpeg 2000 applets or plugins. Anything not in this list will not be displayed as a photo.
+@jp2exts=jp2
+
+# Descriptions filename. This is the name of the file used to store all photo and album titles and descriptions. A file by this name will be created in each album, so do not put any path information here, just a filename (I.E. descriptions.txt). Album directories should all be writable to the web server if you intend to update titles/descriptions from the web. This does not set the path, just the name of the file that will be used in each album.
+descname=descriptions.txt
+
+# The filename to use (per album) to track the number of times a each photo has been viewed. If this is left blank, views are not tracked. This should not contain a path, it determines only the name of the file to be used in each album to track views.
+# E.G. viewfile=views.txt
+viewfile=views.txt
+
+# The filename to user (per album) to track user ratings. If this is left blank, ratings are disabled. This should not contain a path, it determines only the name of the file to be used in each album to track ratings.
+# E.G. ratingfile=ratings.txt
+ratingfile=ratings.txt
+
+# Stringtable: used to translate "hard coded" text into different languages, by pointing to a different stringtable. Default is English. The stringtable file must be in the same directory as album.pl (cgi_dir).
+stringtable=album_strings.txt
+
+# Path to ImageMagick binary directory (specifically, the directory containing the "convert" binary). Leave blank if you do not wish to use ImageMagick.
+imagemagick=
+
+# The full file system path to your temporary files directory. This is where album.pl will put temporary images when the browser will not support jp2 plugins.
+temp_loc=C:/inetpub/wwwroot/temp
+
+# This is the URL to your temporary files directory (the same directory as defined above in temp_loc, but in URL format).
+temp_web=http://yourserver.com/temp
+
+
+#################
+# ICONS/BUTTONS #
+#################
+
+# This section defines the image directory and the filenames of individual icons and buttons.
+
+# The path to the directory containing all icons and buttons. This should be relative to album.pl's location, as it is appended to cgi_dir to get the actual URL.
+img_dir=../img
+
+# Filename of the photo icon.
+photo_icon=thmb_photo.png
+
+# Filename of the movie icon.
+movie_icon=thmb_movie.png
+
+# Filename of the album icon.
+album_icon=thmb_album.png
+
+# Filename of the album folder icon (used for the "breadcrumbs").
+album_folder_icon=thmb_album_folder.png
+
+# Login button
+login_button=thmb_album_login.png
+
+# Logout button
+logout_button=thmb_album_logout.png
+
+# Home button
+home_button=thmb_album_home.png
+
+# Search button
+search_button=thmb_album_search.png
+
+# Random button
+random_button=thmb_album_random.png
+
+# Upload button
+upload_button=thmb_album_upload.png
+
+# Recent Uploads button
+recent_button=thmb_album_recent.png
+
+# Rate It button
+rate_button=thmb_album_rate.png
+
+# E-Mail This Page button
+email_button=thmb_album_email.png
+
+# Small button
+small_button=thmb_album_small.png
+
+# Medium button
+medium_button=thmb_album_medium.png
+
+# Large button
+large_button=thmb_album_large.png
+
+# Full Size button
+fullsize_button=thmb_album_fullsize.png
+
+# Fullscreen Slideshow button
+fullscreen_button=thmb_album_fullscreen.png
+
+# Edit button
+edit_button=thmb_album_edit.png
+
+# Delete button
+delete_button=thmb_album_delete.png
+
+# Move button
+move_button=thmb_album_move.png
+
+# Configuration Management button
+config_button=thmb_album_config.png
+
+# Create Album button
+create_button=thmb_album_create.png
+
+# Update Titles & Descriptions button
+titles_button=thmb_album_titles.png
+
+# Check For Updates button
+updates_button=thmb_album_updates.png
+
+# Upload (on admin screen) button
+adminupload_button=thmb_album_adminupload.png
+
+# Set Album Thumbnail button
+thumb_button=thmb_album_thumb.png
+
+# Popular button
+popular_button=thmb_album_popular.png
+
+# Link button
+link_button=thmb_album_link.png
+
+# Auto button
+auto_button=thmb_album_auto.png
+
+
+#############
+# TEMPLATES #
+#############
+
+# This section defines the template directory and the filenames of individual templates.
+
+# Path and filename to all templates. See the album.pl support forums for template format information. This path should be absolute.
+template_dir=C:/inetpub/wwwroot/cgi-bin
+
+# Filename of the album template file. This file is used as a template to display albums, and must be located in the "template_dir" directory, as defined above.
+album_template=album.tml
+
+# Filename of the photo template file. This file is used as a template to display photos, and must be located in the "template_dir" directory, as defined above.
+photo_template=album_photo.tml
+
+# Filename of the "object" template file. This file is used as a template to display the objects in an album view (I.E. photo thumbnails or sub-albums), and must be located in the "template_dir" directory, as defined above.
+object_template=album_object.tml
+
+# Filename of the upload template file. This file is used as a template to display the upload form, and must be located in the "template_dir" directory, as defined above.
+upload_template=album_upload.tml
+
+# Filename of the login screen template file. This file is used as a template to display the login form, and must be located in the "template_dir" directory, as defined above.
+login_template=album_login.tml
+
+
+###########
+# DISPLAY #
+###########
+
+# This section contains settings to determine how information is displayed to the user.
+
+# Criteria to sort albums and photos by
+# 0 = Sort by filename (ascending)
+# 1 = Sort by filename (descending)
+# 2 = Sort by modified date (newest first)
+# 3 = Sort by modified date (oldest first)
+# 4 = Sort by creation date (newest first)
+# 5 = Sort by creation date (oldest first)
+sortby=0
+
+# Number of columns used to display photos/albums/movies.
+columns=5
+
+# Number of rows used to display photos and movies (albums are displayed seperately).
+rows=10
+
+# Space between columns of photos/albums.
+column_spacing=20
+
+# Description location - 0=Right, 1=Below, 2=Do not Display
+descloc=1
+
+# If this is set to 1, a "jump to" box is shown when in an album, which allows the user to jump to any peer album.
+jump_to=1
+
+# Show number of photos in each album.
+# Note: can seriously slow down viewing of large albums!
+showcount=0
+
+# Show number of movies in each album.
+# Note: can seriously slow down viewing of large albums!
+showmoviecount=0
+
+# Show the number of sub albums in each album.
+# Note: can seriously slow down viewing of large albums!
+showsubalbumcount=0
+
+# Slide Show timer. Set to number of seconds to wait before autmatically displaying next photo (0=don't run as a slide show)
+slide_timer=0
+
+# Use icons for albums/photos that do not have thumbnails?
+icons=1
+
+# Show a legend (for the icons, only on the first page)
+legend=1
+
+# Use graphics or text for menus?
+# 0 = Graphics (buttons)
+# 1 = Text
+textmenu=0
+
+# Use "Update Notifier"?
+#
+# NOTE: This only keeps a list of e-mail addresses, it does not actually send any e-mail messages out. It's up to you to send out the e-mail to everyone in the notify file once you've added pictures.
+# 1=use notifier, 0=no notifier
+notify=0
+
+# The alignment (left, center or right) of sub-albums and photos when shown in an album. (I.E. the thumbnails)
+object_alignment=center
+
+# Do you want to show the ratings and "Rate It" link on the photo viewing page, or in their album, under their thumbnails?
+# 0 = Only show when viewing a photo
+# 1 = Also show under photo's thumbnail
+rating_location=1
+
+# Automatically resize photos once they are uploaded. You can opt to have the images constrained into a specific size, or proportionally resized based on either height or width. Note that ImageMagick is required for this feature.
+# Examples:
+# pic_resize=500       --> Resize image to have a width of 500 pixels, and a proportional height
+# pic_resize=x500      --> Resize image to have a height of 500 pixels, and a proportional width
+# pic_resize=100x200   --> Resize a picture to be no more than 100 by 200, keeping correct proportions
+# pic_resize=30k       --> Resize the actual file to be approximately 30k. NOTE: This is not always accurate
+# Leave this setting blank if you do not want pictures to be resized.
+pic_resize=
+
+# Always resize the picture, even if it's smaller than you wanted?
+# 0 = Only resize pictures that are bigger than pic_resize (shrink them)
+# 1 = Force all uploaded photos to become pic_resize sized, no matter what their original size
+always_pic_resize=0
+
+# Photos can be viewed in Small, Medium and Large sizes. You can define what each of those sizes mean here, by providing a height and/or width for each size. Providing just one dimension (I.E. height only) means that the photos will be kept proportional. Providing both a height and a width may distort some photos.
+
+# The width used when displaying photos using the "small" viewing size
+small_width=
+
+# The height used when displaying photos using the "small" viewing size
+small_height=200
+
+# The width used when displaying photos using the "medium" viewing size
+medium_width=
+
+# The height used when displaying photos using the "medium" viewing size
+medium_height=500
+
+# The width used when displaying photos using the "large" viewing size
+large_width=
+
+# The height used when displaying photos using the "large" viewing size
+large_height=800
+
+# The "default" size used to display photos. If left blank (or set to zero), photos are displayed at their normal size.
+# default_size=0	--> Do not set a default size
+# default_size=1	--> Show all photos using small_width and small_height as the default
+# default_size=2	--> Show all photos using medium_width and medium_height as the default
+# default_size=3	--> Show all photos using large_width and large_height as the default
+# default_size=4	--> Show all photos using automatic sizing as the default
+default_size=0
+
+# Selects the style used for breadcrumbs.
+# 0 = Folder heirarchy
+# 1 = Single » Line » Style
+bread_style=0
+
+# Number of "most popular photos" to display. If zero, don't display any. A photo's popularity is defined by it's # of views and ratings. If both of these are disabled, there are no popular photos.
+most_popular=10
+
+# Regular expression for album names to skip (I.E. directories matching these names will not be displayed as albums.)
+skipalbums=(^_vti_|EXCLUDE)
+
+
+##############
+# THUMBNAILS #
+##############
+
+# Thumbnail prefix - prepend this to any thumbnail file. For example, "thmb_anypic.jpg" would be used as the thumbnail for "anypic.jpg" if $thumbprefix="thmb_". Even if thumbnails are not used, this *must* have a value!
+thumbprefix=thmb_
+
+# If set to 0, generic thumbnails are used if a custom thumbnail can't be found. If set to 1, it will use a height/width tag to constrain the actual image for a thumbnail, if a custom thumbnail can't be found. For photos only. Be aware that turning this on means that every photo will load every time your album is viewed, which will incur a lot of extra network traffic.
+constrain_thumbs=1
+
+# Height to make thumbnails. If Image Magick is used, this will be the size of the thumbnail created. If constrain_thumbs is used, this will be the size of the constrained thmbnail. In this case, value of 0 means don't constrain, and some browsers (mostly newer ones) will keep the aspect ratio of an image when only 1 dimension is specified.
+thumb_height=75
+
+# Width to make thumbnails. If Image Magick is used, this will be the size of the thumbnail created. If constrain_thumbs is used, this will be the size of the constrained thmbnail. In this case, value of 0 means don't constrain, and some browsers (mostly newer ones) will keep the aspect ratio of an image when only 1 dimension is specified.
+thumb_width=100
+
+# Quality of JPEG thumbnails. Ranges from 0 (low) to 100 (high). For thumbnails, I've found that 75 keeps 'em small but decent.
+thumb_quality=75
+
+# Show thumbnails for next and previous photos?
+nextprevthumb=1
+
+# Use the Perl GD graphics package to generate thumbnails? (1 = use GD, 0 = don't use GD)
+# Note: You cannot use both GD and ImageMagick to generate thumbnails. If ImageMagick is defined above, it takes precedence over this setting.
+perl_gd=0
+
+# Use the first thumbnail in an album as it's "representative" thumbnail.
+# Can slow down large albums
+representative_thumbnails=1
+
+# Use thumbnail fading? (Highlights thumbnails when they are hovered over.)
+thumb_fading=1
+
+# Thumbnail fading: Amount of Fading when not hovering over image (Default = 100)
+fade_load=100
+
+# Thumbnail fading: Amount of Fading when hovering over image (Default = 70)
+fade_to=70
+
+# Thumbnail fading: Speed of Fading (Default = 5)
+fade_over=5
+
+# Thumbnail fading: Amount of Fading when Mouseout (Default = 100 , normally the same as Fade_load)
+fade_out=100
+
+# Add a drop shadow to images. NOTE: ImageMagick is required.
+# 0 = No shadow borders
+# 1 = Shadow borders on thumbnails only
+# 2 = Shadow borders on thumbnails and originals
+shadow_borders=0
+
+# Colour of the shadow's background as a web colour code. (E.G. #E4E4E4)
+# Note that some versions of ImageMagick won't support this, so if shadow borders don't work, try leaving this blank.
+shadow_background=#E4E4E4
+
+
+###########
+# UPLOADS #
+###########
+
+# Allow uploads? If this is 1, people can upload to your photo album by using the function=$upload flag. See below for authentication information. Setting this option to 0 disallows uploads.
+allow_uploads=0
+
+# Allow movies to be uploaded too?
+movie_upload=0
+
+# Number of concurrent file uploads to allow. An input field for each file will be shown on the upload screen.
+concurrent_uploads=4
+
+# Number of "latest uploads" to display. If zero, don't display any. (Seems obvious ;) Note that the list is compiled from the upload_logfile, so if that is not used or not present, recent uploads won't work.
+recent_uploads=10
+
+# Can users overwrite photos when they upload? (I.E. upload photos with filenames that already exist?) 1=overwrite, 0=don't allow overwrite
+upload_overwrite=0
+
+# Size limit (in kilobytes) on individual photo uploads
+upload_size_limit=150
+
+# Size limit (in kilobytes) on individual movie uploads
+movie_upload_size_limit=500
+
+# Turning this option on will force users to upload photos into their own directory. They will not be allowed to pick a category, and will not be allowed to upload into any other directory. If a directory for that user does not already exist, one will be created when that user uploads their first photo. They will no longer be presented with a "category" list, any photos they upload will automatically be saved into their personal directory.
+per_member_upload=0
+
+# The size (in kilobytes) that each user may upload. Works only if per_member_upload=1.
+quota=500
+
+# Do you want to disallow UBB "junior members" from uploading?
+block_ubb_junior_members_from_uploading=1
+
+# Enter a command to be run after a successful upload. Any ####OBJECT#### tags will be replaced with the full path/filename of the photo uploaded. ImageMagick output will be stored in a temp file, and copied over the original upload if the command was successful. If undefined, no action is taken. An example is helpful here:
+#
+# The following example puts "album.pl" in the upper left corner of each picture. (Needs FreeType installed with ImageMagick)
+# postupload=convert -font Courier -fill red -draw "rotate 270 text -60,10 'album.pl'" ####OBJECT####
+#
+# Superimpose "logo.gif" over top of the uploaded image, in the lower Right corner. (Needs ImageMagick)
+# postupload=composite -geometry +10+10 -gravity SouthEast -compose atop /path/to/logo.gif ####OBJECT####
+postupload=
+
+
+##################
+# AUTHENTICATION #
+##################
+
+# Sets the type of authentication to use:
+#
+# 0 = Anonymous (user can enter their name, no password required). Administration is not permitted by anyone.
+# 1 = Use flatfile DB authenticaiton. Must set auth_db parameter for this to work.
+# 2 = Use UBB authentication. Must set membersdir parameter for this to work.
+# 3 = YaBB, YaBB 2 & E-Blah authentication. Must set membersdir parameter for this to work.
+# 4 = Database authentication, such as MySQL (I.E. SMF, YaBB SE, UBB.threads, etc). The "Database" section must be completed for this to work.
+# 5 = AMLite authentication. Must set membersdir parameter for this to work.
+authentication_type=0
+
+# Do you want to use authentication_type to protect your entire album? (I.E. Users must authenticate to view your album, in addition to authenticating for uploads...) NOTE: This function only works if authentication_type is non-zero.
+protect_album=0
+
+# Do you want to use a simple password to protect your album? If so, set this to the password you want to use. This one password will be used for all access to the album. authentication_type is not used here. Leave this item blank for an unprotected album. (E.G. "album_password=")
+album_password=
+
+# Allow users to edit the title and description of photos they have uploaded?
+allow_edit=1
+
+# Allow users to delete photos they have uploaded?
+allow_delete=0
+
+# Allow users to move photos they have uploaded?
+allow_move=0
+
+# Allow users to link photos they have uploaded?
+allow_link=0
+
+# List of admins (comma seperated). Users in this list will have default access to all photos and albums, including edit and delete operations.
+# Note that you must list the user's user name if you use flatfile or YaBB authentication, or the user's user number if you're using UBB authentication.
+default_admins=
+
+# List of guests (comma seperated). Users in this list will not be able to upload.
+# Note that you must list the user's user name if you use flatfile or YaBB authentication, or the user's user number if you're using UBB authentication.
+# Note: Using a value of "all" here turns all non-admin users into guests. That is, only admins will be able to upload.
+default_guests=
+
+
+#########
+# JHEAD #
+#########
+
+# Path to jhead executable (should be of the form /your/path/jhead, ending with the jhead or jhead.exe executable). Leave blank if you do not wish to use jhead (or do not have it installed). Allows you to obtain a lot of extra info about a photo, espeically if it was taken with a digital camera. Jhead info is shown as the "tooltip" for an image, and may be added to the photo template using the ####JHEAD#### tag. See http://www.sentex.net/~mwandel/jhead/ for more info on jhead, and !readme.html for more information on how to use it.
+# IMPORTANT NOTE: For Win32 systems, paths with spaces in them may cause problems with older versions of ActivePerl. Build 630 is confirmed to work, so please use that build or later.
+jhead=
+
+# This determines whether to use the "-v" (for verbose) option with jhead. (Jhead must be enabled, above, for this to work.)
+jhead_details=0
+
+# When set to 1, jhead will be used to automatically insert a photo's title/description (if present) as a comment in the EXIF header.
+jhead_comments=0
+
+############
+# DATABASE #
+############
+
+# This section is only required if you are using a database for authentication (I.E. authentication_type=4). If not, you can ignore all the settings here.
+
+# The name of the database driver.
+# *NIX default for MySQL is mysql
+# Windows default for MySQL is mysqlPP
+db_driver=mysql
+
+# The name of the database.
+# YaBB SE default is yabbse
+# PostNuke default is postnuke
+db_name=yabbse
+
+# The system running the database. If it's the same system as the one running album.pl, leave this as "localhost"
+db_hostname=localhost
+
+# Username to log into database as
+db_user=root
+
+# Password to allow above user to log into database
+db_password=password
+
+# Port number to use to connect to the database.
+# MySQL default is 3306
+db_port=3306
+
+# Table name containing member records
+# YaBB SE default is yabbse_members
+# UBB.Threads default is w3t_Users
+# Invision Power Board BBS default is ibf_members
+# phpBB default is phpbb_users
+# UBB.x default is USERS
+# PostNuke default is nuke_users
+# SMF default is smf_members
+db_membertable=smf_members
+
+# Name of the field that contains the user's login name in the "member" table
+# YaBB SE default is memberName
+# UBB.Threads default is U_LoginName
+# Invision Power Board BBS default is name
+# phpBB default is user_id
+# UBB.x default is USERNAME
+# PostNuke default is pn_name
+# SMF default is memberName
+db_username=memberName
+
+# Name of the field that contains the user's password in the "member" table
+# YaBB SE default is passwd
+# UBB.Threads default is U_Password
+# Invision Power Board BBS default is password
+# phpBB default is user_password
+# UBB.x default is PASSWORD
+# PostNuke default is pn_pass
+# SMF default is passwd
+db_passwdfield=passwd
+
+# Name of the field that contains the user's public display name in the "member" table
+# Optional, not used if left blank
+# YaBB SE default is realName
+# phpBB default is username
+# SMF default is realName
+db_displaynamefield=
+
+# Name of the field that contains the user's password salt. Currently only used for SMF V1.1+
+# Optional, not used if left blank
+# SMF default is passwordSalt
+db_passwordSaltfield=
+
+
+##########
+# STATIC #
+##########
+
+# This section contains settings for creating static HTML files.
+
+# Turn this flag on to create static HTML for every album and every photo. (Great for viewing offline, saving to a CD, etc.) When this is turned on, it may seem like your system is hung for a bit. Just let it run, and it will come back with a status display eventually. The bigger the photo album, the longer it will take... You'll probably only want to set this flag, run the script, and then clear the flag again. Otherwise, you just keep re-creating all thos files.
+create_html_flag=0
+
+# Filename to use for static HTML files (should be the default file read by your web server to work properly). This should not include path info, as it's only the name of the file that will be created in each album directory.
+static_html_filename=index.html
+
+
+#############
+# FUNCTIONS #
+#############
+
+# Function Codes. These are in effect, passwords, changing them from the defaults will prevent people from doing things like re-configuring your album, deleting photos or modifying your descriptions.
+# NOTE: Each function code must be unique (I.E. different from all the others) or else your album will act unpredictably!
+
+# Code to display Administration menu - not changing this will pretty much ensure your gallery is hacked!
+admin=admin
+
+# Code to enter the configuration screen - not changing this will pretty much ensure your gallery is hacked!
+config=config
+
+# Internal code used to write out the new configuration settings. Talented hackers can make use of this too, so consider changing it.
+updateconfig=updateconfig
+
+# Allow user to update description - change this from the default if you want to block other people from changing your descriptions.
+enter_desc=enter_desc
+
+# System will modify contents of description file to match what user entered.  Talented hackers can make use of this to add ratings, so consider changing it.
+update_desc=update_desc
+
+# Code to update user ratings. Talented hackers can make use of this to add ratings, so consider changing it.
+update_rating=update_rating
+
+# Code to use for setting debug levels - not changing this will pretty much ensure your gallery is hacked! Hackers can make use of this to obtain information about your site that they shouldn't have, so make sure you change this.
+debug_code=debug
+
+
+###########
+# VERSION #
+###########
+
+# This is used to make sure the version of album.pl is the same as the version of album.cfg. Don't change it unless you're upgrading and also merging in the new version's config changes.
+cfgver=6.5
+
+
+#############
+# NEW ITEMS #
+#############
+
+# This section holds new configuration items that have been added via the web interface.

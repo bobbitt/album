@@ -1,0 +1,347 @@
+Generering av Statiska HTML Filer
+Fotoalbum - Generering av Statiska HTML Filer
+Detta läge är tänkt att användas för att förbereda Fotoalbumet för visning offline. Exempelvis när en webserver inte är praktisk eller tillgänglig, eller för att du vill bränna ner ditt album till en CD-ROM.
+Detta kommer att skapa en HTML-fil i varje katalog (album), och en för varje foto. Detta kommer att ge dig möjlighet att visa foton via denna statiska HTML. (Normalt skapas denna direkt av webservern). Nackdelen med detta är du måste göra om denna process om nya foton läggs till.
+Genererar Statisk HTML för...
+Skapade HTML för
+foto(n)
+och
+film(er)
+i
+album.
+foto
+film
+album
+miniatyrbilder hittades.
+Hoppa till:
+Gå
+FEL!
+Fel: Rad
+Kan inte öppna filen:
+Kan inte öppna den temporära filen för skrivning:
+Du måste förmodligen tillåta fullständiga rättigheter till katalogen (chmod 777 for unix).
+Kan ej skriva till fil:
+Misslyckades vid grundläggande test:
+Fel vid uppladdning av foto:
+Kan inte öppna äkthetsbevisningens databas:
+Kan inte skriva till fil:
+Kan inte skapa album katalog:
+Fel i konfigurations-filen:
+Registrerings fel. Var god försök igen.
+Ogiltig konfigurations-fil specificerad
+Var god ändra
+och modifera "$configfile=..." raden för att hänvisa till din konfigurations-fil.
+Okänt fel:
+Var god rapportera denna information till <a href="mailto:Mike@Bobbitt.ca">Mike@Bobbitt.ca</a> (på engelska)
+Detta Fotoalbumet
+Uppladdningar är inte tillåtna
+Sajtens administratör har avaktiverat funktionen för uppladdning av foto. Var god återvänd till
+Du måste ange ditt Användar-id!
+Du måste ange ditt Lösenord!
+Du måste välja en fil för uppladdning!
+Kommer ej att laddas upp! Kunde inte godkänna Användar-id:
+Edit
+Radera
+Move
+Foto
+Album
+Administrations Meny
+Skapa Album
+Uppdatera Titlar och Beskrivningar
+Helskärms Diabildsvisning
+Konfigurations handhavande
+Återskapa Detta Album
+Liten
+Användarnamn:
+Namn:
+Lösenord:
+Fil #
+Kategori:
+Titel:
+Beskrivning:
+Jag instämmer med reglerna
+Aja Baja! Försöker du hacka mig?
+Fil
+är inte en tillåten filtyp. Var god och läs reglerna gällande uppladdning av filer för att få mer information.
+existerar, Kommer inte att skrivas över!
+Fel vid öppning
+fil för skrivning
+Kan inte ladda filer som är större än
+kilobyte
+Diskkvot överskriden! (Du har en begränsning på
+totalt.)
+Kunde inte ladda upp fil:
+var storlek
+(
+)
+av storlek
+byte är framgångsrikt uppladdat!
+Uppladdad av
+Byggd på
+Konfigureringsfil är av version
+men du kör version
+av detta program. <a href="?upgradecfg=true">Var god och rätta felet</a>!
+Tyvärr, du kan inte använda en relativ katalog för
+Tyvärr, du kan inte använda special symboler i
+namn
+Fotoalbum
+Föregående
+<<
+Tillbaka Till Album
+Nästa
+>>
+Aldrig
+Visad
+album.pl
+(första visning).
+Senast visad
+||
+Stoppa diabildsvisning
+Stoppa Felrättning
+Legend:
+Ikon
+Om du vill bli meddelad när bilder har lagts till
+Film
+, var god & fyll i din e-mail adress nedan.
+Meddela mig
+Din e-mail adress
+har lagts till i listan. Du kommer att direkt att få reda på när fler bilder har lagts till albumet.
+5: Mycket Bra
+4: Bra
+3: Medel
+2: Dålig
+1: Mycket Dålig
+Namn (frivilligt):
+Kommentarer (frivilligt):
+Lägg till betyg
+Nuvarande bild är
+Klickandet här kommer att visa current
+Detta är den sista bilden.
+*
+Din konfigurations-fil saknar viktig information. Sedan påbörjandet av version 5 så har många konfigurerings egenskaper ändrats. Du borde förmodligen börja om från början med den konfigurations-fil (album.cfg) som följde med denna distribution och åter-konfigurera den.
+#FF0000
+#FF9900
+SKRIVSKYDDAD
+STOPP:
+Din konfigurerings-fil (
+) är skrivskyddad. Du måste försäkra dig om att den är skrivningbar för din webserver före du kan göra några ändringar. applicera
+Dokumentation
+<b>NOTERING</b>: Du befinner dig på konfigurerings-sidan därför att du kör detta
+för första gången. Var god och konfigurera ditt album och klicka på "Applicera" för att spara din inställningar. När detta är gjort så kommer du inte längre att hamna på konfigurerings-sidan automatiskt.<p>Egenskaper markerade med en * är automatiskt ifyllda i förväg med "bästa möjliga gissning". Trots ett försök i att fylla i de korrekta värdena så kan dessa egenskaper behöva modiferas för att fungera korrekt.
+Denna katalog existerar inte för tillfället eller är ej läsbar för webservern. Du måste antingen skapa den eller ändra rättigheterna för denna konfigurerings-egenskap för att ditt album ska fungera.
+Denna katalog existerar inte för tillfället eller är ej skrivningsbar för webservern. Du måste antingen ändra rättigheterna eller modifera denna konfigurerings-egenskap före ditt album kan acceptera uppladdningar.
+Denna katalog existerar inte för tillfället eller är ej läsbar för webservern. Du måste antingen skapa den eller ändra rättigheterna för denna konfigurerings-egenskap för att ditt album ska fungera. Detta kan vara för att att du har en inkorrekt template_dir, ovanför.
+Meddelande-filen hittades inte eller är inte skrivningsbar för webservern. Inga e-mail adresser kommer att kunna sparas förrän detta är åtgärdat.
+Log-filen hittades inte eller är inte skrivningsbar för webservern. Om inte katalogen som innehåller log-filen är skrivningsbar för webservern så kommer ingen loggning av uppladdningar att ske förrän detta är åtgärdat.
+Log-filens konfigurerings-egenskap är tom. Ingen uppladdnings loggning kommer att utföras.
+Din "medlems" katalog hittades inte eller är ej läsbar för webservern. Uppladdningar kan inte utföras korrekt med äkthetsbevisning för UBB eller YaBB användare förrän detta är åtgärdat.
+Jhead hittades inte på den specifierade platsen. Du kommer att mottaga jhead fel tills detta är åtgärdat. (Detta fel visas ibland även om sökvägen till jhead är korrekt - bara godkänn...)
+Medium
+Äkthetsbevisningen på databasen hittades inte, eller så är den inte läsbar för webservern. Om du använder exakt äkthetsbevisning av fil (authentication_type=1) så måste du åtgärda detta.
+Du har inga definerade bild-filändelser. Inga bilder kommer att visas i ditt album. (Om du strängt laddar upp binära filer så är detta OK.)
+Du har inga definerade film-filändelser. Inga filmer kommer att visas i ditt album. (Om du inte laddar upp några filmer så är detta OK.)
+Du använder den ursprungliga koden. Ditt album kan bli hackat om du inte ändrar detta.
+Du använder den ursprungliga koden. Ditt album och dina foto beskrivningar kan bli ändrade om du inte ändrar detta.
+Du använder den ursprungliga koden. Dina betygsättningar på foton kan bli ändrade om du inte ändrar detta.
+Du använder den ursprungliga koden. Ditt album och dina foto beskrivningar kan bli ändrade om du inte ändrar detta.
+Sökvägen till din Foto ikon är inte korrekt. Länkar till denna bild kommer förmodligen att vara trasiga eller saknas till detta är åtgärdat.
+Sökvägen till din Film ikon är inte korrekt. Länkar till denna bild kommer förmodligen att vara trasiga eller saknas till detta är åtgärdat.
+Sökvägen till din Album ikon är inte korrekt. Länkar till denna bild kommer förmodligen att vara trasiga eller saknas till detta är åtgärdat.
+VARNING:
+är inte skrivningbar. Inga ändringar kan göras.
+Lägg till en ny konfigurerings-egenskap
+Denna sektion är till för att lägga till nya konfigurerings-egenskaper till din album.cfg fil. Detta skall endast göras när du uppgraderar, för att lägga till bvegärd konfigurations-egenskap. Notera att egenskaper som lagts till genom detta kommer ej att sorteras in till en passande grupp. Du kan behöva editera album.cfg direkt för att lägga till nya konfig. egenskaper.
+Format
+Kommentarer
+Namn
+Värde
+Exempel
+Kod som används för felrättnigs nivåer - om denna inte ändras så är chansen garanterat stor att ditt galleri blir hackat! Hackers kan dra nytta av detta och skaffa sig information om din sajt som dom inte bör ha, så se till att du ändrar detta.
+felrättningskod
+felrättning
+Ny konfigurerings-egenskap
+Registrering
+Insättning av en email adress i fältet nedan ger dig möjlighet att få reda på uppdateringar, säkerhetsproblem och nya egenskaper. Din adress kommer ej att lämnas ut till tredje part eller till något annat ändamål. Jag har lagt till en registrerings-egenskap för att hjälpa album.pl gemenskapen att vara uppdaterad med utvecklingens ansträngnigar och försök, inte för att tjäna en slant eller för skräpmail. :)
+Om du fortfarande inte vill fylla i någon adress så är de OK, det är frivilligt.
+E-Mail Adress
+Ok
+Ladda om
+Din Konfiguration har uppdaterats. Nu har du följande alternativ:
+Visa ditt album
+Utför administrativa nedladdnings-åtgärder
+Visa fält för uppladdning
+Konfigurera fler inställningar
+Ej betygsatt
+Betygsatt
+, nuvarande betyg är
+Large
+Välkommen
+Fullstorlek
+Du måste logga in
+Äkthetsbevisning felaktig. Var god försök igen.
+Detta album är lösenords-skyddat. Var vänlig och fyll i ditt lösenord för att fortsätta.
+Bekräfta radering
+Är du säker på att du vill radera ?
+var ej raderad!
+kunde ej radera!
+Ny katalog kommer att skapas i
+Katalog (filsystem) namn:
+finns redan.
+Fyll i din nya titel
+Fyll i din nya beskrivning
+Sluta fyll i beskrivningar
+Uppdatera Beskrivning
+Senaste Uppladdningar Är Inte Tillgängliga.
+Senaste Uppladdningar
+Uppladdade in till
+Betyg:
+Detta är ingen giltig katalog. Bild Magick integrering (och därför automatisk generering av miniatyr-bilder) kommer ej att fungera före detta är åtgärdat.
+kommer också att raderas.
+gång
+Foton uppladdade av
+gånger
+Kommentar från
+Anonym
+beskrivning hittades.
+Kan inte förgrena sig:
+Sida:
+Nästa
+Föregående
+URL till bild: [
+]
+Eftersom detta är en katalog, så kommer fäljande filer att raderas.
+Rate It
+Bild Magick Fel:
+Flytta
+Flytta Foto
+Bekräfta flytt
+Var vill du flytta
+blev inte flyttade!
+kunde inte flyttas!
+:
+kommer också att flyttas.
+Flytta till:
+Ja
+Nej
+.
+Du har fyllt i en "null" (tom) funktions kod. Detta kan orsaka väldigt konstiga händelser till ditt album, så var god och tilldela varje funktions kod ett unikt icke-null värde.
+Avbryt
+Ange ett Betyg:
+Hjälp Forum
+Uppdatera Beskrivning Och Gå Till Nästa Foto >>
+&nbsp;&nbsp;
+...
+Senaste Uppladdade
+Foton:
+Jag tror att detta skulle intressera dig:
+Logga In
+Allmän
+Dessa fält nedan kan användas för att ladda upp bilder till ####TITLE####. Bara användare som är registrerade på denna sajten kan ladda upp foton (Registrera dig <A href="/cgi-bin/ultimatebb.cgi">här</A> om du inte redan har ett användar-id / konto.)
+Regler
+<OL><LI>Filerna måste vara i ####FORMAT#### format<LI>All uppladdning loggas av säkerhetsskäl.<LI>Inget naket, oanständigt eller obehagligt material som kan uppfattas stötande får läggas upp.<LI>Bilder som ska laddas upp bör editeras till lämplig storlek och annan belåtenhet för att passa in i albumen.<LI>Alla filer måste antingen vara original, eller ha fått fotografens tillåtelse före uppladdning.<LI>Foton blir allmän egendom när de har postats här.<LI>Uppladdningar får ej överstiga ####SIZE#### kilobyte.</LI></OL>Den som bryter mot dessa regler kommer att förlora sitt användar-id / konto.
+För att visa de tillgängliga bilderna i <A href="####ALBUMPROG####">####TITLE####, klicka här</A>.
+Ladda Upp Foton
+För att ladda upp ett foto, fyll i informationen i fälten nedan. (Notera att för stora sajter så kan det ta en stund innan det visas.)
+eller
+Skapa Album
+Uppdatera Titlar & Beskrivningar
+Ladd upp
+Konfigurations handhavande
+sök efter uppdateringar
+Välj Album Miniatyrbild (Thumbnail)
+Diagnostik
+Din Version av album.pl är uppdaterad.
+Du har inte uppdaterat:
+Din Version Är
+modiferad på
+Den nyast tillgängliga versionen är
+Du kan ladda hem den senaste versionen från
+Album
+Foton
+Filmer
+Popular
+Helskärms Diabildsvisning
+Kunde inte ansluta till uppdatera servern.
+Skapade statiska HTML i
+sekunder.
+minuter och
+timmar
+Det finns ett genomsnitt av
+foton per album.
+Most Popular
+--
+>
+Popularity
+<b>Välj den miniatyrbild du önskar för att representera detta album:</b>
+»
+Stäng Detta Fönster
+är en
+och är därför ej tillåten att ladda upp.
+Sök
+Var vänlig och skriv i det uttryck du vill söka efter:<br>
+Sök i:
+Filnamn
+Titlar och Beskrivningar
+Betygssättning och Kommentarer
+<hr />
+visar Alternativ:
+träffar hittades.
+Ägare
+Du har inte definerat en miniatyrbilds filnamnsprefix. Detta betyder att allting kommer att övervägas bli miniatyrbilder (och ej ett foto) och då kommer inte ditt album att fungera.
+Visa Fler
+Två eller flera av dina funktionskoder är samma. Ditt album kommer att bete sig oförutsägbart tills du ändrar detta.
+Databas Fel
+<p>Objekt hittades inte.<br>Pröva bläddra fram manuellt från foto albumens rot-katalog: <a href="####ALBUMPROG####">####ALBUMPROG####</a>.<p>
+!
+You must be an administrator to perform this function.
+Your style sheet is not working!<br />Please see <a href="http://dev.bobbitt.ca/forums/index.php?topic=21.0" target="_blank">this page</a> for more information.
+Guests cannot upload.
+Owner
+Edit User List
+Update User List
+This section allows you to edit your userlist, for flatfile authentication. Users are one per line, in "username|password" format. See <a href="http://dev.bobbitt.ca/forums/index.php?topic=26.0">this link</a> for more information.
+All
+Configuration Section:
+Logout
+Configuration error: Incomplete configuration information was detected - album.cfg not updated.
+Error uploading movie:
+Link
+Confirm Link
+Where would you like to create the link to
+was not linked!
+could not be linked!
+Create link in:
+Home
+Random
+E-Mail This Page
+*** Select an album ***
+Please select an album to upload into.
+Configuration Upgrade
+<b>NOTE:</b>
+All files must be located in
+This process merges your existing settings (album.cfg) with the config file from a new version (album.cfg.clean). This is useful for upgrading from a previous release, where new config items have been added, changed, etc.
+Existing configuration filename:
+Updated configuration filename:
+The upgraded configuration file is now saved as
+album.pl Admin Code: *
+* Required to ensure you are the album admin.
+Not authorized - ensure you enter the correct admin code.
+Config Item
+Default Value
+Existing Value
+If you are happy with the changes, simply click the button below to start using the new configuration.
+A summary of updated configuration items is below. All your existing settings have been maintained. To start using these settings, simply click the "Apply" button at the bottom of the page.
+Your configuration has been successfully upgraded.
+Success!
+Click here to
+Object not found
+<p>Object not found.<br>Try again after login.<p></center>
+Auto Size
+Who can view this photo?
+Anyone
+Friend
+Family
+noaccess
+Member
+Junior Member
+Rename (filesystem) to:

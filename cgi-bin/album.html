@@ -1,0 +1,765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>album.pl - A dynamically generated web based photo album.</title>
+<link rev="made" href="mailto:" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#information">INFORMATION</a></li>
+	<li><a href="#support">SUPPORT</a></li>
+	<li><a href="#faq">FAQ</a></li>
+	<li><a href="#to_do">TO DO</a></li>
+	<li><a href="#license">LICENSE</a></li>
+	<li><a href="#apologies">APOLOGIES</a></li>
+	<li><a href="#subroutines">SUBROUTINES</a></li>
+	<ul>
+
+		<ul>
+
+			<li><a href="#photoalbum__"><code>photoAlbum()</code></a></li>
+			<li><a href="#error__"><code>error()</code></a></li>
+			<li><a href="#debug__"><code>debug()</code></a></li>
+			<li><a href="#setdate__"><code>setDate()</code></a></li>
+			<li><a href="#sanitytest__"><code>sanityTest()</code></a></li>
+			<li><a href="#readdirectory__"><code>readDirectory()</code></a></li>
+			<li><a href="#recursivescan__"><code>recursiveScan()</code></a></li>
+			<li><a href="#isaphoto__"><code>isAPhoto()</code></a></li>
+			<li><a href="#isathumb__"><code>isAThumb()</code></a></li>
+			<li><a href="#isamovie__"><code>isAMovie()</code></a></li>
+			<li><a href="#getlinkurl__"><code>getLinkURL()</code></a></li>
+			<li><a href="#authenticate__"><code>Authenticate()</code></a></li>
+			<li><a href="#checkpassword__"><code>checkPassword()</code></a></li>
+			<li><a href="#loginstatus__"><code>loginStatus()</code></a></li>
+			<li><a href="#cookielogin__"><code>cookieLogin()</code></a></li>
+			<li><a href="#opendescfile__"><code>openDescfile()</code></a></li>
+			<li><a href="#getdescription__"><code>getDescription()</code></a></li>
+			<li><a href="#builddescfooter__"><code>buildDescFooter()</code></a></li>
+			<li><a href="#getphotodimensions__"><code>getPhotoDimensions()</code></a></li>
+			<li><a href="#showfooter__"><code>showFooter()</code></a></li>
+			<li><a href="#buildtemplate__"><code>buildTemplate()</code></a></li>
+			<li><a href="#buildnavfooter__"><code>buildNavFooter()</code></a></li>
+			<li><a href="#passvars__"><code>passVars()</code></a></li>
+			<li><a href="#printheader__"><code>printHeader()</code></a></li>
+			<li><a href="#trackview__"><code>trackView()</code></a></li>
+			<li><a href="#findtemplate__"><code>findTemplate()</code></a></li>
+			<li><a href="#substitutedata__"><code>substituteData()</code></a></li>
+			<li><a href="#buildobject__"><code>buildObject()</code></a></li>
+			<li><a href="#sortobjects__"><code>sortObjects()</code></a></li>
+			<li><a href="#buildalbum__"><code>buildAlbum()</code></a></li>
+			<li><a href="#parselinks__"><code>parseLinks()</code></a></li>
+			<li><a href="#showthumb__"><code>showThumb()</code></a></li>
+			<li><a href="#readconfig__"><code>readConfig()</code></a></li>
+			<li><a href="#getratings__"><code>getRatings()</code></a></li>
+			<li><a href="#webifylinks__"><code>webifyLinks()</code></a></li>
+			<li><a href="#isadmin__"><code>isAdmin()</code></a></li>
+			<li><a href="#isguest__"><code>isGuest()</code></a></li>
+			<li><a href="#getcookie__"><code>getCookie()</code></a></li>
+			<li><a href="#splitcookie__"><code>splitCookie()</code></a></li>
+			<li><a href="#showcookie__"><code>showCookie()</code></a></li>
+			<li><a href="#genthumb__"><code>genThumb()</code></a></li>
+			<li><a href="#showbreadcrumbs__"><code>showBreadCrumbs()</code></a></li>
+			<li><a href="#shroudpic__"><code>shroudPic()</code></a></li>
+			<li><a href="#showobject__"><code>showObject()</code></a></li>
+			<li><a href="#updatecomment__"><code>updateComment()</code></a></li>
+			<li><a href="#detectbrowser__"><code>detectBrowser()</code></a></li>
+			<li><a href="#printhtmlheader__"><code>printHTMLHeader()</code></a></li>
+			<li><a href="#dbicheck__"><code>DBICheck()</code></a></li>
+			<li><a href="#upgradecfg__"><code>upgradeCfg()</code></a></li>
+			<li><a href="#checkfile__"><code>checkFile()</code></a></li>
+			<li><a href="#isviewable___isviewable__viewdir__viewfile__mode__"><code>isViewable()</code>   isViewable($viewdir,$viewfile,$mode);</a></li>
+			<li><a href="#getviewlevel__"><code>getViewlevel()</code></a></li>
+		</ul>
+
+	</ul>
+
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<br />Please visit the <a href="http://dev.bobbitt.ca/forums">Support Forums</a> for online support, installation instructions, file formats, tips and more.<p>
+</p>
+<hr />
+<h1><a name="name">NAME</a></h1>
+<p>album.pl - A dynamically generated web based photo album.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>There are many ways to invoke album.pl:</p>
+<p>Normal:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl">http://dev.bobbitt.ca/cgi-bin/album.pl</a></p>
+<p>Go to a specific album:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?album=albumname">http://dev.bobbitt.ca/cgi-bin/album.pl?album=albumname</a></p>
+<p>Go to a specific photo:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?photo=photoname">http://dev.bobbitt.ca/cgi-bin/album.pl?photo=photoname</a></p>
+<p>Go to the Configuration Management screen:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?function=config">http://dev.bobbitt.ca/cgi-bin/album.pl?function=config</a></p>
+<p>Update titles and descriptions:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?function=enter_desc">http://dev.bobbitt.ca/cgi-bin/album.pl?function=enter_desc</a></p>
+<p>Upload photos or movies:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?function=upload">http://dev.bobbitt.ca/cgi-bin/album.pl?function=upload</a></p>
+<p>Show the Administration Menu:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?function=admin">http://dev.bobbitt.ca/cgi-bin/album.pl?function=admin</a></p>
+<p>View photos as part of a slideshow (5 second delay):
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?slideshow=5">http://dev.bobbitt.ca/cgi-bin/album.pl?slideshow=5</a></p>
+<p>View photos as a full screen slideshow:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?slideshow=5;fullscreen=1">http://dev.bobbitt.ca/cgi-bin/album.pl?slideshow=5;fullscreen=1</a></p>
+<p>Turn on debugging (highest level):
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?debug=4">http://dev.bobbitt.ca/cgi-bin/album.pl?debug=4</a></p>
+<p>Generate static HTML files for each album and photo:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?static=1">http://dev.bobbitt.ca/cgi-bin/album.pl?static=1</a></p>
+<p>View recent uploads:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?album=:recent">http://dev.bobbitt.ca/cgi-bin/album.pl?album=:recent</a></p>
+<p>View 15 most recent uploads:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?album=:recent;showall=15">http://dev.bobbitt.ca/cgi-bin/album.pl?album=:recent;showall=15</a></p>
+<p>View the 10 most recent uploads, formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?album=:recent;ssi=10">http://dev.bobbitt.ca/cgi-bin/album.pl?album=:recent;ssi=10</a></p>
+<p>View a randomly selected photo from the album:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?random=1">http://dev.bobbitt.ca/cgi-bin/album.pl?random=1</a></p>
+<p>View a randomly selected photo, formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=2">http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=2</a></p>
+<p>View the thumbnail of a randomly selected photo, formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=1">http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=1</a></p>
+<p>View randomly selected photos in a slideshow (5 second delay), formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=2;slideshow=5">http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=2;slideshow=5</a></p>
+<p>View the thumbnails of randomly selected photos in a slideshow (5 second delay), formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=1;slideshow=5">http://dev.bobbitt.ca/cgi-bin/album.pl?random=1;ssi=1;slideshow=5</a></p>
+<p>View a specific photo, formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?photo=photoname;ssi=1">http://dev.bobbitt.ca/cgi-bin/album.pl?photo=photoname;ssi=1</a></p>
+<p>View photos in a slideshow (5 second delay), formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?photo=photoname;slideshow=5;ssi=1">http://dev.bobbitt.ca/cgi-bin/album.pl?photo=photoname;slideshow=5;ssi=1</a></p>
+<p>View randomly selected photo directly (no HTML, just the image itself):
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?image=random">http://dev.bobbitt.ca/cgi-bin/album.pl?image=random</a></p>
+<p>View randomly selected thumbnail directly (no HTML, just the thumbnail itself):
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?image=randthumb">http://dev.bobbitt.ca/cgi-bin/album.pl?image=randthumb</a></p>
+<p>View most popular photos:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?popular=1">http://dev.bobbitt.ca/cgi-bin/album.pl?popular=1</a></p>
+<p>View most popular albums:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?popular=2">http://dev.bobbitt.ca/cgi-bin/album.pl?popular=2</a></p>
+<p>View thumbnails of 10 most popular photos, formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?popular=1;ssi=10">http://dev.bobbitt.ca/cgi-bin/album.pl?popular=1;ssi=10</a></p>
+<p>View thumbnails of 10 most popular albums, formatted for inclusion in other pages:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?popular=2;ssi=10">http://dev.bobbitt.ca/cgi-bin/album.pl?popular=2;ssi=10</a></p>
+<p>Use an alternate configuration file:
+ <a href="http://dev.bobbitt.ca/cgi-bin/album.pl?configfile=/home/user/www/album.cfg">http://dev.bobbitt.ca/cgi-bin/album.pl?configfile=/home/user/www/album.cfg</a></p>
+<p>Give them a try, some are undocumented features! :)</p>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>album.pl is a simple web based program that allows you to simply drop new photo files into a directory, and they will automatically be accessible via the web. It does this by building the photo album on the fly. album.pl uses a simple administration menu to allow you to move or delete photos and albums, as well as adding titles and long descriptions.</p>
+<p>Users may upload photos directly into your album, if you permit it.</p>
+<p>It can also be used to create static HTML files for certain situations. (This mode is not updated automatically, but is useful for creating a photo CD or viewing pictures without a web server.</p>
+<p>To get a feel for all the features and functions, you should see CHANGES.txt.</p>
+<p>
+</p>
+<hr />
+<h1><a name="information">INFORMATION</a></h1>
+<p>Author: Mike Bobbitt (<a href="mailto:Mike@Bobbitt.ca">Mike@Bobbitt.ca</a>), Cipher Logic Canada Inc.</p>
+<p>For updates, instructions and examples see <a href="http://dev.bobbitt.ca/forums">http://dev.bobbitt.ca/forums</a> on the web.</p>
+<p>
+</p>
+<hr />
+<h1><a name="support">SUPPORT</a></h1>
+<p>There is a support forum set up for discussion of album.pl matters. I would recommend that anyone with a support question try searching the forums first. Your question may have already been answered! Otherwise, try posting your question to the forums, where you have the best chance of having it answered. That way, if I am unable to respond right away, it's entirely likely that a peer user will be able to help out. The forums are located at:</p>
+<p><a href="http://dev.bobbitt.ca/forums">http://dev.bobbitt.ca/forums</a></p>
+<p>Once registered with the forums, user are also invited to use the test album, located at <a href="http://dev.bobbitt.ca/cgi-bin/album.pl">http://dev.bobbitt.ca/cgi-bin/album.pl</a> to ``test drive'' the software. Support questions sent to me by e-mail tend to get a slower response.</p>
+<p>Please also note that this is a personal project. I work on it in my spare time, on weekends and evenings, so I'm not always able to respond questions or comments in a timely manner. Expect delays, try to be patient, and remember it's free. ;)</p>
+<p>
+</p>
+<hr />
+<h1><a name="faq">FAQ</a></h1>
+<p>For an up to date list of Frequently Asked Questions and common problems, please see the FAQ section of the support forums:</p>
+<p><a href="http://dev.bobbitt.ca/forums/index.php?board=3.0">http://dev.bobbitt.ca/forums/index.php?board=3.0</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="to_do">TO DO</a></h1>
+<p>There are still bugs in this code, so please bear with me, and report any that you find. The complete list of all the things I still want to do with album.pl is located here:</p>
+<p><a href="http://dev.bobbitt.ca/forums/index.php?topic=352.0">http://dev.bobbitt.ca/forums/index.php?topic=352.0</a></p>
+<p>Any place in the code that I've started (but not finished) a feature, I tried to mark it with a ***.</p>
+<p>
+</p>
+<hr />
+<h1><a name="license">LICENSE</a></h1>
+<p>This program is © 1999-2004 Cipher Logic Canada Inc. All Rights Reserved.</p>
+<p>As long as you leave this POD section and my contact info above in tact, feel free to use this as you see fit. You can pretty much do anything with this script except resell it. :)</p>
+<p>If you come up with any good modifications to it, please let me know. I'd love to fold your mod into the public version (with credit, of course).</p>
+<p>Good luck!</p>
+<p>
+</p>
+<hr />
+<h1><a name="apologies">APOLOGIES</a></h1>
+<p>Here goes:</p>
+<ul>
+<li><strong><a name="item_sorry_for_the_bugs_2e_hope_they_don_27t_ruin_your_">Sorry for the bugs. Hope they don't ruin your day.</a></strong><br />
+</li>
+<li><strong><a name="item_sorry_that_it_27s_so_hard_to_install_2e_it_was_har">Sorry that it's so hard to install. It was hard to write, if that helps. :)</a></strong><br />
+</li>
+<li><strong><a name="item_sorry_for_the_state_of_the_code_2e_hope_you_don_27">Sorry for the state of the code. Hope you don't learn any of my bad habits!</a></strong><br />
+</li>
+<li><strong><a name="item_sorry_you_felt_the_need_to_read_all_of_this_2e">Sorry you felt the need to read all of this.</a></strong><br />
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="subroutines">SUBROUTINES</a></h1>
+<p>
+</p>
+<h3><a name="photoalbum__"><code>photoAlbum()</code></a></h3>
+<pre>
+ photoAlbum($manual_override);</pre>
+<pre>
+ $manual_override - Start in this album or with this photo (optional)</pre>
+<p>Does the majority of the processing for the photo album</p>
+<p>
+</p>
+<h3><a name="error__"><code>error()</code></a></h3>
+<pre>
+ error($line,$error,$extra_info,$module);</pre>
+<pre>
+ $line - Line number, where error occurred.
+ $error - Pre-defined error code that prints a canned message.
+ $extra_info - Additional information that can be passed in
+ $module - Module that threw the error</pre>
+<p>Displayes the error message associated with $error along with the $extra_info. Then halts execution.</p>
+<p>
+</p>
+<h3><a name="debug__"><code>debug()</code></a></h3>
+<pre>
+ debug($debug_message,$debug_level,$line);</pre>
+<pre>
+ $debug_message - String to print if debugging is on
+ $debug_level - Only pring string if current debug level is $debug_level or higher (current debug level is set by $debug)
+ $line - The line number of the debug statement.
+ $module - Module name (optional).</pre>
+<p>Prints a message, if $::debug has a value.</p>
+<p>
+</p>
+<h3><a name="setdate__"><code>setDate()</code></a></h3>
+<pre>
+ $datestr=setDate($convtime,$return_seconds);</pre>
+<pre>
+ $datestr        - date and time
+ $convtime       - unixtime value which is used to set $datestr (optional)
+ $return_seconds - 1=YYYY/MM/DD HH:MM:SS, 0=YYYY/MM/DD HH:MM</pre>
+<p>Converts $convtime into a human readable format and returns it as $datestring.
+If $convtime is not provided, the current time is returned. If $return_seconds
+has a value, then the time includes seconds.</p>
+<p>
+</p>
+<h3><a name="sanitytest__"><code>sanityTest()</code></a></h3>
+<pre>
+ sanityTest();</pre>
+<p>Runs some basic tests to make sure the environment is clean and secure before the script starts.</p>
+<p>
+</p>
+<h3><a name="readdirectory__"><code>readDirectory()</code></a></h3>
+<pre>
+ @myfile_list=readDirectory($scan_directory);</pre>
+<pre>
+ @myfile_list - Returned list of files in this directory
+ $scan_directory - Directory to read all values from</pre>
+<p>Reads all entries in specified directory, returns as list</p>
+<p>
+</p>
+<h3><a name="recursivescan__"><code>recursiveScan()</code></a></h3>
+<pre>
+ recursiveScan($scan_directory,$already_scanned);</pre>
+<pre>
+ $scan_directory - Directory to search recursively
+ $already_scanned - Path of directories above this one (optional)</pre>
+<p>Walks the directory tree recursively</p>
+<p>
+</p>
+<h3><a name="isaphoto__"><code>isAPhoto()</code></a></h3>
+<pre>
+ isAPhoto($photo_name);</pre>
+<pre>
+ $photo_name - name of picture file</pre>
+<p>Returns 1 if the filename passed in is that of a valid ``photo'', 2 if it is a link to a photo, or 0 otherwise.</p>
+<p>
+</p>
+<h3><a name="isathumb__"><code>isAThumb()</code></a></h3>
+<pre>
+ isAThumb($photo_name);</pre>
+<pre>
+ $photo_name - name of picture file</pre>
+<p>Returns 1 if the filename passed in is a thumbnail, or 0 otherwise.</p>
+<p>
+</p>
+<h3><a name="isamovie__"><code>isAMovie()</code></a></h3>
+<pre>
+ isAMovie($movie_name);</pre>
+<pre>
+ $movie_name - name of movie file</pre>
+<p>Returns 1 if the filename passed in is that of a valid ``movie'', 0 otherwise.</p>
+<p>
+</p>
+<h3><a name="getlinkurl__"><code>getLinkURL()</code></a></h3>
+<pre>
+ $linkurl=getLinkURL($linkfile);</pre>
+<pre>
+ $linkurl - Returns the actual location of the photo (relative to $::album_dir) given it's link file location.
+ $linkfile - Location of the link file, either absolite file path or relative to $::album_dir.</pre>
+<p>Opens the specified link file and extracts the actual location of the image, which is returned.</p>
+<p>
+</p>
+<h3><a name="authenticate__"><code>Authenticate()</code></a></h3>
+<pre>
+ $authenticated=Authenticate($mode);</pre>
+<pre>
+ $authenticated - Returns 1 if the user was successfully authenticated, otherwise zero.
+ $mode - Alternate authentication mode. For UBB, this means Junior Members are not permitted, and will always return zero. (Used to prohibit junior members from uploading).</pre>
+<p>Authenticates the global variables $::username and $::password, using the specified method. Returns 1 for a successful authentication, otherwise 0. Populates $::mem_level, the membership level assigned when authentication type is 5</p>
+<p>
+</p>
+<h3><a name="checkpassword__"><code>checkPassword()</code></a></h3>
+<pre>
+ $goodpass=checkPassword($mypassword,$storedpass);</pre>
+<pre>
+ $goodpass - The password that matched, if found. (Otherwise, the stored password ($storedpass) is returned).
+ $mypassword - The password that the user has entered.
+ $storedpass - The password on file for that user.</pre>
+<p>Checks $mypassword against $storedpass using all known encryption methods, and returns a copy of the ``good'' (clear) password, if found</p>
+<p>
+</p>
+<h3><a name="loginstatus__"><code>loginStatus()</code></a></h3>
+<pre>
+ $login_html=loginStatus();</pre>
+<pre>
+ $login_html = The user's login status, as HTML.</pre>
+<p>Returns the user's login status as either a URL to the login page (if the user is not logged in) or as as ``Welcome [username]'' message (if the user is logged in).</p>
+<p>
+</p>
+<h3><a name="cookielogin__"><code>cookieLogin()</code></a></h3>
+<pre>
+ $status=cookieLogin();</pre>
+<pre>
+ $status - 1 if login info was found, otherwise 0</pre>
+<p>Retrieves login information from the cookie (if found) and passes it back as $::username, $::password, $::usernumber (UBB) and $::displayname.</p>
+<p>
+</p>
+<h3><a name="opendescfile__"><code>openDescfile()</code></a></h3>
+<pre>
+ openDescfile($descfilename);</pre>
+<pre>
+ $descfilename - The full, filesystem path to the album you want to read descriptions from.</pre>
+<p>Opens up $descfilename so that photo/album titles/descriptions can be loaded.</p>
+<p>
+</p>
+<h3><a name="getdescription__"><code>getDescription()</code></a></h3>
+<pre>
+ getDescription($desctoget,$mode);</pre>
+<pre>
+ $desctoget - Photo or album to get description of
+ $mode - 0 = Normal; 1 = Searching</pre>
+<p>Retrieves the title, description and owner of the provided object. Puts the title in $::shortdesc, the description in $::longdesc (if present) and the owner in $::owner (if present) and the view permission level in $::this_level (if present).</p>
+<p>
+</p>
+<h3><a name="builddescfooter__"><code>buildDescFooter()</code></a></h3>
+<pre>
+ $add_desc_footer=buildDescFooter($status);</pre>
+<pre>
+ $add_desc_footer - The HTML code for adding a description, which is returned.
+ $status - 0 if building the whole form, 1 if building it as part of another form (like the create album form, for example).</pre>
+<p>Creates $directory in $basedir, and updates the description with $::shortdesc and $::longdesc.</p>
+<p>
+</p>
+<h3><a name="getphotodimensions__"><code>getPhotoDimensions()</code></a></h3>
+<pre>
+ ($height,$width)=getPhotoDimensions($filepath);</pre>
+<pre>
+ $height - Height of photo.
+ $width - Width of photo.
+ $filepath - Full filesystem path to the photo to check.</pre>
+<p>Uses Imagemagick to determine the size of a photo.</p>
+<p>
+</p>
+<h3><a name="showfooter__"><code>showFooter()</code></a></h3>
+<pre>
+ $footer=showFooter($show);</pre>
+<pre>
+ $footer - HTML footer, if returned.
+ $show - If set to 0, the footer simply returned, if set to 1, it is displayed and returned.</pre>
+<p>Rerturns or displays the HTML footer for all pages.</p>
+<p>
+</p>
+<h3><a name="buildtemplate__"><code>buildTemplate()</code></a></h3>
+<pre>
+ $template=buildTemplate();</pre>
+<pre>
+ $template = variable to pass the template back into</pre>
+<p>Builds the object template, and returns it.</p>
+<p>
+</p>
+<h3><a name="buildnavfooter__"><code>buildNavFooter()</code></a></h3>
+<pre>
+ $nav_footer=buildNavFooter($mode);</pre>
+<pre>
+ $mode - 0 = Build entire Nav footer; 1 = Build &quot;Previous&quot; section only; 2 = Build &quot;Up&quot; section only; 3 = Build &quot;Next&quot; section only; 4 = Jump station only</pre>
+<p>Builds the navigaction footer, and returns it. (The navigation footer is the buttons/links that allow you to visit the next/previous photo or album.)</p>
+<p>
+</p>
+<h3><a name="passvars__"><code>passVars()</code></a></h3>
+<pre>
+ $vars=passVars($format);</pre>
+<pre>
+ $vars = variable to pass the formed variables back into
+ $format = 0: pass in web URL format (&amp;debug=1&amp;configfile=file, etc); 1: pass in button format (&lt;input type=&quot;hidden&quot;...); 2: same as zero, but no function code</pre>
+<p>Sees which variables must be passed (configfile, debug, static, etc), builds the string containing the data, and passes the value back.</p>
+<p>
+</p>
+<h3><a name="printheader__"><code>printHeader()</code></a></h3>
+<pre>
+ $header=printHeader($mode);</pre>
+<pre>
+ $header - The formed header, with style sheet or body colour tags, is returned.
+ $mode - 0 = Return all header HTML; 1 = Return just style sheet tag</pre>
+<p>Prints out either the style sheet or a generic body tag.</p>
+<p>
+</p>
+<h3><a name="trackview__"><code>trackView()</code></a></h3>
+<pre>
+ $current_views=trackView($currentphoto,$mode;$newcount);</pre>
+<pre>
+ $current_views - Returns a string containing the number of views and the last viewed date.
+ $currentphoto - Photo to update views for.
+ $mode - 0 = Update views; 1 = Don't update views; 2 = Reset count to zero; 3 = set count to passed number
+ $newcount - Set counter to this number if passed and mode 3.</pre>
+<p>Updates the number of views and the last viewed date for the current photo in $::viewfile.</p>
+<p>
+</p>
+<h3><a name="findtemplate__"><code>findTemplate()</code></a></h3>
+<pre>
+ $template_path=findTemplate($template_name);</pre>
+<pre>
+ $template_path - The full path to the appropriate template (local or global).
+ $template_path - The filename of the template.</pre>
+<p>Replaces all the tags in the data passed in, and returns the updated string.</p>
+<p>
+</p>
+<h3><a name="substitutedata__"><code>substituteData()</code></a></h3>
+<pre>
+ $output_data=substituteData($input_data);</pre>
+<pre>
+ $input_data - Data that is passed in. Each of the &quot;####TAGS####&quot; tags are replaced with actual data. See the file format section of this document for details on the tags.
+ $output_data - After substitutions, the data that is returned.</pre>
+<p>Replaces all the tags in the data passed in, and returns the updated string.</p>
+<p>
+</p>
+<h3><a name="buildobject__"><code>buildObject()</code></a></h3>
+<pre>
+ $output_data=buildObject();</pre>
+<pre>
+ $output_data - The HTML for displaying the object is build and returned.</pre>
+<p>Builds the ``object'' to be displayed. For a photo, it builds the HTML to display the photo, and for an album, it builts the list of objects in that album (photos and sub-albums).</p>
+<p>
+</p>
+<h3><a name="sortobjects__"><code>sortObjects()</code></a></h3>
+<pre>
+ @sorted=sortObjects($mode);</pre>
+<pre>
+ @sorted - The @::file_list, sorted according to the configuration
+ $mode - 0 = Sorting for album view; 1 = Sorting for navigation bar (cuts off photo filename)</pre>
+<p>Sorts @::file_list, according to configuration settings, and returns the sorted array.</p>
+<p>
+</p>
+<h3><a name="buildalbum__"><code>buildAlbum()</code></a></h3>
+<pre>
+ $return_html=buildAlbum($mode);</pre>
+<pre>
+ $return_html - The built HTML for the current object
+ $mode - 1 = Display this group on every page (albums); 0 = Display as per usual (photos and movies)</pre>
+<p>Builds the HTML for a photo, album or movie, as it appears in it's album (called when building an album page, for each ``thimbnail'' object on that page).</p>
+<p>
+</p>
+<h3><a name="parselinks__"><code>parseLinks()</code></a></h3>
+<pre>
+ $template=parseLinks($template);</pre>
+<pre>
+ $template - Data is passed in, made web safe, and passed out.</pre>
+<p>Checks the data passed and converts special characters within any links into web safe characters.</p>
+<p>
+</p>
+<h3><a name="showthumb__"><code>showThumb()</code></a></h3>
+<pre>
+ $thumbnail_html=showThumb($myobject,$mode);</pre>
+<pre>
+ $myobject - Path/filename to object to search for thumbnail of, relative to album_dir.
+ $thumbnail_html - HTML for the thumbnail.
+ $mode - 1 = return just the URL to the thumb, not the HTML for the thumb</pre>
+<p>Returns the proper HTML for the thumbnail of the passed object, honouring all configfile settings. If configured to do so, will also call genThumb for photos that do not already have a thumbnail.</p>
+<p>
+</p>
+<h3><a name="readconfig__"><code>readConfig()</code></a></h3>
+<pre>
+ readConfig($confile,$mode);</pre>
+<pre>
+ $confile - path and filename of the config file
+ $mode - 0 = Reading primary config; 1 = Reading local config (per album config)</pre>
+<p>Reads configuration information from the specified config file.</p>
+<p>
+</p>
+<h3><a name="getratings__"><code>getRatings()</code></a></h3>
+<pre>
+ $ratings=getRatings($mode,$rating_file_loc);</pre>
+<pre>
+ $ratings - The string of rating information to insert into the template.
+ $mode - 0 = Add a link to submit a rating to the returned data; 1 = Do not return the link to add a rating; 2 = Perform search; 3 = Show rating only, not comments; 4 = It's a popularity contest! Populate @poplist with info on photo ratings.
+ $rating_file_loc - Location of ratings file (optional, only used if mode=1).</pre>
+<p>Returns the ratings information for the current photo/movie.</p>
+<p>
+</p>
+<h3><a name="webifylinks__"><code>webifyLinks()</code></a></h3>
+<pre>
+ $output=webifyLinks($input);</pre>
+<pre>
+ $input - The string to webify (make web safe).
+ $output - Web safe version returned.</pre>
+<p>Returns the ``websafe'' version of the passed filename/path.</p>
+<p>
+</p>
+<h3><a name="isadmin__"><code>isAdmin()</code></a></h3>
+<pre>
+ $status=isAdmin();</pre>
+<pre>
+ $status - 0 = Not an admin; 1 = Yep, they're an admin!; 2 = They're a user, but they own this album.</pre>
+<p>Checks to see if the current user is an authenticated admin.</p>
+<p>
+</p>
+<h3><a name="isguest__"><code>isGuest()</code></a></h3>
+<pre>
+ $status=isGuest();</pre>
+<pre>
+ $status - 0 = Not a guest, 1 = Yep, they're a guest!</pre>
+<p>Checks to see if the current user is an authenticated guest.</p>
+<p>
+</p>
+<h3><a name="getcookie__"><code>getCookie()</code></a></h3>
+<pre>
+ getCookie();</pre>
+<p>Gets cookie from browser, and puts it into %cookie hash.</p>
+<p>
+</p>
+<h3><a name="splitcookie__"><code>splitCookie()</code></a></h3>
+<pre>
+ splitCookie($param);</pre>
+<pre>
+ $param = parameter to split</pre>
+<p>Splits a multi-valued chip into a list of parameters.</p>
+<p>
+</p>
+<h3><a name="showcookie__"><code>showCookie()</code></a></h3>
+<pre>
+ showCookie();</pre>
+<p>Displays the contents of a cookie in debug level 2.</p>
+<p>
+</p>
+<h3><a name="genthumb__"><code>genThumb()</code></a></h3>
+<pre>
+ $status=genThumb($myobject,$image_thumb,$mode);</pre>
+<pre>
+ $status - 0 = Success, 1 = Failure
+ $myobject - The full file system path to the object to generate a thumbnail for
+ $image_thumb - The full file system path to the thumbnail to create for this image
+ $mode - 0 = Generate thumbnails for pictures; 1 = Resize pictures on upload; 2 = Resize pictures on upload by file size (not dimensions)</pre>
+<p>Generates a thumbnail for $object, according to the current rules for thumbnails. This subroutine requires ImageMagick to be installed in order to work.</p>
+<p>
+</p>
+<h3><a name="showbreadcrumbs__"><code>showBreadCrumbs()</code></a></h3>
+<pre>
+ $breadcrumbs=showBreadCrumbs();</pre>
+<pre>
+ $breadcrumbs - The HTML for the breadcrumb trail.</pre>
+<p>Builds an HTML ``breadcrumb'' trail so the user can navigate upwards in their album.
+$::bread_style defines the format to be used:</p>
+<pre>
+ 0 = Use folder heirarchy
+ 1 = use » single » line » breadcrumbs</pre>
+<p>
+</p>
+<h3><a name="shroudpic__"><code>shroudPic()</code></a></h3>
+<pre>
+ $imgcode=shroudPic($image);</pre>
+<pre>
+ $imgcode - The actual content of the image, to display
+ $image - The full file path to the image to display back</pre>
+<p>Displays the image pointed to by $image, even if it is not under the web root.</p>
+<p>
+</p>
+<h3><a name="showobject__"><code>showObject()</code></a></h3>
+<pre>
+ $html=showObject($myobject,$mode,$uploaduser,$uploadtime);</pre>
+<pre>
+ $html - The object, as seen in &quot;album view,&quot; including thumbnail, ratings, etc. Formatted in HTML.
+ $myobject - The path to the object (relative to $::album_dir) to display.
+ $mode - 0 = Display object normally; 1 = Display object for Recent Uploads; 2 = Display for Popular List
+ $uploaduser - Username that uploaded this file (recent uploads only)
+ $uploadtime - Time/date that the file was uploaded (recent uploads only)</pre>
+<p>Displays $object using the current settings of the album.</p>
+<p>
+</p>
+<h3><a name="updatecomment__"><code>updateComment()</code></a></h3>
+<pre>
+ $retcode=updateComment($myobject,$comment);</pre>
+<pre>
+ $retcode - Return value: 0 = Success; 1 = Failure.
+ $myobject - The path to the photo, relative to album_dir.
+ $comment - The comment to add to the photo.</pre>
+<p>Adds/Updates the comment in $myobject to be $comment. Uses jhead to actually insert the comments into the photo.</p>
+<p>
+</p>
+<h3><a name="detectbrowser__"><code>detectBrowser()</code></a></h3>
+<pre>
+ $type=detectBrowser();</pre>
+<pre>
+ $type - The browser type: 0 = IE variant; 1 = Mozilla (Opera, Netscape, Phoenix, etc) variant</pre>
+<p>Detects the browser type, and returns the appropriate value</p>
+<p>
+</p>
+<h3><a name="printhtmlheader__"><code>printHTMLHeader()</code></a></h3>
+<pre>
+ printHTMLHeader();</pre>
+<p>Prints the HTML header if it hasn't already been printed.</p>
+<p>
+</p>
+<h3><a name="dbicheck__"><code>DBICheck()</code></a></h3>
+<pre>
+ $dbi_fail=DBICheck();</pre>
+<pre>
+ $dbi_fail - 0 = DBI package was found, 1 = DBI package not found</pre>
+<p>Checks to see if the DBI Perl package was installed and returns a status accordingly.</p>
+<p>
+</p>
+<h3><a name="upgradecfg__"><code>upgradeCfg()</code></a></h3>
+<pre>
+ upgradeCfg();</pre>
+<p>Upgrade the album.pl configuration, if possible.</p>
+<p>
+</p>
+<h3><a name="checkfile__"><code>checkFile()</code></a></h3>
+<pre>
+ checkFile($filename);</pre>
+<pre>
+ $filename - File name to check.</pre>
+<p>Confirms that the file name does not contain spaces or slashes. Used to keep upgradeCfg filenames clean.</p>
+<p>
+</p>
+<h3><a name="isviewable___isviewable__viewdir__viewfile__mode__"><code>isViewable()</code>   isViewable($viewdir,$viewfile,$mode);</a></h3>
+<pre>
+  $viewdir - directory where we are checking permissions
+  $viewfile - file on which to ckeck permissions</pre>
+<p>Checks the user level needed to view this an album/photo/movie against permissions of user who is logged in.
+If building static pages, all objects are viewable.
+=cut</p>
+<p>sub isViewable
+{
+my $flag=0;
+my $viewdir=shift;
+my $viewfile=shift;
+my $mode=shift;
+my $pic_lev;
+my $user_lev;</p>
+<pre>
+        debug(&quot;Entering subroutine isViewable for $viewdir/$viewfile...\$mode=$mode&quot;,4,__LINE__);
+        if ($create_html_flag ge 1 || $authentication_type lt 1 || isAdmin() eq 1)
+        {
+                $flag=1;
+                return $flag;
+        }
+        else
+        {
+                close(INFO);
+                if($mode eq &quot;1&quot;)
+                {
+                        $infofilename=$viewdir.&quot;/&quot;.$::descname;
+                }
+                elsif ($mode eq &quot;2&quot;)
+                {
+                        $infofilename=$::album_dir.&quot;/&quot;.$viewdir.$::descname;
+                }
+                else
+                {
+                        $infofilename=$::album_dir.&quot;/&quot;.$viewdir.&quot;/&quot;.$::descname;
+                }
+                debug(&quot;Looking for InfoFile: [$infofilename]&lt;p&gt;&quot;,3,__LINE__);
+                if (-r $infofilename)
+                {
+                        $::useinfo=1;
+                        open(INFO,&quot;$infofilename&quot;);
+                        debug(&quot;Using InfoFile: [$infofilename]&lt;p&gt;&quot;,3,__LINE__);
+                }
+                # Get Viewlevel
+                getViewlevel($viewfile);
+                close(INFO);</pre>
+<pre>
+                if (!$::info_level || $::info_level eq &quot;anyone&quot; || $::info_level eq 0)
+                {
+                        $flag=1;
+                        debug(&quot;Anyone has permission $flag.&quot;,4,__LINE__);
+                }
+                else
+                {
+                        if (!$::authenticated)
+                        {
+                                $flag=&quot;&quot;;
+                                debug(&quot;No one has permission, not logged in. flag is \&quot;$flag\&quot; &quot;,4,__LINE__);
+                        }
+                        else
+                        {
+                                if ($::mem_level eq 0 || $::mem_level eq 1)
+                                {
+                                        $user_lev=1;
+                                }
+                                else
+                                {
+                                        $user_lev=2;
+                                }
+                                if ($::info_level eq &quot;Family&quot; || $::info_level eq 1)
+                                {
+                                        $pic_lev=1;
+                                }
+                                elsif ($::info_level eq &quot;Friend&quot; || $::info_level eq 2)
+                                {
+                                        $pic_lev=2;
+                                }
+                                elsif ($::info_level eq &quot;owner&quot; || $::info_level eq 3)
+                                {
+                                        $pic_lev=3;
+                                }
+                                if (($user_lev ge $pic_lev) || ($pic_lev eq 3 &amp;&amp; $::owner eq $::loggedin))
+                                {
+                                        $flag=1;
+                                        debug(&quot;Permission granted on pic_lev $pic_lev with user_lev $user_lev flag $flag.&quot;,4,__LINE__);
+                                }
+                        }
+                }
+                return($flag);
+        }
+        debug(&quot;Leaving subroutine isViewable for $viewdir/$viewfile...\$mode=$mode...\$flag=$flag&quot;,4,__LINE__);
+ }</pre>
+<p>##########################################################################</p>
+<p>
+</p>
+<h3><a name="getviewlevel__"><code>getViewlevel()</code></a></h3>
+<pre>
+ getViewlevel($leveltoget);</pre>
+<pre>
+ $leveltoget - Photo or album to get view level for</pre>
+<p>Retrieves the view permission level in $::info_level (if present).</p>
+
+</body>
+
+</html>
